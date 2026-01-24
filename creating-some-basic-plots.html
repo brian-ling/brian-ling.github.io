@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,13 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#line-graph"><i class="fa fa-check"></i><b>5.2</b> Line Graph</a></li>
 <li class="chapter" data-level="5.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#bar-chart"><i class="fa fa-check"></i><b>5.3</b> Bar Chart</a></li>
 <li class="chapter" data-level="5.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#histogram"><i class="fa fa-check"></i><b>5.4</b> Histogram</a></li>
-<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#transformation-of-data"><i class="fa fa-check"></i><b>5.5.1</b> Transformation of data</a></li>
+<li class="chapter" data-level="5.5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#when-to-use-boxplots"><i class="fa fa-check"></i><b>5.5.2</b> When to use boxplots</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#plotting-a-function-curve"><i class="fa fa-check"></i><b>5.6</b> Plotting a function curve</a></li>
 <li class="chapter" data-level="5.7" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#more-on-plots-with-base-r"><i class="fa fa-check"></i><b>5.7</b> More on plots with base R</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#multi-frame-plot"><i class="fa fa-check"></i><b>5.7.1</b> Multi-frame plot</a></li>
 <li class="chapter" data-level="5.7.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#subsubsec:type_of_plot"><i class="fa fa-check"></i><b>5.7.2</b> Type of Plot</a></li>
-<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#parameters-of-a-plot"><i class="fa fa-check"></i><b>5.7.3</b> Parameters of a plot</a></li>
+<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#common-plot-parameters"><i class="fa fa-check"></i><b>5.7.3</b> Common plot parameters</a></li>
 <li class="chapter" data-level="5.7.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#elements-on-plot"><i class="fa fa-check"></i><b>5.7.4</b> Elements on plot</a></li>
 </ul></li>
 </ul></li>
@@ -521,176 +525,609 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li><p>The base R contains many basic methods for producing graphics. We will learn some of them in this chapter. These plotting functions are good for very quick exploration of data.</p></li>
 <li><p>For more elegant plots, we will use the package <code>ggplot2</code> (next chapter).</p></li>
-<li><p>We will use some simple datasets in base R to illustrate how to create some basic plots in this chapter.</p></li>
+<li><p>We will use some simple datasets in base R and <code>flights</code> from <code>nycflights13</code> to illustrate how to create some basic plots in this chapter.</p></li>
 </ul>
+<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="creating-some-basic-plots.html#cb219-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb219-2"><a href="creating-some-basic-plots.html#cb219-2" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span></code></pre></div>
 <div id="scatter-plot" class="section level2 hasAnchor" number="5.1">
 <h2><span class="header-section-number">5.1</span> Scatter Plot<a href="creating-some-basic-plots.html#scatter-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Let’s take a look at the <code>mtcars</code> dataset. This dataset comes with base R.</p>
-<div class="sourceCode" id="cb219"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb219-1"><a href="creating-some-basic-plots.html#cb219-1" tabindex="-1"></a><span class="fu">head</span>(mtcars) <span class="co"># this is a data frame</span></span>
-<span id="cb219-2"><a href="creating-some-basic-plots.html#cb219-2" tabindex="-1"></a><span class="do">##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
-<span id="cb219-3"><a href="creating-some-basic-plots.html#cb219-3" tabindex="-1"></a><span class="do">## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span></span>
-<span id="cb219-4"><a href="creating-some-basic-plots.html#cb219-4" tabindex="-1"></a><span class="do">## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span></span>
-<span id="cb219-5"><a href="creating-some-basic-plots.html#cb219-5" tabindex="-1"></a><span class="do">## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span></span>
-<span id="cb219-6"><a href="creating-some-basic-plots.html#cb219-6" tabindex="-1"></a><span class="do">## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span></span>
-<span id="cb219-7"><a href="creating-some-basic-plots.html#cb219-7" tabindex="-1"></a><span class="do">## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
-<span id="cb219-8"><a href="creating-some-basic-plots.html#cb219-8" tabindex="-1"></a><span class="do">## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span></code></pre></div>
-<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="creating-some-basic-plots.html#cb220-1" tabindex="-1"></a><span class="fu">str</span>(mtcars) <span class="co"># display the structure of the data frame</span></span>
-<span id="cb220-2"><a href="creating-some-basic-plots.html#cb220-2" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    32 obs. of  11 variables:</span></span>
-<span id="cb220-3"><a href="creating-some-basic-plots.html#cb220-3" tabindex="-1"></a><span class="do">##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...</span></span>
-<span id="cb220-4"><a href="creating-some-basic-plots.html#cb220-4" tabindex="-1"></a><span class="do">##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...</span></span>
-<span id="cb220-5"><a href="creating-some-basic-plots.html#cb220-5" tabindex="-1"></a><span class="do">##  $ disp: num  160 160 108 258 360 ...</span></span>
-<span id="cb220-6"><a href="creating-some-basic-plots.html#cb220-6" tabindex="-1"></a><span class="do">##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...</span></span>
-<span id="cb220-7"><a href="creating-some-basic-plots.html#cb220-7" tabindex="-1"></a><span class="do">##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...</span></span>
-<span id="cb220-8"><a href="creating-some-basic-plots.html#cb220-8" tabindex="-1"></a><span class="do">##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...</span></span>
-<span id="cb220-9"><a href="creating-some-basic-plots.html#cb220-9" tabindex="-1"></a><span class="do">##  $ qsec: num  16.5 17 18.6 19.4 17 ...</span></span>
-<span id="cb220-10"><a href="creating-some-basic-plots.html#cb220-10" tabindex="-1"></a><span class="do">##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...</span></span>
-<span id="cb220-11"><a href="creating-some-basic-plots.html#cb220-11" tabindex="-1"></a><span class="do">##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...</span></span>
-<span id="cb220-12"><a href="creating-some-basic-plots.html#cb220-12" tabindex="-1"></a><span class="do">##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...</span></span>
-<span id="cb220-13"><a href="creating-some-basic-plots.html#cb220-13" tabindex="-1"></a><span class="do">##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</span></span></code></pre></div>
-<p><code>mpg</code>: miles/gallon
+<p>A scatter plot is used to visualize the relationship between two <strong>numerical</strong> variables. Each point represents one observation, with its horizontal position determined by the <span class="math inline">\(x\)</span>-variable and its vertical position determined by the <span class="math inline">\(y\)</span>-variable.</p>
+<p>Scatter plots are especially useful for:</p>
+<ul>
+<li><p>Detecting associations (positive, negative, or none)</p></li>
+<li><p>Identifying nonlinear patterns</p></li>
+<li><p>Spotting outliers</p></li>
+<li><p>Checking whether a linear model might be reasonable</p></li>
+</ul>
+<p>The <code>mtcars</code> dataset comes with base R and contains information on fuel consumption and car characteristics.</p>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="creating-some-basic-plots.html#cb220-1" tabindex="-1"></a><span class="fu">head</span>(mtcars) <span class="co"># this is a data frame</span></span>
+<span id="cb220-2"><a href="creating-some-basic-plots.html#cb220-2" tabindex="-1"></a><span class="do">##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb</span></span>
+<span id="cb220-3"><a href="creating-some-basic-plots.html#cb220-3" tabindex="-1"></a><span class="do">## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4</span></span>
+<span id="cb220-4"><a href="creating-some-basic-plots.html#cb220-4" tabindex="-1"></a><span class="do">## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4</span></span>
+<span id="cb220-5"><a href="creating-some-basic-plots.html#cb220-5" tabindex="-1"></a><span class="do">## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1</span></span>
+<span id="cb220-6"><a href="creating-some-basic-plots.html#cb220-6" tabindex="-1"></a><span class="do">## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1</span></span>
+<span id="cb220-7"><a href="creating-some-basic-plots.html#cb220-7" tabindex="-1"></a><span class="do">## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2</span></span>
+<span id="cb220-8"><a href="creating-some-basic-plots.html#cb220-8" tabindex="-1"></a><span class="do">## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</span></span></code></pre></div>
+<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="creating-some-basic-plots.html#cb221-1" tabindex="-1"></a><span class="fu">str</span>(mtcars) <span class="co"># display the structure of the data frame</span></span>
+<span id="cb221-2"><a href="creating-some-basic-plots.html#cb221-2" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    32 obs. of  11 variables:</span></span>
+<span id="cb221-3"><a href="creating-some-basic-plots.html#cb221-3" tabindex="-1"></a><span class="do">##  $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...</span></span>
+<span id="cb221-4"><a href="creating-some-basic-plots.html#cb221-4" tabindex="-1"></a><span class="do">##  $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...</span></span>
+<span id="cb221-5"><a href="creating-some-basic-plots.html#cb221-5" tabindex="-1"></a><span class="do">##  $ disp: num  160 160 108 258 360 ...</span></span>
+<span id="cb221-6"><a href="creating-some-basic-plots.html#cb221-6" tabindex="-1"></a><span class="do">##  $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...</span></span>
+<span id="cb221-7"><a href="creating-some-basic-plots.html#cb221-7" tabindex="-1"></a><span class="do">##  $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...</span></span>
+<span id="cb221-8"><a href="creating-some-basic-plots.html#cb221-8" tabindex="-1"></a><span class="do">##  $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...</span></span>
+<span id="cb221-9"><a href="creating-some-basic-plots.html#cb221-9" tabindex="-1"></a><span class="do">##  $ qsec: num  16.5 17 18.6 19.4 17 ...</span></span>
+<span id="cb221-10"><a href="creating-some-basic-plots.html#cb221-10" tabindex="-1"></a><span class="do">##  $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...</span></span>
+<span id="cb221-11"><a href="creating-some-basic-plots.html#cb221-11" tabindex="-1"></a><span class="do">##  $ am  : num  1 1 1 0 0 0 0 0 0 0 ...</span></span>
+<span id="cb221-12"><a href="creating-some-basic-plots.html#cb221-12" tabindex="-1"></a><span class="do">##  $ gear: num  4 4 4 3 3 3 3 4 4 4 ...</span></span>
+<span id="cb221-13"><a href="creating-some-basic-plots.html#cb221-13" tabindex="-1"></a><span class="do">##  $ carb: num  4 4 1 1 2 1 4 2 2 4 ...</span></span></code></pre></div>
+<p>Key variables:
+<code>mpg</code>: miles/gallon
 <code>wt</code>: weight (1000lbs)</p>
 <p><strong>Scatter plot with base graphics</strong></p>
-<div class="sourceCode" id="cb221"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb221-1"><a href="creating-some-basic-plots.html#cb221-1" tabindex="-1"></a><span class="co"># x-axis: mtcars$wt</span></span>
-<span id="cb221-2"><a href="creating-some-basic-plots.html#cb221-2" tabindex="-1"></a><span class="co"># y-axis: mtcars$mpg</span></span>
-<span id="cb221-3"><a href="creating-some-basic-plots.html#cb221-3" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> mtcars<span class="sc">$</span>wt, <span class="at">y =</span> mtcars<span class="sc">$</span>mpg) <span class="co"># &quot;x =&quot;, &quot;y =&quot; are optional</span></span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-234-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="creating-some-basic-plots.html#cb222-1" tabindex="-1"></a><span class="co"># x-axis: mtcars$wt</span></span>
+<span id="cb222-2"><a href="creating-some-basic-plots.html#cb222-2" tabindex="-1"></a><span class="co"># y-axis: mtcars$mpg</span></span>
+<span id="cb222-3"><a href="creating-some-basic-plots.html#cb222-3" tabindex="-1"></a><span class="co"># &quot;x =&quot;, &quot;y =&quot; are optional</span></span>
+<span id="cb222-4"><a href="creating-some-basic-plots.html#cb222-4" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb222-5"><a href="creating-some-basic-plots.html#cb222-5" tabindex="-1"></a>  <span class="at">x =</span> mtcars<span class="sc">$</span>wt,</span>
+<span id="cb222-6"><a href="creating-some-basic-plots.html#cb222-6" tabindex="-1"></a>  <span class="at">y =</span> mtcars<span class="sc">$</span>mpg,</span>
+<span id="cb222-7"><a href="creating-some-basic-plots.html#cb222-7" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Weight (1000 lbs)&quot;</span>,</span>
+<span id="cb222-8"><a href="creating-some-basic-plots.html#cb222-8" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Miles per Gallon (mpg)&quot;</span>,</span>
+<span id="cb222-9"><a href="creating-some-basic-plots.html#cb222-9" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Fuel Efficiency vs Vehicle Weight&quot;</span></span>
+<span id="cb222-10"><a href="creating-some-basic-plots.html#cb222-10" tabindex="-1"></a>) </span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-283-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>Heavier cars tend to have lower fuel efficiency</p></li>
+<li><p>The relationship appears roughly linear and negative</p></li>
+<li><p>A few points may stand out as unusually heavy or fuel-efficient</p></li>
+</ul>
 <p>You can produce the same plot with <code>plot(mtcars$wt, mtcars$mpg)</code></p>
-<p><strong>Scatter plot with base graphics (when you only have <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> but not a dataset)</strong></p>
-<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="creating-some-basic-plots.html#cb222-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb222-2"><a href="creating-some-basic-plots.html#cb222-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb222-3"><a href="creating-some-basic-plots.html#cb222-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
-<span id="cb222-4"><a href="creating-some-basic-plots.html#cb222-4" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-235-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><strong>Scatter plot when you only have <code>x</code> and <code>y</code> (no dataset)</strong></p>
+<p>Scatter plots do not require a data frame. As long as you have two numeric vectors of the same length, you can plot them directly.</p>
+<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="creating-some-basic-plots.html#cb223-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb223-2"><a href="creating-some-basic-plots.html#cb223-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb223-3"><a href="creating-some-basic-plots.html#cb223-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb223-4"><a href="creating-some-basic-plots.html#cb223-4" tabindex="-1"></a></span>
+<span id="cb223-5"><a href="creating-some-basic-plots.html#cb223-5" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-284-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>There is a clear positive linear relationship</p></li>
+<li><p>The randomness around the line reflects noise</p></li>
+<li><p>This is a typical pattern generated by a linear model</p></li>
+</ul>
+<p><strong>Nonlinear relationship</strong></p>
+<p>Scatter plots are also useful for revealing nonlinear patterns that summary statistics (e.g. covariance, correlation) may miss.</p>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="creating-some-basic-plots.html#cb224-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb224-2"><a href="creating-some-basic-plots.html#cb224-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">200</span>, <span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)</span>
+<span id="cb224-3"><a href="creating-some-basic-plots.html#cb224-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">200</span>, <span class="dv">0</span>, <span class="fl">0.5</span>)</span>
+<span id="cb224-4"><a href="creating-some-basic-plots.html#cb224-4" tabindex="-1"></a></span>
+<span id="cb224-5"><a href="creating-some-basic-plots.html#cb224-5" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-285-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>The relationship is clearly nonlinear</p></li>
+<li><p>A linear model would be inappropriate here</p></li>
+<li><p>The scatter plot immediately reveals the underlying structure</p></li>
+</ul>
+<p><strong>Scatter plot: distance vs arrival delay on a single day</strong></p>
+<p>Because the full flights dataset contains many observations, plotting all points at once can lead to severe overplotting. A simple solution is to focus on one specific day.</p>
+<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="creating-some-basic-plots.html#cb225-1" tabindex="-1"></a>one_day <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
+<span id="cb225-2"><a href="creating-some-basic-plots.html#cb225-2" tabindex="-1"></a>  <span class="fu">filter</span>(month <span class="sc">==</span> <span class="dv">1</span> <span class="sc">&amp;</span> day <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb225-3"><a href="creating-some-basic-plots.html#cb225-3" tabindex="-1"></a></span>
+<span id="cb225-4"><a href="creating-some-basic-plots.html#cb225-4" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb225-5"><a href="creating-some-basic-plots.html#cb225-5" tabindex="-1"></a>  <span class="at">x =</span> one_day<span class="sc">$</span>distance,</span>
+<span id="cb225-6"><a href="creating-some-basic-plots.html#cb225-6" tabindex="-1"></a>  <span class="at">y =</span> one_day<span class="sc">$</span>arr_delay,</span>
+<span id="cb225-7"><a href="creating-some-basic-plots.html#cb225-7" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Flight Distance (miles)&quot;</span>,</span>
+<span id="cb225-8"><a href="creating-some-basic-plots.html#cb225-8" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Arrival Delay (minutes)&quot;</span>,</span>
+<span id="cb225-9"><a href="creating-some-basic-plots.html#cb225-9" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Arrival Delay vs Distance (Jan 1)&quot;</span></span>
+<span id="cb225-10"><a href="creating-some-basic-plots.html#cb225-10" tabindex="-1"></a>)</span>
+<span id="cb225-11"><a href="creating-some-basic-plots.html#cb225-11" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>) <span class="co"># add a reference line for no delay</span></span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-286-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>The number of points is much smaller, making the plot easier to read</p></li>
+<li><p>Most flights arrive close to on time, regardless of distance</p></li>
+<li><p>Large delays still appear as outliers</p></li>
+<li><p>There is no strong linear relationship between arrival delay and flight distance</p></li>
+</ul>
 </div>
 <div id="line-graph" class="section level2 hasAnchor" number="5.2">
 <h2><span class="header-section-number">5.2</span> Line Graph<a href="creating-some-basic-plots.html#line-graph" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The dataset <code>pressure</code> (also in base R) contains the relation between temperature in degrees Celsius and vapor pressure of mercury in millimeters (of mercury).</p>
+<p>A line graph is used to show how a numerical variable changes as another variable changes, especially when the <span class="math inline">\(x\)</span>-axis has a natural order (for example, time, temperature, or distance). Compared to a scatter plot, a line graph emphasizes the <strong>trend</strong> by connecting points in order.</p>
+<p>In base R, the main difference is the use of <code>type = "l"</code> (l = line).</p>
+<p><strong>Example: the pressure dataset (base R)</strong></p>
+<p>The dataset pressure contains the relationship between:</p>
+<ul>
+<li><p>temperature: temperature in degrees Celsius</p></li>
+<li><p>pressure: vapour pressure of mercury (mm of mercury)</p></li>
+</ul>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="creating-some-basic-plots.html#cb226-1" tabindex="-1"></a><span class="fu">head</span>(pressure)</span>
+<span id="cb226-2"><a href="creating-some-basic-plots.html#cb226-2" tabindex="-1"></a><span class="do">##   temperature pressure</span></span>
+<span id="cb226-3"><a href="creating-some-basic-plots.html#cb226-3" tabindex="-1"></a><span class="do">## 1           0   0.0002</span></span>
+<span id="cb226-4"><a href="creating-some-basic-plots.html#cb226-4" tabindex="-1"></a><span class="do">## 2          20   0.0012</span></span>
+<span id="cb226-5"><a href="creating-some-basic-plots.html#cb226-5" tabindex="-1"></a><span class="do">## 3          40   0.0060</span></span>
+<span id="cb226-6"><a href="creating-some-basic-plots.html#cb226-6" tabindex="-1"></a><span class="do">## 4          60   0.0300</span></span>
+<span id="cb226-7"><a href="creating-some-basic-plots.html#cb226-7" tabindex="-1"></a><span class="do">## 5          80   0.0900</span></span>
+<span id="cb226-8"><a href="creating-some-basic-plots.html#cb226-8" tabindex="-1"></a><span class="do">## 6         100   0.2700</span></span></code></pre></div>
 <p><strong>Line graph with base graphics</strong></p>
-<div class="sourceCode" id="cb223"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb223-1"><a href="creating-some-basic-plots.html#cb223-1" tabindex="-1"></a><span class="co"># the only difference from a scatter plot is that we add type=&quot;l&quot;</span></span>
-<span id="cb223-2"><a href="creating-some-basic-plots.html#cb223-2" tabindex="-1"></a><span class="fu">plot</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)  <span class="co">#l = line</span></span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-236-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="creating-some-basic-plots.html#cb227-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb227-2"><a href="creating-some-basic-plots.html#cb227-2" tabindex="-1"></a>  pressure<span class="sc">$</span>temperature,</span>
+<span id="cb227-3"><a href="creating-some-basic-plots.html#cb227-3" tabindex="-1"></a>  pressure<span class="sc">$</span>pressure,</span>
+<span id="cb227-4"><a href="creating-some-basic-plots.html#cb227-4" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb227-5"><a href="creating-some-basic-plots.html#cb227-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb227-6"><a href="creating-some-basic-plots.html#cb227-6" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Vapour Pressure (mm of mercury)&quot;</span>,</span>
+<span id="cb227-7"><a href="creating-some-basic-plots.html#cb227-7" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Vapour Pressure vs Temperature&quot;</span></span>
+<span id="cb227-8"><a href="creating-some-basic-plots.html#cb227-8" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-288-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p><strong>Line graph with base graphics with points</strong></p>
-<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="creating-some-basic-plots.html#cb224-1" tabindex="-1"></a><span class="fu">plot</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb224-2"><a href="creating-some-basic-plots.html#cb224-2" tabindex="-1"></a><span class="fu">points</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure) <span class="co"># add some points</span></span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-237-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><strong>Line graph with base graphics with another line and points (with color)</strong></p>
-<div class="sourceCode" id="cb225"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb225-1"><a href="creating-some-basic-plots.html#cb225-1" tabindex="-1"></a><span class="fu">plot</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb225-2"><a href="creating-some-basic-plots.html#cb225-2" tabindex="-1"></a><span class="fu">points</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure)</span>
-<span id="cb225-3"><a href="creating-some-basic-plots.html#cb225-3" tabindex="-1"></a><span class="co"># the additional line may not have a physical meaningful</span></span>
-<span id="cb225-4"><a href="creating-some-basic-plots.html#cb225-4" tabindex="-1"></a><span class="co"># just an illustration on how to add a line with base graphics</span></span>
-<span id="cb225-5"><a href="creating-some-basic-plots.html#cb225-5" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">/</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) </span>
-<span id="cb225-6"><a href="creating-some-basic-plots.html#cb225-6" tabindex="-1"></a><span class="fu">points</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">/</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>) </span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-238-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><strong>Colors in R</strong>
-You can go to <a href="https://www.r-graph-gallery.com/ggplot2-color.html" class="uri">https://www.r-graph-gallery.com/ggplot2-color.html</a> and read more about colors in R.</p>
-<p>For example, you can specify the color by name, rgb, number and hex code.</p>
-<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="creating-some-basic-plots.html#cb226-1" tabindex="-1"></a><span class="fu">plot</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="dv">1</span>))</span>
-<span id="cb226-2"><a href="creating-some-basic-plots.html#cb226-2" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">/</span> <span class="dv">2</span>, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">col =</span> <span class="dv">2</span>)</span>
-<span id="cb226-3"><a href="creating-some-basic-plots.html#cb226-3" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">*</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;#8B2813&quot;</span>)</span>
-<span id="cb226-4"><a href="creating-some-basic-plots.html#cb226-4" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">*</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;cornflowerblue&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-239-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>A common style is to show both the line (trend) and the points (observations).</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="creating-some-basic-plots.html#cb228-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb228-2"><a href="creating-some-basic-plots.html#cb228-2" tabindex="-1"></a>  pressure<span class="sc">$</span>temperature,</span>
+<span id="cb228-3"><a href="creating-some-basic-plots.html#cb228-3" tabindex="-1"></a>  pressure<span class="sc">$</span>pressure,</span>
+<span id="cb228-4"><a href="creating-some-basic-plots.html#cb228-4" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb228-5"><a href="creating-some-basic-plots.html#cb228-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb228-6"><a href="creating-some-basic-plots.html#cb228-6" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Vapour Pressure (mm of mercury)&quot;</span>,</span>
+<span id="cb228-7"><a href="creating-some-basic-plots.html#cb228-7" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Vapour Pressure vs Temperature&quot;</span></span>
+<span id="cb228-8"><a href="creating-some-basic-plots.html#cb228-8" tabindex="-1"></a>)</span>
+<span id="cb228-9"><a href="creating-some-basic-plots.html#cb228-9" tabindex="-1"></a></span>
+<span id="cb228-10"><a href="creating-some-basic-plots.html#cb228-10" tabindex="-1"></a><span class="fu">points</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure, <span class="at">pch =</span> <span class="dv">16</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-289-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><code>pch = 16</code> makes filled points, which are easier to see on a line.</p>
+<p><strong>Adding another line (illustration)</strong></p>
+<p>If you want to compare two curves on the same plot, add the first plot, then use <code>lines()</code> for additional curves.</p>
+<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="creating-some-basic-plots.html#cb229-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb229-2"><a href="creating-some-basic-plots.html#cb229-2" tabindex="-1"></a>  pressure<span class="sc">$</span>temperature,</span>
+<span id="cb229-3"><a href="creating-some-basic-plots.html#cb229-3" tabindex="-1"></a>  pressure<span class="sc">$</span>pressure,</span>
+<span id="cb229-4"><a href="creating-some-basic-plots.html#cb229-4" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb229-5"><a href="creating-some-basic-plots.html#cb229-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb229-6"><a href="creating-some-basic-plots.html#cb229-6" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Vapour Pressure (mm of mercury)&quot;</span>,</span>
+<span id="cb229-7"><a href="creating-some-basic-plots.html#cb229-7" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Vapour Pressure vs Temperature&quot;</span></span>
+<span id="cb229-8"><a href="creating-some-basic-plots.html#cb229-8" tabindex="-1"></a>)</span>
+<span id="cb229-9"><a href="creating-some-basic-plots.html#cb229-9" tabindex="-1"></a></span>
+<span id="cb229-10"><a href="creating-some-basic-plots.html#cb229-10" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">/</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb229-11"><a href="creating-some-basic-plots.html#cb229-11" tabindex="-1"></a><span class="fu">points</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">/</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">pch =</span> <span class="dv">16</span>)</span>
+<span id="cb229-12"><a href="creating-some-basic-plots.html#cb229-12" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb229-13"><a href="creating-some-basic-plots.html#cb229-13" tabindex="-1"></a>  <span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb229-14"><a href="creating-some-basic-plots.html#cb229-14" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Original&quot;</span>, <span class="st">&quot;Half (illustration)&quot;</span>),</span>
+<span id="cb229-15"><a href="creating-some-basic-plots.html#cb229-15" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>),</span>
+<span id="cb229-16"><a href="creating-some-basic-plots.html#cb229-16" tabindex="-1"></a>  <span class="at">lty =</span> <span class="dv">1</span>,</span>
+<span id="cb229-17"><a href="creating-some-basic-plots.html#cb229-17" tabindex="-1"></a>  <span class="at">bty =</span> <span class="st">&quot;n&quot;</span></span>
+<span id="cb229-18"><a href="creating-some-basic-plots.html#cb229-18" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-290-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Note: the second curve above is only for demonstrating how to add lines and a legend.</p>
+<p><strong>Colors in base R</strong></p>
+<ul>
+<li><p>In base R, the col argument can be specified in several ways:</p></li>
+<li><p>By name: <code>"red"</code>, <code>"cornflowerblue"</code></p></li>
+<li><p>By number: 1 (black), 2 (red), 3 (green), 4 (blue), …</p></li>
+<li><p>By hex code: <code>"#8B2813"</code></p></li>
+<li><p>By <code>rgb()</code>: <code>rgb(0.1, 0.2, 0.5, 1)</code></p></li>
+</ul>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="creating-some-basic-plots.html#cb230-1" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb230-2"><a href="creating-some-basic-plots.html#cb230-2" tabindex="-1"></a>  pressure<span class="sc">$</span>temperature,</span>
+<span id="cb230-3"><a href="creating-some-basic-plots.html#cb230-3" tabindex="-1"></a>  pressure<span class="sc">$</span>pressure,</span>
+<span id="cb230-4"><a href="creating-some-basic-plots.html#cb230-4" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb230-5"><a href="creating-some-basic-plots.html#cb230-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Temperature (°C)&quot;</span>,</span>
+<span id="cb230-6"><a href="creating-some-basic-plots.html#cb230-6" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Vapour Pressure (mm of mercury)&quot;</span>,</span>
+<span id="cb230-7"><a href="creating-some-basic-plots.html#cb230-7" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Vapour Pressure vs Temperature&quot;</span>,</span>
+<span id="cb230-8"><a href="creating-some-basic-plots.html#cb230-8" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">rgb</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.5</span>, <span class="dv">1</span>)</span>
+<span id="cb230-9"><a href="creating-some-basic-plots.html#cb230-9" tabindex="-1"></a>)</span>
+<span id="cb230-10"><a href="creating-some-basic-plots.html#cb230-10" tabindex="-1"></a></span>
+<span id="cb230-11"><a href="creating-some-basic-plots.html#cb230-11" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">/</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="dv">2</span>)</span>
+<span id="cb230-12"><a href="creating-some-basic-plots.html#cb230-12" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">*</span> <span class="dv">2</span>, <span class="at">col =</span> <span class="st">&quot;#8B2813&quot;</span>)</span>
+<span id="cb230-13"><a href="creating-some-basic-plots.html#cb230-13" tabindex="-1"></a><span class="fu">lines</span>(pressure<span class="sc">$</span>temperature, pressure<span class="sc">$</span>pressure <span class="sc">*</span> <span class="dv">3</span>, <span class="at">col =</span> <span class="st">&quot;cornflowerblue&quot;</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-291-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Common color names</p>
+<table>
+<thead>
+<tr class="header">
+<th>Color name</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>black</td>
+<td><code>col = "black"</code></td>
+</tr>
+<tr class="even">
+<td>white</td>
+<td><code>col = "white"</code></td>
+</tr>
+<tr class="odd">
+<td>gray</td>
+<td><code>col = "gray"</code></td>
+</tr>
+<tr class="even">
+<td>red</td>
+<td><code>col = "red"</code></td>
+</tr>
+<tr class="odd">
+<td>blue</td>
+<td><code>col = "blue"</code></td>
+</tr>
+<tr class="even">
+<td>green</td>
+<td><code>col = "green"</code></td>
+</tr>
+<tr class="odd">
+<td>yellow</td>
+<td><code>col = "yellow"</code></td>
+</tr>
+<tr class="even">
+<td>orange</td>
+<td><code>col = "orange"</code></td>
+</tr>
+<tr class="odd">
+<td>purple</td>
+<td><code>col = "purple"</code></td>
+</tr>
+<tr class="even">
+<td>brown</td>
+<td><code>col = "brown"</code></td>
+</tr>
+<tr class="odd">
+<td>pink</td>
+<td><code>col = "pink"</code></td>
+</tr>
+<tr class="even">
+<td>cyan</td>
+<td><code>col = "cyan"</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example with flights: average daily departure delay over time</strong></p>
+<p>A line graph is a natural choice when the <span class="math inline">\(x\)</span>-axis is time.</p>
+<p>Below we compute the average departure delay for each date, then plot it across the year.</p>
+<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="creating-some-basic-plots.html#cb231-1" tabindex="-1"></a><span class="co"># prepare the data</span></span>
+<span id="cb231-2"><a href="creating-some-basic-plots.html#cb231-2" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
+<span id="cb231-3"><a href="creating-some-basic-plots.html#cb231-3" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span> </span>
+<span id="cb231-4"><a href="creating-some-basic-plots.html#cb231-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_day_dep_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb231-5"><a href="creating-some-basic-plots.html#cb231-5" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb231-6"><a href="creating-some-basic-plots.html#cb231-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%d-%02d-%02d&quot;</span>, year, month, day)))</span>
+<span id="cb231-7"><a href="creating-some-basic-plots.html#cb231-7" tabindex="-1"></a></span>
+<span id="cb231-8"><a href="creating-some-basic-plots.html#cb231-8" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb231-9"><a href="creating-some-basic-plots.html#cb231-9" tabindex="-1"></a>  plot_data<span class="sc">$</span>date,</span>
+<span id="cb231-10"><a href="creating-some-basic-plots.html#cb231-10" tabindex="-1"></a>  plot_data<span class="sc">$</span>avg_day_dep_delay,</span>
+<span id="cb231-11"><a href="creating-some-basic-plots.html#cb231-11" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb231-12"><a href="creating-some-basic-plots.html#cb231-12" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb231-13"><a href="creating-some-basic-plots.html#cb231-13" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Average departure delay (minutes)&quot;</span>,</span>
+<span id="cb231-14"><a href="creating-some-basic-plots.html#cb231-14" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Average Daily Departure Delay in 2013&quot;</span></span>
+<span id="cb231-15"><a href="creating-some-basic-plots.html#cb231-15" tabindex="-1"></a>)</span>
+<span id="cb231-16"><a href="creating-some-basic-plots.html#cb231-16" tabindex="-1"></a></span>
+<span id="cb231-17"><a href="creating-some-basic-plots.html#cb231-17" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">0</span>, <span class="at">lty =</span> <span class="dv">2</span>)  <span class="co"># reference line at 0 minutes</span></span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-292-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><strong><code>sprintf</code> and Date</strong></p>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="creating-some-basic-plots.html#cb232-1" tabindex="-1"></a>year  <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2013</span>, <span class="dv">2013</span>)</span>
+<span id="cb232-2"><a href="creating-some-basic-plots.html#cb232-2" tabindex="-1"></a>month <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">12</span>)</span>
+<span id="cb232-3"><a href="creating-some-basic-plots.html#cb232-3" tabindex="-1"></a>day   <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span>
+<span id="cb232-4"><a href="creating-some-basic-plots.html#cb232-4" tabindex="-1"></a></span>
+<span id="cb232-5"><a href="creating-some-basic-plots.html#cb232-5" tabindex="-1"></a><span class="fu">as.Date</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%d-%02d-%02d&quot;</span>, year, month, day))</span>
+<span id="cb232-6"><a href="creating-some-basic-plots.html#cb232-6" tabindex="-1"></a><span class="do">## [1] &quot;2013-01-05&quot; &quot;2013-12-03&quot;</span></span></code></pre></div>
+<p>A character string may look like a date, but R treats it as plain text.</p>
+<p>A <code>Date</code> object is a special data type that represents calendar dates correctly. <code>as.Date()</code>: convert strings to Date objects</p>
+<p>Using Date objects allows R to:</p>
+<ul>
+<li><p>order dates chronologically</p></li>
+<li><p>compute differences in days</p></li>
+<li><p>plot time on a continuous axis</p></li>
+</ul>
+<p>Character dates are sorted and plotted as labels, not as time.</p>
+<p>If a variable represents dates, always convert it to a <code>Date</code> object before analysis or plotting.</p>
 </div>
 <div id="bar-chart" class="section level2 hasAnchor" number="5.3">
 <h2><span class="header-section-number">5.3</span> Bar Chart<a href="creating-some-basic-plots.html#bar-chart" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Two types of bar charts:</p>
+<p>A bar chart is used when the <span class="math inline">\(x\)</span>-axis is discrete (categories). There are two common types:</p>
 <ol style="list-style-type: decimal">
-<li>Bar chart of values. x-axis: discrete variable, y-axis: numeric data (not necessarily count data)</li>
-<li>Bar chart of count. x-axis: discrete variable, y-axis: count of cases in the discrete variable</li>
+<li>Bar chart of values. x-axis: categorical variable, y-axis: numeric data (for example, mean, median)</li>
+<li>Bar chart of count. x-axis: categorical variable, y-axis: count (how many observations fall in each category)</li>
 </ol>
-<p>Remark: for histogram: x-axis = continuous variable, y-axis = count of cases in the interval.</p>
-<p>The <code>BOD</code> data set has 6 rows and 2 columns giving the biochemical oxygen demand versus time in an evaluation of water quality.</p>
-<div class="sourceCode" id="cb227"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb227-1"><a href="creating-some-basic-plots.html#cb227-1" tabindex="-1"></a><span class="fu">str</span>(BOD) </span>
-<span id="cb227-2"><a href="creating-some-basic-plots.html#cb227-2" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    6 obs. of  2 variables:</span></span>
-<span id="cb227-3"><a href="creating-some-basic-plots.html#cb227-3" tabindex="-1"></a><span class="do">##  $ Time  : num  1 2 3 4 5 7</span></span>
-<span id="cb227-4"><a href="creating-some-basic-plots.html#cb227-4" tabindex="-1"></a><span class="do">##  $ demand: num  8.3 10.3 19 16 15.6 19.8</span></span>
-<span id="cb227-5"><a href="creating-some-basic-plots.html#cb227-5" tabindex="-1"></a><span class="do">##  - attr(*, &quot;reference&quot;)= chr &quot;A1.4, p. 270&quot;</span></span></code></pre></div>
+<p><strong>Remark (bar chart vs histogram):</strong></p>
+<ul>
+<li><p>Bar chart: <span class="math inline">\(x\)</span> is discrete categories</p></li>
+<li><p>Histogram: <span class="math inline">\(x\)</span> is a continuous variable, and we count observations within intervals (bins)</p></li>
+</ul>
 <p><strong>Bar chart of values with base graphics</strong></p>
-<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="creating-some-basic-plots.html#cb228-1" tabindex="-1"></a><span class="co"># names.arg = a vector of names to be plotted below each bar or group of bars.</span></span>
-<span id="cb228-2"><a href="creating-some-basic-plots.html#cb228-2" tabindex="-1"></a><span class="fu">barplot</span>(BOD<span class="sc">$</span>demand, <span class="at">names.arg =</span> BOD<span class="sc">$</span>Time) </span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-241-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="creating-some-basic-plots.html#cb233-1" tabindex="-1"></a><span class="co"># names.arg = a vector of names to be plotted below each bar or group of bars.</span></span>
+<span id="cb233-2"><a href="creating-some-basic-plots.html#cb233-2" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
+<span id="cb233-3"><a href="creating-some-basic-plots.html#cb233-3" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month) <span class="sc">%&gt;%</span> </span>
+<span id="cb233-4"><a href="creating-some-basic-plots.html#cb233-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_mon_dep_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb233-5"><a href="creating-some-basic-plots.html#cb233-5" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb233-6"><a href="creating-some-basic-plots.html#cb233-6" tabindex="-1"></a><span class="do">## `summarise()` has grouped output by &#39;year&#39;. You can override using the</span></span>
+<span id="cb233-7"><a href="creating-some-basic-plots.html#cb233-7" tabindex="-1"></a><span class="do">## `.groups` argument.</span></span>
+<span id="cb233-8"><a href="creating-some-basic-plots.html#cb233-8" tabindex="-1"></a></span>
+<span id="cb233-9"><a href="creating-some-basic-plots.html#cb233-9" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb233-10"><a href="creating-some-basic-plots.html#cb233-10" tabindex="-1"></a>  plot_data<span class="sc">$</span>avg_mon_dep_delay,</span>
+<span id="cb233-11"><a href="creating-some-basic-plots.html#cb233-11" tabindex="-1"></a>  <span class="at">names.arg =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb233-12"><a href="creating-some-basic-plots.html#cb233-12" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Average Monthly Departure Delay&quot;</span>,</span>
+<span id="cb233-13"><a href="creating-some-basic-plots.html#cb233-13" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb233-14"><a href="creating-some-basic-plots.html#cb233-14" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Average departure delay (minutes)&quot;</span></span>
+<span id="cb233-15"><a href="creating-some-basic-plots.html#cb233-15" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-294-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Each bar is a mean computed from many flights in that month.</p>
 <p><strong>Bar chart of counts with base graphics</strong></p>
-<p>In the dateset <code>mtcars</code>, <code>cyl</code>is the number of cylinders in the car. The possible values are <span class="math inline">\(4, 6\)</span>, and <span class="math inline">\(8\)</span>. We first find the count of each unique value in <code>mtcars$cyl</code>:</p>
-<div class="sourceCode" id="cb229"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb229-1"><a href="creating-some-basic-plots.html#cb229-1" tabindex="-1"></a><span class="fu">table</span>(mtcars<span class="sc">$</span>cyl)</span>
-<span id="cb229-2"><a href="creating-some-basic-plots.html#cb229-2" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb229-3"><a href="creating-some-basic-plots.html#cb229-3" tabindex="-1"></a><span class="do">##  4  6  8 </span></span>
-<span id="cb229-4"><a href="creating-some-basic-plots.html#cb229-4" tabindex="-1"></a><span class="do">## 11  7 14</span></span></code></pre></div>
+<p>In <code>mtcars</code>, <code>cyl</code> is the number of cylinders (possible values are 4, 6, and 8). We first compute the counts:</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="creating-some-basic-plots.html#cb234-1" tabindex="-1"></a><span class="fu">table</span>(mtcars<span class="sc">$</span>cyl)</span>
+<span id="cb234-2"><a href="creating-some-basic-plots.html#cb234-2" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb234-3"><a href="creating-some-basic-plots.html#cb234-3" tabindex="-1"></a><span class="do">##  4  6  8 </span></span>
+<span id="cb234-4"><a href="creating-some-basic-plots.html#cb234-4" tabindex="-1"></a><span class="do">## 11  7 14</span></span></code></pre></div>
 <p>To plot the bar chart, we use</p>
-<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="creating-some-basic-plots.html#cb230-1" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(mtcars<span class="sc">$</span>cyl))</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-243-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="creating-some-basic-plots.html#cb235-1" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb235-2"><a href="creating-some-basic-plots.html#cb235-2" tabindex="-1"></a>  <span class="fu">table</span>(mtcars<span class="sc">$</span>cyl),</span>
+<span id="cb235-3"><a href="creating-some-basic-plots.html#cb235-3" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Distribution of Number of Cylinders&quot;</span>,</span>
+<span id="cb235-4"><a href="creating-some-basic-plots.html#cb235-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Number of cylinders&quot;</span>,</span>
+<span id="cb235-5"><a href="creating-some-basic-plots.html#cb235-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Count&quot;</span></span>
+<span id="cb235-6"><a href="creating-some-basic-plots.html#cb235-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-296-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Another count example using <code>flights</code> (number of flights by month):</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="creating-some-basic-plots.html#cb236-1" tabindex="-1"></a>count <span class="ot">&lt;-</span> <span class="fu">table</span>(flights<span class="sc">$</span>month)</span>
+<span id="cb236-2"><a href="creating-some-basic-plots.html#cb236-2" tabindex="-1"></a></span>
+<span id="cb236-3"><a href="creating-some-basic-plots.html#cb236-3" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb236-4"><a href="creating-some-basic-plots.html#cb236-4" tabindex="-1"></a>  count,</span>
+<span id="cb236-5"><a href="creating-some-basic-plots.html#cb236-5" tabindex="-1"></a>  <span class="at">names.arg =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb236-6"><a href="creating-some-basic-plots.html#cb236-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Number of Flights by Month&quot;</span>,</span>
+<span id="cb236-7"><a href="creating-some-basic-plots.html#cb236-7" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb236-8"><a href="creating-some-basic-plots.html#cb236-8" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Count&quot;</span></span>
+<span id="cb236-9"><a href="creating-some-basic-plots.html#cb236-9" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-297-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Optional improvement: <strong>add the counts on top of the bars</strong>.</p>
+<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="creating-some-basic-plots.html#cb237-1" tabindex="-1"></a>bp <span class="ot">&lt;-</span> <span class="fu">barplot</span>(</span>
+<span id="cb237-2"><a href="creating-some-basic-plots.html#cb237-2" tabindex="-1"></a>  count,</span>
+<span id="cb237-3"><a href="creating-some-basic-plots.html#cb237-3" tabindex="-1"></a>  <span class="at">names.arg =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb237-4"><a href="creating-some-basic-plots.html#cb237-4" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Number of Flights by Month&quot;</span>,</span>
+<span id="cb237-5"><a href="creating-some-basic-plots.html#cb237-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb237-6"><a href="creating-some-basic-plots.html#cb237-6" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Count&quot;</span>,</span>
+<span id="cb237-7"><a href="creating-some-basic-plots.html#cb237-7" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fu">max</span>(count) <span class="sc">*</span> <span class="fl">1.1</span>)  <span class="co"># add ~10% headroom</span></span>
+<span id="cb237-8"><a href="creating-some-basic-plots.html#cb237-8" tabindex="-1"></a>)</span>
+<span id="cb237-9"><a href="creating-some-basic-plots.html#cb237-9" tabindex="-1"></a></span>
+<span id="cb237-10"><a href="creating-some-basic-plots.html#cb237-10" tabindex="-1"></a><span class="fu">text</span>(bp, count, <span class="at">labels =</span> count, <span class="at">pos =</span> <span class="dv">3</span>, <span class="at">cex =</span> <span class="fl">0.7</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-298-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="histogram" class="section level2 hasAnchor" number="5.4">
 <h2><span class="header-section-number">5.4</span> Histogram<a href="creating-some-basic-plots.html#histogram" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><code>mpg</code> in <code>mtcars</code> is the miles/gallon of the car. It is a continuous variable.</p>
+<p>A histogram visualizes the distribution of a continuous variable by dividing its range into bins and counting how many observations fall into each bin.</p>
+<p>Example: <code>mpg</code> in <code>mtcars</code> is a continuous variable (miles per gallon).</p>
 <p><strong>Histogram with base graphics</strong></p>
-<div class="sourceCode" id="cb231"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb231-1"><a href="creating-some-basic-plots.html#cb231-1" tabindex="-1"></a><span class="fu">hist</span>(mtcars<span class="sc">$</span>mpg)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-244-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="creating-some-basic-plots.html#cb238-1" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb238-2"><a href="creating-some-basic-plots.html#cb238-2" tabindex="-1"></a>  mtcars<span class="sc">$</span>mpg,</span>
+<span id="cb238-3"><a href="creating-some-basic-plots.html#cb238-3" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Miles per Gallon (mpg)&quot;</span>,</span>
+<span id="cb238-4"><a href="creating-some-basic-plots.html#cb238-4" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Histogram of Fuel Efficiency&quot;</span></span>
+<span id="cb238-5"><a href="creating-some-basic-plots.html#cb238-5" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-299-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p><strong>Histogram with base graphics</strong></p>
-<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="creating-some-basic-plots.html#cb232-1" tabindex="-1"></a><span class="co"># Specify approximate number of bins with &quot;breaks&quot;</span></span>
-<span id="cb232-2"><a href="creating-some-basic-plots.html#cb232-2" tabindex="-1"></a><span class="fu">hist</span>(mtcars<span class="sc">$</span>mpg, <span class="at">breaks =</span> <span class="dv">10</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-245-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<p>Remark: different bin widths will give you histograms with different looks.</p>
+<p>You can control the binning using <code>breaks</code>.</p>
+<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="creating-some-basic-plots.html#cb239-1" tabindex="-1"></a><span class="co"># Specify approximate number of bins with &quot;breaks&quot;</span></span>
+<span id="cb239-2"><a href="creating-some-basic-plots.html#cb239-2" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb239-3"><a href="creating-some-basic-plots.html#cb239-3" tabindex="-1"></a>  mtcars<span class="sc">$</span>mpg,</span>
+<span id="cb239-4"><a href="creating-some-basic-plots.html#cb239-4" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="dv">10</span>,</span>
+<span id="cb239-5"><a href="creating-some-basic-plots.html#cb239-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Miles per Gallon (mpg)&quot;</span>,</span>
+<span id="cb239-6"><a href="creating-some-basic-plots.html#cb239-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Histogram of Fuel Efficiency&quot;</span></span>
+<span id="cb239-7"><a href="creating-some-basic-plots.html#cb239-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-300-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Remark: different choices of breaks change the appearance.</p>
+<ul>
+<li><p>Too few breaks oversmooth the data and may hide important structure.</p></li>
+<li><p>Too many breaks produce noisy, spiky histograms that are hard to interpret.</p></li>
+</ul>
+<p><strong>Histogram for departure delays in <code>flights</code></strong></p>
+<p>Departure delays contain missing values. (They are removed automatically by <code>hist()</code>.)</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="creating-some-basic-plots.html#cb240-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(flights<span class="sc">$</span>dep_delay)) <span class="co"># 8255 missing values!</span></span>
+<span id="cb240-2"><a href="creating-some-basic-plots.html#cb240-2" tabindex="-1"></a><span class="do">## [1] 8255</span></span>
+<span id="cb240-3"><a href="creating-some-basic-plots.html#cb240-3" tabindex="-1"></a></span>
+<span id="cb240-4"><a href="creating-some-basic-plots.html#cb240-4" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb240-5"><a href="creating-some-basic-plots.html#cb240-5" tabindex="-1"></a>  flights<span class="sc">$</span>dep_delay,</span>
+<span id="cb240-6"><a href="creating-some-basic-plots.html#cb240-6" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="dv">100</span>,</span>
+<span id="cb240-7"><a href="creating-some-basic-plots.html#cb240-7" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Distribution of Departure Delays&quot;</span>,</span>
+<span id="cb240-8"><a href="creating-some-basic-plots.html#cb240-8" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span>,</span>
+<span id="cb240-9"><a href="creating-some-basic-plots.html#cb240-9" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span></span>
+<span id="cb240-10"><a href="creating-some-basic-plots.html#cb240-10" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-301-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>If you want the histogram to show relative frequency (so the total area is 1), use <code>freq = FALSE</code>:</p>
+<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="creating-some-basic-plots.html#cb241-1" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb241-2"><a href="creating-some-basic-plots.html#cb241-2" tabindex="-1"></a>  flights<span class="sc">$</span>dep_delay,</span>
+<span id="cb241-3"><a href="creating-some-basic-plots.html#cb241-3" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="dv">100</span>,</span>
+<span id="cb241-4"><a href="creating-some-basic-plots.html#cb241-4" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Distribution of Departure Delays&quot;</span>,</span>
+<span id="cb241-5"><a href="creating-some-basic-plots.html#cb241-5" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span>,</span>
+<span id="cb241-6"><a href="creating-some-basic-plots.html#cb241-6" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Frequency&quot;</span>,</span>
+<span id="cb241-7"><a href="creating-some-basic-plots.html#cb241-7" tabindex="-1"></a>  <span class="at">freq =</span> <span class="cn">FALSE</span></span>
+<span id="cb241-8"><a href="creating-some-basic-plots.html#cb241-8" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-302-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>Because delays can have extreme outliers, it is often helpful to zoom in.</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="creating-some-basic-plots.html#cb242-1" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb242-2"><a href="creating-some-basic-plots.html#cb242-2" tabindex="-1"></a>  flights<span class="sc">$</span>dep_delay,</span>
+<span id="cb242-3"><a href="creating-some-basic-plots.html#cb242-3" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="dv">100</span>,</span>
+<span id="cb242-4"><a href="creating-some-basic-plots.html#cb242-4" tabindex="-1"></a>  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">200</span>),</span>
+<span id="cb242-5"><a href="creating-some-basic-plots.html#cb242-5" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Departure Delays (Zoomed In)&quot;</span>,</span>
+<span id="cb242-6"><a href="creating-some-basic-plots.html#cb242-6" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span></span>
+<span id="cb242-7"><a href="creating-some-basic-plots.html#cb242-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-303-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>One <strong>data-driven method</strong> for choosing the histogram bin width: <code>breaks = "FD"</code> (the Freedman–Diaconis rule is designed to approximately minimize the integral of the squared difference between the histogram (i.e., relative frequency density) and the density of the theoretical probability distribution.)</p>
+<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="creating-some-basic-plots.html#cb243-1" tabindex="-1"></a><span class="fu">hist</span>(</span>
+<span id="cb243-2"><a href="creating-some-basic-plots.html#cb243-2" tabindex="-1"></a>  flights<span class="sc">$</span>dep_delay,</span>
+<span id="cb243-3"><a href="creating-some-basic-plots.html#cb243-3" tabindex="-1"></a>  <span class="at">breaks =</span> <span class="st">&quot;FD&quot;</span>,</span>
+<span id="cb243-4"><a href="creating-some-basic-plots.html#cb243-4" tabindex="-1"></a>  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">20</span>, <span class="dv">200</span>),</span>
+<span id="cb243-5"><a href="creating-some-basic-plots.html#cb243-5" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Departure Delays (Zoomed In)&quot;</span>,</span>
+<span id="cb243-6"><a href="creating-some-basic-plots.html#cb243-6" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Departure delay (minutes)&quot;</span></span>
+<span id="cb243-7"><a href="creating-some-basic-plots.html#cb243-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-304-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="box-plot" class="section level2 hasAnchor" number="5.5">
 <h2><span class="header-section-number">5.5</span> Box Plot<a href="creating-some-basic-plots.html#box-plot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A box plot (or box-and-whisker plot) display the dateset based on the five-number summary (minimum, maximum, sample median, first (<span class="math inline">\(Q_1\)</span>) and third (<span class="math inline">\(Q_3\)</span>) quartiles).</p>
-<p>IQR = Interquartile range = <span class="math inline">\(Q_3 - Q_1\)</span></p>
-<p>A box plot usually includes two parts, a box and a set of whiskers. The box is drawn from the first quartile to third quartile with a horizontal line drawn in the middle denoting the median. The boundaries of the whiskers is often based on the 1.5 IQR value. From above <span class="math inline">\(Q_3\)</span>, a distance of <span class="math inline">\(1.5\)</span> times the IQR is measured out and a whisker is drawn up to the largest observed data point from the dataset that falls within this distance. Similar for the lower one. All other data points outside the buondary of the whiskers are plotted as outliers.</p>
-<p>Let’s take a look at another dataset <code>ToothGrowth</code>. In particular, <code>supp</code> is a factor.</p>
-<div class="sourceCode" id="cb233"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb233-1"><a href="creating-some-basic-plots.html#cb233-1" tabindex="-1"></a><span class="fu">str</span>(ToothGrowth)</span>
-<span id="cb233-2"><a href="creating-some-basic-plots.html#cb233-2" tabindex="-1"></a><span class="do">## &#39;data.frame&#39;:    60 obs. of  3 variables:</span></span>
-<span id="cb233-3"><a href="creating-some-basic-plots.html#cb233-3" tabindex="-1"></a><span class="do">##  $ len : num  4.2 11.5 7.3 5.8 6.4 10 11.2 11.2 5.2 7 ...</span></span>
-<span id="cb233-4"><a href="creating-some-basic-plots.html#cb233-4" tabindex="-1"></a><span class="do">##  $ supp: Factor w/ 2 levels &quot;OJ&quot;,&quot;VC&quot;: 2 2 2 2 2 2 2 2 2 2 ...</span></span>
-<span id="cb233-5"><a href="creating-some-basic-plots.html#cb233-5" tabindex="-1"></a><span class="do">##  $ dose: num  0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 0.5 ...</span></span></code></pre></div>
-<p><strong>Box plot with basic graphics (using <code>plot</code>)</strong></p>
-<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="creating-some-basic-plots.html#cb234-1" tabindex="-1"></a><span class="co"># if x is a factor, use the following code</span></span>
-<span id="cb234-2"><a href="creating-some-basic-plots.html#cb234-2" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> ToothGrowth<span class="sc">$</span>supp, <span class="at">y =</span> ToothGrowth<span class="sc">$</span>len)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-247-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><strong>Box plot with basic graphics (using <code>boxplot</code>)</strong></p>
-<div class="sourceCode" id="cb235"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb235-1"><a href="creating-some-basic-plots.html#cb235-1" tabindex="-1"></a><span class="co"># len ~ supp is an example of a &quot;formula&quot; (y ~ x)</span></span>
-<span id="cb235-2"><a href="creating-some-basic-plots.html#cb235-2" tabindex="-1"></a><span class="fu">boxplot</span>(len <span class="sc">~</span> supp, <span class="at">data =</span> ToothGrowth)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-248-1.png" width="60%" style="display: block; margin: auto;" /></p>
-<p><strong>Box plot with basic graphics + interaction of two variables on x-axis (using <code>boxplot</code>)</strong></p>
-<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="creating-some-basic-plots.html#cb236-1" tabindex="-1"></a><span class="fu">boxplot</span>(len <span class="sc">~</span> supp <span class="sc">+</span> dose, <span class="at">data =</span> ToothGrowth)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-249-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>A boxplot provides a compact summary of a numerical variable by displaying its distribution through quantiles. It is especially useful for comparing distributions across groups and for detecting outliers.</p>
+<p>What a boxplot shows</p>
+<ul>
+<li><p>Median: the line inside the box (50% quantile)</p></li>
+<li><p>First quartile (Q1) and third quartile (Q3): the lower and upper edges of the box</p></li>
+<li><p>Interquartile range (IQR): <span class="math inline">\(Q_3 - Q_1\)</span>, representing the middle 50% of the data</p></li>
+<li><p>Whiskers: extend to the most extreme observations within <span class="math inline">\(1.5 \times \mathrm{IQR}\)</span> from the quartiles</p></li>
+<li><p>Outliers: points beyond the whiskers</p></li>
+</ul>
+<p>Boxplots are robust summaries because they rely on quantiles rather than means and standard deviations.</p>
+<p><strong>Example: flight arrival delays</strong></p>
+<p>We use the <code>flights</code> dataset, where <code>arr_delay</code> records arrival delay in minutes.</p>
+<p>A single boxplot</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="creating-some-basic-plots.html#cb244-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb244-2"><a href="creating-some-basic-plots.html#cb244-2" tabindex="-1"></a>  flights<span class="sc">$</span>arr_delay,</span>
+<span id="cb244-3"><a href="creating-some-basic-plots.html#cb244-3" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Arrival Delay (minutes)&quot;</span>,</span>
+<span id="cb244-4"><a href="creating-some-basic-plots.html#cb244-4" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Boxplot of Flight Arrival Delays&quot;</span></span>
+<span id="cb244-5"><a href="creating-some-basic-plots.html#cb244-5" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-305-1.png" width="90%" style="display: block; margin: auto;" />
+<strong>Rotate a boxplot by making it horizontal:</strong></p>
+<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="creating-some-basic-plots.html#cb245-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb245-2"><a href="creating-some-basic-plots.html#cb245-2" tabindex="-1"></a>  flights<span class="sc">$</span>arr_delay,</span>
+<span id="cb245-3"><a href="creating-some-basic-plots.html#cb245-3" tabindex="-1"></a>  <span class="at">horizontal =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb245-4"><a href="creating-some-basic-plots.html#cb245-4" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Arrival Delay (minutes)&quot;</span>,</span>
+<span id="cb245-5"><a href="creating-some-basic-plots.html#cb245-5" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Boxplot of Flight Arrival Delays&quot;</span></span>
+<span id="cb245-6"><a href="creating-some-basic-plots.html#cb245-6" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-306-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>The median delay is near zero.</p></li>
+<li><p>The distribution is highly right-skewed.</p></li>
+<li><p>Large positive delays appear as outliers.</p></li>
+</ul>
+<p>Boxplots by group</p>
+<p>Boxplots are particularly useful for group comparisons.</p>
+<p><strong>Arrival delay by carrier</strong></p>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="creating-some-basic-plots.html#cb246-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb246-2"><a href="creating-some-basic-plots.html#cb246-2" tabindex="-1"></a>  arr_delay <span class="sc">~</span> carrier,</span>
+<span id="cb246-3"><a href="creating-some-basic-plots.html#cb246-3" tabindex="-1"></a>  <span class="at">data =</span> flights,</span>
+<span id="cb246-4"><a href="creating-some-basic-plots.html#cb246-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Carrier&quot;</span>,</span>
+<span id="cb246-5"><a href="creating-some-basic-plots.html#cb246-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Arrival Delay (minutes)&quot;</span>,</span>
+<span id="cb246-6"><a href="creating-some-basic-plots.html#cb246-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Arrival Delay by Airline Carrier&quot;</span>,</span>
+<span id="cb246-7"><a href="creating-some-basic-plots.html#cb246-7" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">2</span>   <span class="co"># rotate labels</span></span>
+<span id="cb246-8"><a href="creating-some-basic-plots.html#cb246-8" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-307-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>Differences in medians show typical performance across carriers.</p></li>
+<li><p>Box height reflects variability.</p></li>
+<li><p>Outliers highlight extreme delays for some airlines.</p></li>
+</ul>
+<p><strong>Arrival delay by month</strong></p>
+<div class="sourceCode" id="cb247"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb247-1"><a href="creating-some-basic-plots.html#cb247-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb247-2"><a href="creating-some-basic-plots.html#cb247-2" tabindex="-1"></a>  arr_delay <span class="sc">~</span> month,</span>
+<span id="cb247-3"><a href="creating-some-basic-plots.html#cb247-3" tabindex="-1"></a>  <span class="at">data =</span> flights,</span>
+<span id="cb247-4"><a href="creating-some-basic-plots.html#cb247-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb247-5"><a href="creating-some-basic-plots.html#cb247-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Arrival Delay (minutes)&quot;</span>,</span>
+<span id="cb247-6"><a href="creating-some-basic-plots.html#cb247-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Arrival Delay by Month&quot;</span></span>
+<span id="cb247-7"><a href="creating-some-basic-plots.html#cb247-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-308-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p>Interpretation:</p>
+<ul>
+<li><p>Seasonal patterns become visible.</p></li>
+<li><p>Some months show larger variability and more extreme delays.</p></li>
+</ul>
+<div id="transformation-of-data" class="section level3 hasAnchor" number="5.5.1">
+<h3><span class="header-section-number">5.5.1</span> Transformation of data<a href="creating-some-basic-plots.html#transformation-of-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>For variables like flight delays:</p>
+<ul>
+<li><p>The distribution is highly right-skewed</p></li>
+<li><p>A few very large delays dominate the scale</p></li>
+<li><p>Boxplots on the original scale compress most of the data near zero</p></li>
+</ul>
+<p>Taking a log transform:</p>
+<ul>
+<li><p>Spreads out the bulk of the data</p></li>
+<li><p>Reduces the influence of extreme delays</p></li>
+<li><p>Makes differences in medians and IQRs easier to see across groups</p></li>
+</ul>
+<p><strong>Practical issue: zeros and negative values</strong></p>
+<p>Arrival delays can be:</p>
+<ul>
+<li><p>Zero (on time)</p></li>
+<li><p>Negative (early arrivals)</p></li>
+</ul>
+<p>So you cannot directly take <code>log(arr_delay)</code>.</p>
+<p>Possible solutions:</p>
+<ol style="list-style-type: decimal">
+<li>shift then log: add the minimum <code>arr_delay</code> and then take log</li>
+<li>focus on late flights only</li>
+</ol>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="creating-some-basic-plots.html#cb248-1" tabindex="-1"></a>late <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
+<span id="cb248-2"><a href="creating-some-basic-plots.html#cb248-2" tabindex="-1"></a>  <span class="fu">filter</span>(arr_delay <span class="sc">&gt;</span> <span class="dv">0</span>)</span></code></pre></div>
+<p><strong>Log arrival delay by carrier (Late Flights Only)</strong></p>
+<div class="sourceCode" id="cb249"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb249-1"><a href="creating-some-basic-plots.html#cb249-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb249-2"><a href="creating-some-basic-plots.html#cb249-2" tabindex="-1"></a>  <span class="fu">log</span>(arr_delay) <span class="sc">~</span> month,</span>
+<span id="cb249-3"><a href="creating-some-basic-plots.html#cb249-3" tabindex="-1"></a>  <span class="at">data =</span> late,</span>
+<span id="cb249-4"><a href="creating-some-basic-plots.html#cb249-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb249-5"><a href="creating-some-basic-plots.html#cb249-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;log(Arrival Delay)&quot;</span>,</span>
+<span id="cb249-6"><a href="creating-some-basic-plots.html#cb249-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Log Arrival Delay (Late Flights Only)&quot;</span></span>
+<span id="cb249-7"><a href="creating-some-basic-plots.html#cb249-7" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-310-1.png" width="90%" style="display: block; margin: auto;" /></p>
+<p><strong>Log arrival delay by month (Late Flights Only)</strong></p>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="creating-some-basic-plots.html#cb250-1" tabindex="-1"></a><span class="fu">boxplot</span>(</span>
+<span id="cb250-2"><a href="creating-some-basic-plots.html#cb250-2" tabindex="-1"></a>  <span class="fu">log</span>(arr_delay) <span class="sc">~</span> carrier,</span>
+<span id="cb250-3"><a href="creating-some-basic-plots.html#cb250-3" tabindex="-1"></a>  <span class="at">data =</span> late,</span>
+<span id="cb250-4"><a href="creating-some-basic-plots.html#cb250-4" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Carrier&quot;</span>,</span>
+<span id="cb250-5"><a href="creating-some-basic-plots.html#cb250-5" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;log(Arrival Delay)&quot;</span>,</span>
+<span id="cb250-6"><a href="creating-some-basic-plots.html#cb250-6" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Log Arrival Delay (Late Flights Only)&quot;</span>,</span>
+<span id="cb250-7"><a href="creating-some-basic-plots.html#cb250-7" tabindex="-1"></a>  <span class="at">las =</span> <span class="dv">2</span>   <span class="co"># rotate labels</span></span>
+<span id="cb250-8"><a href="creating-some-basic-plots.html#cb250-8" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-311-1.png" width="90%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="when-to-use-boxplots" class="section level3 hasAnchor" number="5.5.2">
+<h3><span class="header-section-number">5.5.2</span> When to use boxplots<a href="creating-some-basic-plots.html#when-to-use-boxplots" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ul>
+<li><p>To summarize a distribution quickly</p></li>
+<li><p>To compare distributions across multiple groups</p></li>
+<li><p>To identify skewness and outliers</p></li>
+<li><p>When robustness is preferred over mean-based summaries</p></li>
+</ul>
+<p><strong>Boxplots complement histograms</strong>: histograms show overall shape, while boxplots emphasize location, spread, and outliers.</p>
+</div>
 </div>
 <div id="plotting-a-function-curve" class="section level2 hasAnchor" number="5.6">
 <h2><span class="header-section-number">5.6</span> Plotting a function curve<a href="creating-some-basic-plots.html#plotting-a-function-curve" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb237"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb237-1"><a href="creating-some-basic-plots.html#cb237-1" tabindex="-1"></a><span class="fu">curve</span>(x<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span> <span class="sc">*</span> x, <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-250-1.png" width="60%" style="display: block; margin: auto;" />
-Alternatively:</p>
-<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="creating-some-basic-plots.html#cb238-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">len =</span> <span class="dv">1000</span>)</span>
-<span id="cb238-2"><a href="creating-some-basic-plots.html#cb238-2" tabindex="-1"></a><span class="fu">plot</span>(x, x<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span> <span class="sc">*</span> x, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-251-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>A function plot shows how <span class="math inline">\(y=f(x)\)</span> changes as <span class="math inline">\(x\)</span> varies. In base R, <code>curve()</code> is the most convenient tool for plotting a mathematical function because it automatically chooses a grid of <span class="math inline">\(x\)</span> values and draws the resulting curve.</p>
+<div class="sourceCode" id="cb251"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb251-1"><a href="creating-some-basic-plots.html#cb251-1" tabindex="-1"></a><span class="fu">curve</span>(x<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span> <span class="sc">*</span> x, <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>,</span>
+<span id="cb251-2"><a href="creating-some-basic-plots.html#cb251-2" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>,</span>
+<span id="cb251-3"><a href="creating-some-basic-plots.html#cb251-3" tabindex="-1"></a>      <span class="at">main =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x) <span class="sc">==</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span><span class="sc">*</span>x))</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-312-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p><code>curve()</code> is best when you can write the function as an expression in <code>x</code></p>
+<p>Alternatively:</p>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="creating-some-basic-plots.html#cb252-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="at">length.out =</span> <span class="dv">1000</span>)</span>
+<span id="cb252-2"><a href="creating-some-basic-plots.html#cb252-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span> <span class="sc">*</span> x</span>
+<span id="cb252-3"><a href="creating-some-basic-plots.html#cb252-3" tabindex="-1"></a></span>
+<span id="cb252-4"><a href="creating-some-basic-plots.html#cb252-4" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>,</span>
+<span id="cb252-5"><a href="creating-some-basic-plots.html#cb252-5" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>,</span>
+<span id="cb252-6"><a href="creating-some-basic-plots.html#cb252-6" tabindex="-1"></a>     <span class="at">main =</span> <span class="fu">expression</span>(<span class="fu">f</span>(x) <span class="sc">==</span> x<span class="sc">^</span><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span><span class="sc">*</span>x))</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-313-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<p>This approach is more general</p>
 <p><strong>Plotting a built-in function</strong></p>
-<div class="sourceCode" id="cb239"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb239-1"><a href="creating-some-basic-plots.html#cb239-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-252-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb253"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb253-1"><a href="creating-some-basic-plots.html#cb253-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-314-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p><strong>Plotting a self-defined function</strong></p>
-<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="creating-some-basic-plots.html#cb240-1" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb240-2"><a href="creating-some-basic-plots.html#cb240-2" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>x <span class="sc">+</span> <span class="dv">10</span>))</span>
-<span id="cb240-3"><a href="creating-some-basic-plots.html#cb240-3" tabindex="-1"></a>}</span>
-<span id="cb240-4"><a href="creating-some-basic-plots.html#cb240-4" tabindex="-1"></a></span>
-<span id="cb240-5"><a href="creating-some-basic-plots.html#cb240-5" tabindex="-1"></a><span class="fu">curve</span>(my_function, <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">20</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-253-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="creating-some-basic-plots.html#cb254-1" tabindex="-1"></a>my_function <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb254-2"><a href="creating-some-basic-plots.html#cb254-2" tabindex="-1"></a>  <span class="dv">1</span> <span class="sc">/</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="fu">exp</span>(<span class="sc">-</span>x <span class="sc">+</span> <span class="dv">10</span>))</span>
+<span id="cb254-3"><a href="creating-some-basic-plots.html#cb254-3" tabindex="-1"></a>}</span>
+<span id="cb254-4"><a href="creating-some-basic-plots.html#cb254-4" tabindex="-1"></a></span>
+<span id="cb254-5"><a href="creating-some-basic-plots.html#cb254-5" tabindex="-1"></a><span class="fu">curve</span>(my_function, <span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">20</span>,</span>
+<span id="cb254-6"><a href="creating-some-basic-plots.html#cb254-6" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;f(x)&quot;</span>,</span>
+<span id="cb254-7"><a href="creating-some-basic-plots.html#cb254-7" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">&quot;A Logistic-Shaped Curve&quot;</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-315-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p><strong>Plotting a function with additional arguments</strong></p>
-<div class="sourceCode" id="cb241"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb241-1"><a href="creating-some-basic-plots.html#cb241-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-254-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb255"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb255-1"><a href="creating-some-basic-plots.html#cb255-1" tabindex="-1"></a><span class="fu">curve</span>(<span class="fu">dnorm</span>(x, <span class="at">mean =</span> <span class="dv">2</span>, <span class="at">sd =</span> <span class="dv">3</span>), <span class="at">from =</span> <span class="sc">-</span><span class="dv">4</span>, <span class="at">to =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-316-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="more-on-plots-with-base-r" class="section level2 hasAnchor" number="5.7">
 <h2><span class="header-section-number">5.7</span> More on plots with base R<a href="creating-some-basic-plots.html#more-on-plots-with-base-r" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <div id="multi-frame-plot" class="section level3 hasAnchor" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> Multi-frame plot<a href="creating-some-basic-plots.html#multi-frame-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>To create a <code>3x2</code> multi-frame plot. Use <code>par(mfrow = c(3, 2))</code>.</p>
-<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="creating-some-basic-plots.html#cb242-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb242-2"><a href="creating-some-basic-plots.html#cb242-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">5</span>)</span>
-<span id="cb242-3"><a href="creating-some-basic-plots.html#cb242-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
-<span id="cb242-4"><a href="creating-some-basic-plots.html#cb242-4" tabindex="-1"></a></span>
-<span id="cb242-5"><a href="creating-some-basic-plots.html#cb242-5" tabindex="-1"></a><span class="co"># create a 2x2 multi-frame plot</span></span>
-<span id="cb242-6"><a href="creating-some-basic-plots.html#cb242-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb242-7"><a href="creating-some-basic-plots.html#cb242-7" tabindex="-1"></a><span class="fu">hist</span>(x)</span>
-<span id="cb242-8"><a href="creating-some-basic-plots.html#cb242-8" tabindex="-1"></a><span class="fu">hist</span>(y,<span class="at">breaks =</span> <span class="dv">10</span>)</span>
-<span id="cb242-9"><a href="creating-some-basic-plots.html#cb242-9" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb242-10"><a href="creating-some-basic-plots.html#cb242-10" tabindex="-1"></a><span class="fu">boxplot</span>(x, y)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-255-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<p>You can place multiple plots in one figure using <code>par(mfrow = c(r, c))</code>, which creates an <span class="math inline">\(r \times c\)</span> layout.</p>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="creating-some-basic-plots.html#cb256-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb256-2"><a href="creating-some-basic-plots.html#cb256-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">5</span>)</span>
+<span id="cb256-3"><a href="creating-some-basic-plots.html#cb256-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">2</span>, <span class="dv">2</span>)</span>
+<span id="cb256-4"><a href="creating-some-basic-plots.html#cb256-4" tabindex="-1"></a></span>
+<span id="cb256-5"><a href="creating-some-basic-plots.html#cb256-5" tabindex="-1"></a><span class="co"># create a 2x2 multi-frame plot</span></span>
+<span id="cb256-6"><a href="creating-some-basic-plots.html#cb256-6" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>))</span>
+<span id="cb256-7"><a href="creating-some-basic-plots.html#cb256-7" tabindex="-1"></a><span class="fu">hist</span>(x)</span>
+<span id="cb256-8"><a href="creating-some-basic-plots.html#cb256-8" tabindex="-1"></a><span class="fu">hist</span>(y,<span class="at">breaks =</span> <span class="dv">10</span>)</span>
+<span id="cb256-9"><a href="creating-some-basic-plots.html#cb256-9" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
+<span id="cb256-10"><a href="creating-some-basic-plots.html#cb256-10" tabindex="-1"></a><span class="fu">boxplot</span>(x, y)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-317-1.png" width="70%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="subsubsec:type_of_plot" class="section level3 hasAnchor" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> Type of Plot<a href="creating-some-basic-plots.html#subsubsec:type_of_plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
@@ -724,19 +1161,22 @@ Alternatively:</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb243"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb243-1"><a href="creating-some-basic-plots.html#cb243-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
-<span id="cb243-2"><a href="creating-some-basic-plots.html#cb243-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb243-3"><a href="creating-some-basic-plots.html#cb243-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb243-4"><a href="creating-some-basic-plots.html#cb243-4" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb243-5"><a href="creating-some-basic-plots.html#cb243-5" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>)</span>
-<span id="cb243-6"><a href="creating-some-basic-plots.html#cb243-6" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>)</span>
-<span id="cb243-7"><a href="creating-some-basic-plots.html#cb243-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>)</span>
-<span id="cb243-8"><a href="creating-some-basic-plots.html#cb243-8" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;h&quot;</span>)</span>
-<span id="cb243-9"><a href="creating-some-basic-plots.html#cb243-9" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-256-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb257"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb257-1"><a href="creating-some-basic-plots.html#cb257-1" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span>
+<span id="cb257-2"><a href="creating-some-basic-plots.html#cb257-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">5</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb257-3"><a href="creating-some-basic-plots.html#cb257-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb257-4"><a href="creating-some-basic-plots.html#cb257-4" tabindex="-1"></a></span>
+<span id="cb257-5"><a href="creating-some-basic-plots.html#cb257-5" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">main =</span> <span class="st">&#39;Default: type = &quot;p&quot;&#39;</span>)</span>
+<span id="cb257-6"><a href="creating-some-basic-plots.html#cb257-6" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;p&quot;</span>, <span class="at">main =</span> <span class="st">&#39;type = &quot;p&quot;&#39;</span>)</span>
+<span id="cb257-7"><a href="creating-some-basic-plots.html#cb257-7" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;l&quot;</span>, <span class="at">main =</span> <span class="st">&#39;type = &quot;l&quot;&#39;</span>)</span>
+<span id="cb257-8"><a href="creating-some-basic-plots.html#cb257-8" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;b&quot;</span>, <span class="at">main =</span> <span class="st">&#39;type = &quot;b&quot;&#39;</span>)</span>
+<span id="cb257-9"><a href="creating-some-basic-plots.html#cb257-9" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;h&quot;</span>, <span class="at">main =</span> <span class="st">&#39;type = &quot;h&quot;&#39;</span>)</span>
+<span id="cb257-10"><a href="creating-some-basic-plots.html#cb257-10" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">type =</span> <span class="st">&quot;o&quot;</span>, <span class="at">main =</span> <span class="st">&#39;type = &quot;o&quot;&#39;</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-318-1.png" width="70%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="creating-some-basic-plots.html#cb258-1" tabindex="-1"></a></span>
+<span id="cb258-2"><a href="creating-some-basic-plots.html#cb258-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
 </div>
-<div id="parameters-of-a-plot" class="section level3 hasAnchor" number="5.7.3">
-<h3><span class="header-section-number">5.7.3</span> Parameters of a plot<a href="creating-some-basic-plots.html#parameters-of-a-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="common-plot-parameters" class="section level3 hasAnchor" number="5.7.3">
+<h3><span class="header-section-number">5.7.3</span> Common plot parameters<a href="creating-some-basic-plots.html#common-plot-parameters" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <table>
 <thead>
 <tr class="header">
@@ -785,53 +1225,94 @@ Alternatively:</p>
 <td><code>lty</code></td>
 <td>Type of the line</td>
 </tr>
+<tr class="odd">
+<td><code>cex</code></td>
+<td>Size of points/text</td>
+</tr>
+<tr class="even">
+<td><code>lwd</code></td>
+<td>Line width</td>
+</tr>
 </tbody>
 </table>
 <p>To illustrate some of the components:</p>
-<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="creating-some-basic-plots.html#cb244-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb244-2"><a href="creating-some-basic-plots.html#cb244-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">15</span>)</span>
-<span id="cb244-3"><a href="creating-some-basic-plots.html#cb244-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">2</span>, <span class="dv">13</span>)</span>
-<span id="cb244-4"><a href="creating-some-basic-plots.html#cb244-4" tabindex="-1"></a></span>
-<span id="cb244-5"><a href="creating-some-basic-plots.html#cb244-5" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">pch =</span> <span class="dv">15</span>, <span class="at">main =</span> <span class="st">&quot;This is the title&quot;</span>, <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
-<span id="cb244-6"><a href="creating-some-basic-plots.html#cb244-6" tabindex="-1"></a>     <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">100</span>), <span class="at">xlab =</span> <span class="st">&quot;name of x-axis&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;name of y-axis&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-257-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb259"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb259-1"><a href="creating-some-basic-plots.html#cb259-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb259-2"><a href="creating-some-basic-plots.html#cb259-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">15</span>)</span>
+<span id="cb259-3"><a href="creating-some-basic-plots.html#cb259-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">2</span>, <span class="dv">13</span>)</span>
+<span id="cb259-4"><a href="creating-some-basic-plots.html#cb259-4" tabindex="-1"></a></span>
+<span id="cb259-5"><a href="creating-some-basic-plots.html#cb259-5" tabindex="-1"></a><span class="fu">plot</span>(</span>
+<span id="cb259-6"><a href="creating-some-basic-plots.html#cb259-6" tabindex="-1"></a>  x, y,</span>
+<span id="cb259-7"><a href="creating-some-basic-plots.html#cb259-7" tabindex="-1"></a>  <span class="at">pch =</span> <span class="dv">16</span>,</span>
+<span id="cb259-8"><a href="creating-some-basic-plots.html#cb259-8" tabindex="-1"></a>  <span class="at">col =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb259-9"><a href="creating-some-basic-plots.html#cb259-9" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;A Scatter Plot with Custom Settings&quot;</span>,</span>
+<span id="cb259-10"><a href="creating-some-basic-plots.html#cb259-10" tabindex="-1"></a>  <span class="at">sub =</span> <span class="st">&quot;Example: change labels, limits, and point style&quot;</span>,</span>
+<span id="cb259-11"><a href="creating-some-basic-plots.html#cb259-11" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>,</span>
+<span id="cb259-12"><a href="creating-some-basic-plots.html#cb259-12" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;y&quot;</span>,</span>
+<span id="cb259-13"><a href="creating-some-basic-plots.html#cb259-13" tabindex="-1"></a>  <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>),</span>
+<span id="cb259-14"><a href="creating-some-basic-plots.html#cb259-14" tabindex="-1"></a>  <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>)</span>
+<span id="cb259-15"><a href="creating-some-basic-plots.html#cb259-15" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-319-1.png" width="60%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="elements-on-plot" class="section level3 hasAnchor" number="5.7.4">
 <h3><span class="header-section-number">5.7.4</span> Elements on plot<a href="creating-some-basic-plots.html#elements-on-plot" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>These functions add layers after the main plot is created.</p>
 <table>
 <thead>
 <tr class="header">
 <th>Function</th>
-<th>Description</th>
+<th>What it adds</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>abline(c, m)</code></td>
-<td>plot the line y = mx +c</td>
-</tr>
-<tr class="even">
-<td><code>abline(h = a)</code></td>
-<td>plot the line y = a</td>
-</tr>
-<tr class="odd">
-<td><code>abline(v = b)</code></td>
-<td>plot the line x = b</td>
+<td><code>points(x, y)</code></td>
+<td>add points</td>
 </tr>
 <tr class="even">
 <td><code>lines(x, y)</code></td>
-<td>line joining points with coordinates (x,y)</td>
+<td>add lines</td>
+</tr>
+<tr class="odd">
+<td><code>abline(a, b)</code></td>
+<td>add line <span class="math inline">\(y = a + b x\)</span></td>
+</tr>
+<tr class="even">
+<td><code>abline(h = a)</code></td>
+<td>add horizontal line <span class="math inline">\(y = a\)</span></td>
+</tr>
+<tr class="odd">
+<td><code>abline(v = b)</code></td>
+<td>add vertical line <span class="math inline">\(x = b\)</span></td>
+</tr>
+<tr class="even">
+<td><code>legend()</code></td>
+<td>add a legend</td>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb245"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb245-1"><a href="creating-some-basic-plots.html#cb245-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb245-2"><a href="creating-some-basic-plots.html#cb245-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">15</span>)</span>
-<span id="cb245-3"><a href="creating-some-basic-plots.html#cb245-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">2</span>, <span class="dv">13</span>)</span>
-<span id="cb245-4"><a href="creating-some-basic-plots.html#cb245-4" tabindex="-1"></a><span class="fu">plot</span>(x, y)</span>
-<span id="cb245-5"><a href="creating-some-basic-plots.html#cb245-5" tabindex="-1"></a><span class="co"># connect the points (20, 20), (30, 80), (40, 40) with a line</span></span>
-<span id="cb245-6"><a href="creating-some-basic-plots.html#cb245-6" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>),<span class="at">y =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">80</span>, <span class="dv">40</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span>
-<span id="cb245-7"><a href="creating-some-basic-plots.html#cb245-7" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">60</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-258-1.png" width="60%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="creating-some-basic-plots.html#cb260-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb260-2"><a href="creating-some-basic-plots.html#cb260-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">50</span>, <span class="dv">15</span>)</span>
+<span id="cb260-3"><a href="creating-some-basic-plots.html#cb260-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> x <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="dv">2</span>, <span class="dv">13</span>)</span>
+<span id="cb260-4"><a href="creating-some-basic-plots.html#cb260-4" tabindex="-1"></a></span>
+<span id="cb260-5"><a href="creating-some-basic-plots.html#cb260-5" tabindex="-1"></a><span class="fu">plot</span>(x, y, <span class="at">pch =</span> <span class="dv">16</span>, <span class="at">main =</span> <span class="st">&quot;Adding Lines and Reference Lines&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;x&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;y&quot;</span>)</span>
+<span id="cb260-6"><a href="creating-some-basic-plots.html#cb260-6" tabindex="-1"></a></span>
+<span id="cb260-7"><a href="creating-some-basic-plots.html#cb260-7" tabindex="-1"></a><span class="co"># connect three chosen points with a line</span></span>
+<span id="cb260-8"><a href="creating-some-basic-plots.html#cb260-8" tabindex="-1"></a><span class="fu">lines</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">80</span>, <span class="dv">40</span>), <span class="at">col =</span> <span class="st">&quot;red&quot;</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb260-9"><a href="creating-some-basic-plots.html#cb260-9" tabindex="-1"></a></span>
+<span id="cb260-10"><a href="creating-some-basic-plots.html#cb260-10" tabindex="-1"></a><span class="co"># add reference lines</span></span>
+<span id="cb260-11"><a href="creating-some-basic-plots.html#cb260-11" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v =</span> <span class="dv">60</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb260-12"><a href="creating-some-basic-plots.html#cb260-12" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">h =</span> <span class="dv">50</span>, <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
+<span id="cb260-13"><a href="creating-some-basic-plots.html#cb260-13" tabindex="-1"></a></span>
+<span id="cb260-14"><a href="creating-some-basic-plots.html#cb260-14" tabindex="-1"></a><span class="co"># Optional: add a legend.</span></span>
+<span id="cb260-15"><a href="creating-some-basic-plots.html#cb260-15" tabindex="-1"></a><span class="fu">legend</span>(</span>
+<span id="cb260-16"><a href="creating-some-basic-plots.html#cb260-16" tabindex="-1"></a>  <span class="st">&quot;topleft&quot;</span>,</span>
+<span id="cb260-17"><a href="creating-some-basic-plots.html#cb260-17" tabindex="-1"></a>  <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">&quot;Data&quot;</span>, <span class="st">&quot;Custom line&quot;</span>, <span class="st">&quot;Reference lines&quot;</span>),</span>
+<span id="cb260-18"><a href="creating-some-basic-plots.html#cb260-18" tabindex="-1"></a>  <span class="at">pch =</span> <span class="fu">c</span>(<span class="dv">16</span>, <span class="cn">NA</span>, <span class="cn">NA</span>),</span>
+<span id="cb260-19"><a href="creating-some-basic-plots.html#cb260-19" tabindex="-1"></a>  <span class="at">lty =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">1</span>, <span class="dv">2</span>),</span>
+<span id="cb260-20"><a href="creating-some-basic-plots.html#cb260-20" tabindex="-1"></a>  <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;black&quot;</span>, <span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>),</span>
+<span id="cb260-21"><a href="creating-some-basic-plots.html#cb260-21" tabindex="-1"></a>  <span class="at">bty =</span> <span class="st">&quot;n&quot;</span></span>
+<span id="cb260-22"><a href="creating-some-basic-plots.html#cb260-22" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-320-1.png" width="80%" style="display: block; margin: auto;" /></p>
 
 </div>
 </div>

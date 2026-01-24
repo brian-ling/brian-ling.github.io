@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,13 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#line-graph"><i class="fa fa-check"></i><b>5.2</b> Line Graph</a></li>
 <li class="chapter" data-level="5.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#bar-chart"><i class="fa fa-check"></i><b>5.3</b> Bar Chart</a></li>
 <li class="chapter" data-level="5.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#histogram"><i class="fa fa-check"></i><b>5.4</b> Histogram</a></li>
-<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#transformation-of-data"><i class="fa fa-check"></i><b>5.5.1</b> Transformation of data</a></li>
+<li class="chapter" data-level="5.5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#when-to-use-boxplots"><i class="fa fa-check"></i><b>5.5.2</b> When to use boxplots</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#plotting-a-function-curve"><i class="fa fa-check"></i><b>5.6</b> Plotting a function curve</a></li>
 <li class="chapter" data-level="5.7" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#more-on-plots-with-base-r"><i class="fa fa-check"></i><b>5.7</b> More on plots with base R</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#multi-frame-plot"><i class="fa fa-check"></i><b>5.7.1</b> Multi-frame plot</a></li>
 <li class="chapter" data-level="5.7.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#subsubsec:type_of_plot"><i class="fa fa-check"></i><b>5.7.2</b> Type of Plot</a></li>
-<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#parameters-of-a-plot"><i class="fa fa-check"></i><b>5.7.3</b> Parameters of a plot</a></li>
+<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#common-plot-parameters"><i class="fa fa-check"></i><b>5.7.3</b> Common plot parameters</a></li>
 <li class="chapter" data-level="5.7.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#elements-on-plot"><i class="fa fa-check"></i><b>5.7.4</b> Elements on plot</a></li>
 </ul></li>
 </ul></li>
@@ -637,22 +641,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.6</span> R code<a href="r-markdown.html#r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Two ways: inline and code chunk.</p>
 <p>Code Chunk:</p>
-<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="r-markdown.html#cb483-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
-<span id="cb483-2"><a href="r-markdown.html#cb483-2" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb483-3"><a href="r-markdown.html#cb483-3" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
-<span id="cb483-4"><a href="r-markdown.html#cb483-4" tabindex="-1"></a></span>
-<span id="cb483-5"><a href="r-markdown.html#cb483-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb483-6"><a href="r-markdown.html#cb483-6" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
-<span id="cb483-7"><a href="r-markdown.html#cb483-7" tabindex="-1"></a></span>
-<span id="cb483-8"><a href="r-markdown.html#cb483-8" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb483-9"><a href="r-markdown.html#cb483-9" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span></code></pre></div>
+<div class="sourceCode" id="cb498"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb498-1"><a href="r-markdown.html#cb498-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb498-2"><a href="r-markdown.html#cb498-2" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb498-3"><a href="r-markdown.html#cb498-3" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
+<span id="cb498-4"><a href="r-markdown.html#cb498-4" tabindex="-1"></a></span>
+<span id="cb498-5"><a href="r-markdown.html#cb498-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb498-6"><a href="r-markdown.html#cb498-6" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
+<span id="cb498-7"><a href="r-markdown.html#cb498-7" tabindex="-1"></a></span>
+<span id="cb498-8"><a href="r-markdown.html#cb498-8" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb498-9"><a href="r-markdown.html#cb498-9" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span></code></pre></div>
 <p>Inline: The square root of <code>x</code> is 2.4494897.</p>
 <p><strong>Controlling Which Code and Results Are Shown</strong></p>
 <p>See: <a href="https://rc2e.com/rmarkdown#recipe-code-results" class="uri">https://rc2e.com/rmarkdown#recipe-code-results</a></p>
 </div>
 <div id="graphics" class="section level2 hasAnchor" number="16.7">
 <h2><span class="header-section-number">16.7</span> Graphics<a href="r-markdown.html#graphics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="Book_files/figure-html/unnamed-chunk-524-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="Book_files/figure-html/unnamed-chunk-586-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="latex-equation" class="section level2 hasAnchor" number="16.8">
 <h2><span class="header-section-number">16.8</span> Latex Equation<a href="r-markdown.html#latex-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>

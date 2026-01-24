@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,13 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#line-graph"><i class="fa fa-check"></i><b>5.2</b> Line Graph</a></li>
 <li class="chapter" data-level="5.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#bar-chart"><i class="fa fa-check"></i><b>5.3</b> Bar Chart</a></li>
 <li class="chapter" data-level="5.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#histogram"><i class="fa fa-check"></i><b>5.4</b> Histogram</a></li>
-<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#transformation-of-data"><i class="fa fa-check"></i><b>5.5.1</b> Transformation of data</a></li>
+<li class="chapter" data-level="5.5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#when-to-use-boxplots"><i class="fa fa-check"></i><b>5.5.2</b> When to use boxplots</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#plotting-a-function-curve"><i class="fa fa-check"></i><b>5.6</b> Plotting a function curve</a></li>
 <li class="chapter" data-level="5.7" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#more-on-plots-with-base-r"><i class="fa fa-check"></i><b>5.7</b> More on plots with base R</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#multi-frame-plot"><i class="fa fa-check"></i><b>5.7.1</b> Multi-frame plot</a></li>
 <li class="chapter" data-level="5.7.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#subsubsec:type_of_plot"><i class="fa fa-check"></i><b>5.7.2</b> Type of Plot</a></li>
-<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#parameters-of-a-plot"><i class="fa fa-check"></i><b>5.7.3</b> Parameters of a plot</a></li>
+<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#common-plot-parameters"><i class="fa fa-check"></i><b>5.7.3</b> Common plot parameters</a></li>
 <li class="chapter" data-level="5.7.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#elements-on-plot"><i class="fa fa-check"></i><b>5.7.4</b> Elements on plot</a></li>
 </ul></li>
 </ul></li>
@@ -625,22 +629,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="managing-data-with-r.html#cb157-1" tabindex="-1"></a><span class="co"># let&#39;s view the dataset</span></span>
 <span id="cb157-2"><a href="managing-data-with-r.html#cb157-2" tabindex="-1"></a>flights</span>
 <span id="cb157-3"><a href="managing-data-with-r.html#cb157-3" tabindex="-1"></a><span class="do">## # A tibble: 336,776 × 19</span></span>
-<span id="cb157-4"><a href="managing-data-with-r.html#cb157-4" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay</span></span>
-<span id="cb157-5"><a href="managing-data-with-r.html#cb157-5" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;</span></span>
-<span id="cb157-6"><a href="managing-data-with-r.html#cb157-6" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819        11</span></span>
-<span id="cb157-7"><a href="managing-data-with-r.html#cb157-7" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830        20</span></span>
-<span id="cb157-8"><a href="managing-data-with-r.html#cb157-8" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850        33</span></span>
-<span id="cb157-9"><a href="managing-data-with-r.html#cb157-9" tabindex="-1"></a><span class="do">##  4  2013     1     1      544            545        -1     1004           1022       -18</span></span>
-<span id="cb157-10"><a href="managing-data-with-r.html#cb157-10" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            600        -6      812            837       -25</span></span>
-<span id="cb157-11"><a href="managing-data-with-r.html#cb157-11" tabindex="-1"></a><span class="do">##  6  2013     1     1      554            558        -4      740            728        12</span></span>
-<span id="cb157-12"><a href="managing-data-with-r.html#cb157-12" tabindex="-1"></a><span class="do">##  7  2013     1     1      555            600        -5      913            854        19</span></span>
-<span id="cb157-13"><a href="managing-data-with-r.html#cb157-13" tabindex="-1"></a><span class="do">##  8  2013     1     1      557            600        -3      709            723       -14</span></span>
-<span id="cb157-14"><a href="managing-data-with-r.html#cb157-14" tabindex="-1"></a><span class="do">##  9  2013     1     1      557            600        -3      838            846        -8</span></span>
-<span id="cb157-15"><a href="managing-data-with-r.html#cb157-15" tabindex="-1"></a><span class="do">## 10  2013     1     1      558            600        -2      753            745         8</span></span>
+<span id="cb157-4"><a href="managing-data-with-r.html#cb157-4" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span></span>
+<span id="cb157-5"><a href="managing-data-with-r.html#cb157-5" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;</span></span>
+<span id="cb157-6"><a href="managing-data-with-r.html#cb157-6" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819</span></span>
+<span id="cb157-7"><a href="managing-data-with-r.html#cb157-7" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830</span></span>
+<span id="cb157-8"><a href="managing-data-with-r.html#cb157-8" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850</span></span>
+<span id="cb157-9"><a href="managing-data-with-r.html#cb157-9" tabindex="-1"></a><span class="do">##  4  2013     1     1      544            545        -1     1004           1022</span></span>
+<span id="cb157-10"><a href="managing-data-with-r.html#cb157-10" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            600        -6      812            837</span></span>
+<span id="cb157-11"><a href="managing-data-with-r.html#cb157-11" tabindex="-1"></a><span class="do">##  6  2013     1     1      554            558        -4      740            728</span></span>
+<span id="cb157-12"><a href="managing-data-with-r.html#cb157-12" tabindex="-1"></a><span class="do">##  7  2013     1     1      555            600        -5      913            854</span></span>
+<span id="cb157-13"><a href="managing-data-with-r.html#cb157-13" tabindex="-1"></a><span class="do">##  8  2013     1     1      557            600        -3      709            723</span></span>
+<span id="cb157-14"><a href="managing-data-with-r.html#cb157-14" tabindex="-1"></a><span class="do">##  9  2013     1     1      557            600        -3      838            846</span></span>
+<span id="cb157-15"><a href="managing-data-with-r.html#cb157-15" tabindex="-1"></a><span class="do">## 10  2013     1     1      558            600        -2      753            745</span></span>
 <span id="cb157-16"><a href="managing-data-with-r.html#cb157-16" tabindex="-1"></a><span class="do">## # ℹ 336,766 more rows</span></span>
-<span id="cb157-17"><a href="managing-data-with-r.html#cb157-17" tabindex="-1"></a><span class="do">## # ℹ 10 more variables: carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,</span></span>
-<span id="cb157-18"><a href="managing-data-with-r.html#cb157-18" tabindex="-1"></a><span class="do">## #   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,</span></span>
-<span id="cb157-19"><a href="managing-data-with-r.html#cb157-19" tabindex="-1"></a><span class="do">## #   time_hour &lt;dttm&gt;</span></span></code></pre></div>
+<span id="cb157-17"><a href="managing-data-with-r.html#cb157-17" tabindex="-1"></a><span class="do">## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span></span>
+<span id="cb157-18"><a href="managing-data-with-r.html#cb157-18" tabindex="-1"></a><span class="do">## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,</span></span>
+<span id="cb157-19"><a href="managing-data-with-r.html#cb157-19" tabindex="-1"></a><span class="do">## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></span></code></pre></div>
 <p><code>flights</code> is a tibble. Tibbles are data frames with better properties.</p>
 <p><strong>Converting between <code>data.frame</code> and <code>tibble</code></strong></p>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="managing-data-with-r.html#cb158-1" tabindex="-1"></a><span class="do">## start with a data.frame</span></span>
@@ -762,22 +766,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb165-2"><a href="managing-data-with-r.html#cb165-2" tabindex="-1"></a><span class="co"># month == 1, day == 1 is the condition</span></span>
 <span id="cb165-3"><a href="managing-data-with-r.html#cb165-3" tabindex="-1"></a>(jan1 <span class="ot">&lt;-</span> <span class="fu">filter</span>(flights, month <span class="sc">==</span> <span class="dv">1</span>, day <span class="sc">==</span> <span class="dv">1</span>))</span>
 <span id="cb165-4"><a href="managing-data-with-r.html#cb165-4" tabindex="-1"></a><span class="do">## # A tibble: 842 × 19</span></span>
-<span id="cb165-5"><a href="managing-data-with-r.html#cb165-5" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay</span></span>
-<span id="cb165-6"><a href="managing-data-with-r.html#cb165-6" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;</span></span>
-<span id="cb165-7"><a href="managing-data-with-r.html#cb165-7" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819        11</span></span>
-<span id="cb165-8"><a href="managing-data-with-r.html#cb165-8" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830        20</span></span>
-<span id="cb165-9"><a href="managing-data-with-r.html#cb165-9" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850        33</span></span>
-<span id="cb165-10"><a href="managing-data-with-r.html#cb165-10" tabindex="-1"></a><span class="do">##  4  2013     1     1      544            545        -1     1004           1022       -18</span></span>
-<span id="cb165-11"><a href="managing-data-with-r.html#cb165-11" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            600        -6      812            837       -25</span></span>
-<span id="cb165-12"><a href="managing-data-with-r.html#cb165-12" tabindex="-1"></a><span class="do">##  6  2013     1     1      554            558        -4      740            728        12</span></span>
-<span id="cb165-13"><a href="managing-data-with-r.html#cb165-13" tabindex="-1"></a><span class="do">##  7  2013     1     1      555            600        -5      913            854        19</span></span>
-<span id="cb165-14"><a href="managing-data-with-r.html#cb165-14" tabindex="-1"></a><span class="do">##  8  2013     1     1      557            600        -3      709            723       -14</span></span>
-<span id="cb165-15"><a href="managing-data-with-r.html#cb165-15" tabindex="-1"></a><span class="do">##  9  2013     1     1      557            600        -3      838            846        -8</span></span>
-<span id="cb165-16"><a href="managing-data-with-r.html#cb165-16" tabindex="-1"></a><span class="do">## 10  2013     1     1      558            600        -2      753            745         8</span></span>
+<span id="cb165-5"><a href="managing-data-with-r.html#cb165-5" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span></span>
+<span id="cb165-6"><a href="managing-data-with-r.html#cb165-6" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;</span></span>
+<span id="cb165-7"><a href="managing-data-with-r.html#cb165-7" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819</span></span>
+<span id="cb165-8"><a href="managing-data-with-r.html#cb165-8" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830</span></span>
+<span id="cb165-9"><a href="managing-data-with-r.html#cb165-9" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850</span></span>
+<span id="cb165-10"><a href="managing-data-with-r.html#cb165-10" tabindex="-1"></a><span class="do">##  4  2013     1     1      544            545        -1     1004           1022</span></span>
+<span id="cb165-11"><a href="managing-data-with-r.html#cb165-11" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            600        -6      812            837</span></span>
+<span id="cb165-12"><a href="managing-data-with-r.html#cb165-12" tabindex="-1"></a><span class="do">##  6  2013     1     1      554            558        -4      740            728</span></span>
+<span id="cb165-13"><a href="managing-data-with-r.html#cb165-13" tabindex="-1"></a><span class="do">##  7  2013     1     1      555            600        -5      913            854</span></span>
+<span id="cb165-14"><a href="managing-data-with-r.html#cb165-14" tabindex="-1"></a><span class="do">##  8  2013     1     1      557            600        -3      709            723</span></span>
+<span id="cb165-15"><a href="managing-data-with-r.html#cb165-15" tabindex="-1"></a><span class="do">##  9  2013     1     1      557            600        -3      838            846</span></span>
+<span id="cb165-16"><a href="managing-data-with-r.html#cb165-16" tabindex="-1"></a><span class="do">## 10  2013     1     1      558            600        -2      753            745</span></span>
 <span id="cb165-17"><a href="managing-data-with-r.html#cb165-17" tabindex="-1"></a><span class="do">## # ℹ 832 more rows</span></span>
-<span id="cb165-18"><a href="managing-data-with-r.html#cb165-18" tabindex="-1"></a><span class="do">## # ℹ 10 more variables: carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,</span></span>
-<span id="cb165-19"><a href="managing-data-with-r.html#cb165-19" tabindex="-1"></a><span class="do">## #   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,</span></span>
-<span id="cb165-20"><a href="managing-data-with-r.html#cb165-20" tabindex="-1"></a><span class="do">## #   time_hour &lt;dttm&gt;</span></span></code></pre></div>
+<span id="cb165-18"><a href="managing-data-with-r.html#cb165-18" tabindex="-1"></a><span class="do">## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span></span>
+<span id="cb165-19"><a href="managing-data-with-r.html#cb165-19" tabindex="-1"></a><span class="do">## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,</span></span>
+<span id="cb165-20"><a href="managing-data-with-r.html#cb165-20" tabindex="-1"></a><span class="do">## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></span></code></pre></div>
 <p>Let’s use a simple dataset to see how to perform the same task without <code>filter</code>:</p>
 <div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="managing-data-with-r.html#cb166-1" tabindex="-1"></a><span class="co"># just a simple dataset</span></span>
 <span id="cb166-2"><a href="managing-data-with-r.html#cb166-2" tabindex="-1"></a>(data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">5</span>, <span class="dv">3</span>), <span class="at">y =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>))</span>
@@ -854,49 +858,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>1c. Find all flights that were operated by United, American, or Delta</p>
 <div class="sourceCode" id="cb177"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb177-1"><a href="managing-data-with-r.html#cb177-1" tabindex="-1"></a><span class="co"># find all the sorted carrier codes in the dataset</span></span>
 <span id="cb177-2"><a href="managing-data-with-r.html#cb177-2" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">unique</span>(flights<span class="sc">$</span>carrier)) </span>
-<span id="cb177-3"><a href="managing-data-with-r.html#cb177-3" tabindex="-1"></a><span class="do">##  [1] &quot;9E&quot; &quot;AA&quot; &quot;AS&quot; &quot;B6&quot; &quot;DL&quot; &quot;EV&quot; &quot;F9&quot; &quot;FL&quot; &quot;HA&quot; &quot;MQ&quot; &quot;OO&quot; &quot;UA&quot; &quot;US&quot; &quot;VX&quot; &quot;WN&quot; &quot;YV&quot;</span></span>
-<span id="cb177-4"><a href="managing-data-with-r.html#cb177-4" tabindex="-1"></a></span>
-<span id="cb177-5"><a href="managing-data-with-r.html#cb177-5" tabindex="-1"></a><span class="co"># look up airline names from their carrier codes</span></span>
-<span id="cb177-6"><a href="managing-data-with-r.html#cb177-6" tabindex="-1"></a>airlines </span>
-<span id="cb177-7"><a href="managing-data-with-r.html#cb177-7" tabindex="-1"></a><span class="do">## # A tibble: 16 × 2</span></span>
-<span id="cb177-8"><a href="managing-data-with-r.html#cb177-8" tabindex="-1"></a><span class="do">##    carrier name                       </span></span>
-<span id="cb177-9"><a href="managing-data-with-r.html#cb177-9" tabindex="-1"></a><span class="do">##    &lt;chr&gt;   &lt;chr&gt;                      </span></span>
-<span id="cb177-10"><a href="managing-data-with-r.html#cb177-10" tabindex="-1"></a><span class="do">##  1 9E      Endeavor Air Inc.          </span></span>
-<span id="cb177-11"><a href="managing-data-with-r.html#cb177-11" tabindex="-1"></a><span class="do">##  2 AA      American Airlines Inc.     </span></span>
-<span id="cb177-12"><a href="managing-data-with-r.html#cb177-12" tabindex="-1"></a><span class="do">##  3 AS      Alaska Airlines Inc.       </span></span>
-<span id="cb177-13"><a href="managing-data-with-r.html#cb177-13" tabindex="-1"></a><span class="do">##  4 B6      JetBlue Airways            </span></span>
-<span id="cb177-14"><a href="managing-data-with-r.html#cb177-14" tabindex="-1"></a><span class="do">##  5 DL      Delta Air Lines Inc.       </span></span>
-<span id="cb177-15"><a href="managing-data-with-r.html#cb177-15" tabindex="-1"></a><span class="do">##  6 EV      ExpressJet Airlines Inc.   </span></span>
-<span id="cb177-16"><a href="managing-data-with-r.html#cb177-16" tabindex="-1"></a><span class="do">##  7 F9      Frontier Airlines Inc.     </span></span>
-<span id="cb177-17"><a href="managing-data-with-r.html#cb177-17" tabindex="-1"></a><span class="do">##  8 FL      AirTran Airways Corporation</span></span>
-<span id="cb177-18"><a href="managing-data-with-r.html#cb177-18" tabindex="-1"></a><span class="do">##  9 HA      Hawaiian Airlines Inc.     </span></span>
-<span id="cb177-19"><a href="managing-data-with-r.html#cb177-19" tabindex="-1"></a><span class="do">## 10 MQ      Envoy Air                  </span></span>
-<span id="cb177-20"><a href="managing-data-with-r.html#cb177-20" tabindex="-1"></a><span class="do">## 11 OO      SkyWest Airlines Inc.      </span></span>
-<span id="cb177-21"><a href="managing-data-with-r.html#cb177-21" tabindex="-1"></a><span class="do">## 12 UA      United Air Lines Inc.      </span></span>
-<span id="cb177-22"><a href="managing-data-with-r.html#cb177-22" tabindex="-1"></a><span class="do">## 13 US      US Airways Inc.            </span></span>
-<span id="cb177-23"><a href="managing-data-with-r.html#cb177-23" tabindex="-1"></a><span class="do">## 14 VX      Virgin America             </span></span>
-<span id="cb177-24"><a href="managing-data-with-r.html#cb177-24" tabindex="-1"></a><span class="do">## 15 WN      Southwest Airlines Co.     </span></span>
-<span id="cb177-25"><a href="managing-data-with-r.html#cb177-25" tabindex="-1"></a><span class="do">## 16 YV      Mesa Airlines Inc.</span></span>
-<span id="cb177-26"><a href="managing-data-with-r.html#cb177-26" tabindex="-1"></a></span>
-<span id="cb177-27"><a href="managing-data-with-r.html#cb177-27" tabindex="-1"></a><span class="co"># after looking up the names, we know UA = United, AA = American, DL = Delta</span></span>
-<span id="cb177-28"><a href="managing-data-with-r.html#cb177-28" tabindex="-1"></a><span class="fu">filter</span>(flights, carrier <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;UA&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;DL&quot;</span>))</span>
-<span id="cb177-29"><a href="managing-data-with-r.html#cb177-29" tabindex="-1"></a><span class="do">## # A tibble: 139,504 × 19</span></span>
-<span id="cb177-30"><a href="managing-data-with-r.html#cb177-30" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay</span></span>
-<span id="cb177-31"><a href="managing-data-with-r.html#cb177-31" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;</span></span>
-<span id="cb177-32"><a href="managing-data-with-r.html#cb177-32" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819        11</span></span>
-<span id="cb177-33"><a href="managing-data-with-r.html#cb177-33" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830        20</span></span>
-<span id="cb177-34"><a href="managing-data-with-r.html#cb177-34" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850        33</span></span>
-<span id="cb177-35"><a href="managing-data-with-r.html#cb177-35" tabindex="-1"></a><span class="do">##  4  2013     1     1      554            600        -6      812            837       -25</span></span>
-<span id="cb177-36"><a href="managing-data-with-r.html#cb177-36" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            558        -4      740            728        12</span></span>
-<span id="cb177-37"><a href="managing-data-with-r.html#cb177-37" tabindex="-1"></a><span class="do">##  6  2013     1     1      558            600        -2      753            745         8</span></span>
-<span id="cb177-38"><a href="managing-data-with-r.html#cb177-38" tabindex="-1"></a><span class="do">##  7  2013     1     1      558            600        -2      924            917         7</span></span>
-<span id="cb177-39"><a href="managing-data-with-r.html#cb177-39" tabindex="-1"></a><span class="do">##  8  2013     1     1      558            600        -2      923            937       -14</span></span>
-<span id="cb177-40"><a href="managing-data-with-r.html#cb177-40" tabindex="-1"></a><span class="do">##  9  2013     1     1      559            600        -1      941            910        31</span></span>
-<span id="cb177-41"><a href="managing-data-with-r.html#cb177-41" tabindex="-1"></a><span class="do">## 10  2013     1     1      559            600        -1      854            902        -8</span></span>
-<span id="cb177-42"><a href="managing-data-with-r.html#cb177-42" tabindex="-1"></a><span class="do">## # ℹ 139,494 more rows</span></span>
-<span id="cb177-43"><a href="managing-data-with-r.html#cb177-43" tabindex="-1"></a><span class="do">## # ℹ 10 more variables: carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,</span></span>
-<span id="cb177-44"><a href="managing-data-with-r.html#cb177-44" tabindex="-1"></a><span class="do">## #   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,</span></span>
-<span id="cb177-45"><a href="managing-data-with-r.html#cb177-45" tabindex="-1"></a><span class="do">## #   time_hour &lt;dttm&gt;</span></span></code></pre></div>
+<span id="cb177-3"><a href="managing-data-with-r.html#cb177-3" tabindex="-1"></a><span class="do">##  [1] &quot;9E&quot; &quot;AA&quot; &quot;AS&quot; &quot;B6&quot; &quot;DL&quot; &quot;EV&quot; &quot;F9&quot; &quot;FL&quot; &quot;HA&quot; &quot;MQ&quot; &quot;OO&quot; &quot;UA&quot; &quot;US&quot; &quot;VX&quot; &quot;WN&quot;</span></span>
+<span id="cb177-4"><a href="managing-data-with-r.html#cb177-4" tabindex="-1"></a><span class="do">## [16] &quot;YV&quot;</span></span>
+<span id="cb177-5"><a href="managing-data-with-r.html#cb177-5" tabindex="-1"></a></span>
+<span id="cb177-6"><a href="managing-data-with-r.html#cb177-6" tabindex="-1"></a><span class="co"># look up airline names from their carrier codes</span></span>
+<span id="cb177-7"><a href="managing-data-with-r.html#cb177-7" tabindex="-1"></a>airlines </span>
+<span id="cb177-8"><a href="managing-data-with-r.html#cb177-8" tabindex="-1"></a><span class="do">## # A tibble: 16 × 2</span></span>
+<span id="cb177-9"><a href="managing-data-with-r.html#cb177-9" tabindex="-1"></a><span class="do">##    carrier name                       </span></span>
+<span id="cb177-10"><a href="managing-data-with-r.html#cb177-10" tabindex="-1"></a><span class="do">##    &lt;chr&gt;   &lt;chr&gt;                      </span></span>
+<span id="cb177-11"><a href="managing-data-with-r.html#cb177-11" tabindex="-1"></a><span class="do">##  1 9E      Endeavor Air Inc.          </span></span>
+<span id="cb177-12"><a href="managing-data-with-r.html#cb177-12" tabindex="-1"></a><span class="do">##  2 AA      American Airlines Inc.     </span></span>
+<span id="cb177-13"><a href="managing-data-with-r.html#cb177-13" tabindex="-1"></a><span class="do">##  3 AS      Alaska Airlines Inc.       </span></span>
+<span id="cb177-14"><a href="managing-data-with-r.html#cb177-14" tabindex="-1"></a><span class="do">##  4 B6      JetBlue Airways            </span></span>
+<span id="cb177-15"><a href="managing-data-with-r.html#cb177-15" tabindex="-1"></a><span class="do">##  5 DL      Delta Air Lines Inc.       </span></span>
+<span id="cb177-16"><a href="managing-data-with-r.html#cb177-16" tabindex="-1"></a><span class="do">##  6 EV      ExpressJet Airlines Inc.   </span></span>
+<span id="cb177-17"><a href="managing-data-with-r.html#cb177-17" tabindex="-1"></a><span class="do">##  7 F9      Frontier Airlines Inc.     </span></span>
+<span id="cb177-18"><a href="managing-data-with-r.html#cb177-18" tabindex="-1"></a><span class="do">##  8 FL      AirTran Airways Corporation</span></span>
+<span id="cb177-19"><a href="managing-data-with-r.html#cb177-19" tabindex="-1"></a><span class="do">##  9 HA      Hawaiian Airlines Inc.     </span></span>
+<span id="cb177-20"><a href="managing-data-with-r.html#cb177-20" tabindex="-1"></a><span class="do">## 10 MQ      Envoy Air                  </span></span>
+<span id="cb177-21"><a href="managing-data-with-r.html#cb177-21" tabindex="-1"></a><span class="do">## 11 OO      SkyWest Airlines Inc.      </span></span>
+<span id="cb177-22"><a href="managing-data-with-r.html#cb177-22" tabindex="-1"></a><span class="do">## 12 UA      United Air Lines Inc.      </span></span>
+<span id="cb177-23"><a href="managing-data-with-r.html#cb177-23" tabindex="-1"></a><span class="do">## 13 US      US Airways Inc.            </span></span>
+<span id="cb177-24"><a href="managing-data-with-r.html#cb177-24" tabindex="-1"></a><span class="do">## 14 VX      Virgin America             </span></span>
+<span id="cb177-25"><a href="managing-data-with-r.html#cb177-25" tabindex="-1"></a><span class="do">## 15 WN      Southwest Airlines Co.     </span></span>
+<span id="cb177-26"><a href="managing-data-with-r.html#cb177-26" tabindex="-1"></a><span class="do">## 16 YV      Mesa Airlines Inc.</span></span>
+<span id="cb177-27"><a href="managing-data-with-r.html#cb177-27" tabindex="-1"></a></span>
+<span id="cb177-28"><a href="managing-data-with-r.html#cb177-28" tabindex="-1"></a><span class="co"># after looking up the names, we know UA = United, AA = American, DL = Delta</span></span>
+<span id="cb177-29"><a href="managing-data-with-r.html#cb177-29" tabindex="-1"></a><span class="fu">filter</span>(flights, carrier <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">&quot;UA&quot;</span>, <span class="st">&quot;AA&quot;</span>, <span class="st">&quot;DL&quot;</span>))</span>
+<span id="cb177-30"><a href="managing-data-with-r.html#cb177-30" tabindex="-1"></a><span class="do">## # A tibble: 139,504 × 19</span></span>
+<span id="cb177-31"><a href="managing-data-with-r.html#cb177-31" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span></span>
+<span id="cb177-32"><a href="managing-data-with-r.html#cb177-32" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;</span></span>
+<span id="cb177-33"><a href="managing-data-with-r.html#cb177-33" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819</span></span>
+<span id="cb177-34"><a href="managing-data-with-r.html#cb177-34" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830</span></span>
+<span id="cb177-35"><a href="managing-data-with-r.html#cb177-35" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850</span></span>
+<span id="cb177-36"><a href="managing-data-with-r.html#cb177-36" tabindex="-1"></a><span class="do">##  4  2013     1     1      554            600        -6      812            837</span></span>
+<span id="cb177-37"><a href="managing-data-with-r.html#cb177-37" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            558        -4      740            728</span></span>
+<span id="cb177-38"><a href="managing-data-with-r.html#cb177-38" tabindex="-1"></a><span class="do">##  6  2013     1     1      558            600        -2      753            745</span></span>
+<span id="cb177-39"><a href="managing-data-with-r.html#cb177-39" tabindex="-1"></a><span class="do">##  7  2013     1     1      558            600        -2      924            917</span></span>
+<span id="cb177-40"><a href="managing-data-with-r.html#cb177-40" tabindex="-1"></a><span class="do">##  8  2013     1     1      558            600        -2      923            937</span></span>
+<span id="cb177-41"><a href="managing-data-with-r.html#cb177-41" tabindex="-1"></a><span class="do">##  9  2013     1     1      559            600        -1      941            910</span></span>
+<span id="cb177-42"><a href="managing-data-with-r.html#cb177-42" tabindex="-1"></a><span class="do">## 10  2013     1     1      559            600        -1      854            902</span></span>
+<span id="cb177-43"><a href="managing-data-with-r.html#cb177-43" tabindex="-1"></a><span class="do">## # ℹ 139,494 more rows</span></span>
+<span id="cb177-44"><a href="managing-data-with-r.html#cb177-44" tabindex="-1"></a><span class="do">## # ℹ 11 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span></span>
+<span id="cb177-45"><a href="managing-data-with-r.html#cb177-45" tabindex="-1"></a><span class="do">## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,</span></span>
+<span id="cb177-46"><a href="managing-data-with-r.html#cb177-46" tabindex="-1"></a><span class="do">## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;</span></span></code></pre></div>
 <p>1d. Find all flights that departed in summer (July, August, and September)</p>
 <div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="managing-data-with-r.html#cb178-1" tabindex="-1"></a><span class="fu">filter</span>(flights, month <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>))</span>
 <span id="cb178-2"><a href="managing-data-with-r.html#cb178-2" tabindex="-1"></a></span>
@@ -1180,22 +1185,23 @@ The first question that should come to your mind is how is <strong>midnight</str
 <span id="cb205-5"><a href="managing-data-with-r.html#cb205-5" tabindex="-1"></a><span class="fu">mutate</span>(flights, <span class="at">min_dep_time =</span> <span class="fu">time_to_minutes_ifelse</span>(dep_time),</span>
 <span id="cb205-6"><a href="managing-data-with-r.html#cb205-6" tabindex="-1"></a>                <span class="at">min_sched_dep_time =</span> <span class="fu">time_to_minutes_ifelse</span>(sched_dep_time))</span>
 <span id="cb205-7"><a href="managing-data-with-r.html#cb205-7" tabindex="-1"></a><span class="do">## # A tibble: 336,776 × 21</span></span>
-<span id="cb205-8"><a href="managing-data-with-r.html#cb205-8" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time arr_delay</span></span>
-<span id="cb205-9"><a href="managing-data-with-r.html#cb205-9" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;</span></span>
-<span id="cb205-10"><a href="managing-data-with-r.html#cb205-10" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819        11</span></span>
-<span id="cb205-11"><a href="managing-data-with-r.html#cb205-11" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830        20</span></span>
-<span id="cb205-12"><a href="managing-data-with-r.html#cb205-12" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850        33</span></span>
-<span id="cb205-13"><a href="managing-data-with-r.html#cb205-13" tabindex="-1"></a><span class="do">##  4  2013     1     1      544            545        -1     1004           1022       -18</span></span>
-<span id="cb205-14"><a href="managing-data-with-r.html#cb205-14" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            600        -6      812            837       -25</span></span>
-<span id="cb205-15"><a href="managing-data-with-r.html#cb205-15" tabindex="-1"></a><span class="do">##  6  2013     1     1      554            558        -4      740            728        12</span></span>
-<span id="cb205-16"><a href="managing-data-with-r.html#cb205-16" tabindex="-1"></a><span class="do">##  7  2013     1     1      555            600        -5      913            854        19</span></span>
-<span id="cb205-17"><a href="managing-data-with-r.html#cb205-17" tabindex="-1"></a><span class="do">##  8  2013     1     1      557            600        -3      709            723       -14</span></span>
-<span id="cb205-18"><a href="managing-data-with-r.html#cb205-18" tabindex="-1"></a><span class="do">##  9  2013     1     1      557            600        -3      838            846        -8</span></span>
-<span id="cb205-19"><a href="managing-data-with-r.html#cb205-19" tabindex="-1"></a><span class="do">## 10  2013     1     1      558            600        -2      753            745         8</span></span>
+<span id="cb205-8"><a href="managing-data-with-r.html#cb205-8" tabindex="-1"></a><span class="do">##     year month   day dep_time sched_dep_time dep_delay arr_time sched_arr_time</span></span>
+<span id="cb205-9"><a href="managing-data-with-r.html#cb205-9" tabindex="-1"></a><span class="do">##    &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;    &lt;int&gt;          &lt;int&gt;</span></span>
+<span id="cb205-10"><a href="managing-data-with-r.html#cb205-10" tabindex="-1"></a><span class="do">##  1  2013     1     1      517            515         2      830            819</span></span>
+<span id="cb205-11"><a href="managing-data-with-r.html#cb205-11" tabindex="-1"></a><span class="do">##  2  2013     1     1      533            529         4      850            830</span></span>
+<span id="cb205-12"><a href="managing-data-with-r.html#cb205-12" tabindex="-1"></a><span class="do">##  3  2013     1     1      542            540         2      923            850</span></span>
+<span id="cb205-13"><a href="managing-data-with-r.html#cb205-13" tabindex="-1"></a><span class="do">##  4  2013     1     1      544            545        -1     1004           1022</span></span>
+<span id="cb205-14"><a href="managing-data-with-r.html#cb205-14" tabindex="-1"></a><span class="do">##  5  2013     1     1      554            600        -6      812            837</span></span>
+<span id="cb205-15"><a href="managing-data-with-r.html#cb205-15" tabindex="-1"></a><span class="do">##  6  2013     1     1      554            558        -4      740            728</span></span>
+<span id="cb205-16"><a href="managing-data-with-r.html#cb205-16" tabindex="-1"></a><span class="do">##  7  2013     1     1      555            600        -5      913            854</span></span>
+<span id="cb205-17"><a href="managing-data-with-r.html#cb205-17" tabindex="-1"></a><span class="do">##  8  2013     1     1      557            600        -3      709            723</span></span>
+<span id="cb205-18"><a href="managing-data-with-r.html#cb205-18" tabindex="-1"></a><span class="do">##  9  2013     1     1      557            600        -3      838            846</span></span>
+<span id="cb205-19"><a href="managing-data-with-r.html#cb205-19" tabindex="-1"></a><span class="do">## 10  2013     1     1      558            600        -2      753            745</span></span>
 <span id="cb205-20"><a href="managing-data-with-r.html#cb205-20" tabindex="-1"></a><span class="do">## # ℹ 336,766 more rows</span></span>
-<span id="cb205-21"><a href="managing-data-with-r.html#cb205-21" tabindex="-1"></a><span class="do">## # ℹ 12 more variables: carrier &lt;chr&gt;, flight &lt;int&gt;, tailnum &lt;chr&gt;, origin &lt;chr&gt;,</span></span>
-<span id="cb205-22"><a href="managing-data-with-r.html#cb205-22" tabindex="-1"></a><span class="do">## #   dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;, hour &lt;dbl&gt;, minute &lt;dbl&gt;,</span></span>
-<span id="cb205-23"><a href="managing-data-with-r.html#cb205-23" tabindex="-1"></a><span class="do">## #   time_hour &lt;dttm&gt;, min_dep_time &lt;dbl&gt;, min_sched_dep_time &lt;dbl&gt;</span></span></code></pre></div>
+<span id="cb205-21"><a href="managing-data-with-r.html#cb205-21" tabindex="-1"></a><span class="do">## # ℹ 13 more variables: arr_delay &lt;dbl&gt;, carrier &lt;chr&gt;, flight &lt;int&gt;,</span></span>
+<span id="cb205-22"><a href="managing-data-with-r.html#cb205-22" tabindex="-1"></a><span class="do">## #   tailnum &lt;chr&gt;, origin &lt;chr&gt;, dest &lt;chr&gt;, air_time &lt;dbl&gt;, distance &lt;dbl&gt;,</span></span>
+<span id="cb205-23"><a href="managing-data-with-r.html#cb205-23" tabindex="-1"></a><span class="do">## #   hour &lt;dbl&gt;, minute &lt;dbl&gt;, time_hour &lt;dttm&gt;, min_dep_time &lt;dbl&gt;,</span></span>
+<span id="cb205-24"><a href="managing-data-with-r.html#cb205-24" tabindex="-1"></a><span class="do">## #   min_sched_dep_time &lt;dbl&gt;</span></span></code></pre></div>
 <p>A less efficient way with for loop and if-else:</p>
 <div class="sourceCode" id="cb206"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb206-1"><a href="managing-data-with-r.html#cb206-1" tabindex="-1"></a><span class="co"># if for if-else approach</span></span>
 <span id="cb206-2"><a href="managing-data-with-r.html#cb206-2" tabindex="-1"></a>time_to_minutes_if <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
@@ -1219,12 +1225,12 @@ The first question that should come to your mind is how is <strong>midnight</str
 <div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="managing-data-with-r.html#cb207-1" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">mutate</span>(flights, <span class="at">min_dep_time =</span> <span class="fu">time_to_minutes</span>(dep_time),</span>
 <span id="cb207-2"><a href="managing-data-with-r.html#cb207-2" tabindex="-1"></a>                <span class="at">min_sched_dep_time =</span> <span class="fu">time_to_minutes</span>(sched_dep_time)))</span>
 <span id="cb207-3"><a href="managing-data-with-r.html#cb207-3" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb207-4"><a href="managing-data-with-r.html#cb207-4" tabindex="-1"></a><span class="do">##    0.06    0.00    0.08</span></span>
+<span id="cb207-4"><a href="managing-data-with-r.html#cb207-4" tabindex="-1"></a><span class="do">##    0.04    0.01    0.06</span></span>
 <span id="cb207-5"><a href="managing-data-with-r.html#cb207-5" tabindex="-1"></a></span>
 <span id="cb207-6"><a href="managing-data-with-r.html#cb207-6" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">mutate</span>(flights, <span class="at">min_dep_time =</span> <span class="fu">time_to_minutes_if</span>(dep_time),</span>
 <span id="cb207-7"><a href="managing-data-with-r.html#cb207-7" tabindex="-1"></a>                <span class="at">min_sched_dep_time =</span> <span class="fu">time_to_minutes_if</span>(sched_dep_time)))</span>
 <span id="cb207-8"><a href="managing-data-with-r.html#cb207-8" tabindex="-1"></a><span class="do">##    user  system elapsed </span></span>
-<span id="cb207-9"><a href="managing-data-with-r.html#cb207-9" tabindex="-1"></a><span class="do">##    0.31    0.00    0.31</span></span></code></pre></div>
+<span id="cb207-9"><a href="managing-data-with-r.html#cb207-9" tabindex="-1"></a><span class="do">##    0.29    0.00    0.31</span></span></code></pre></div>
 <!-- 2. Compare `dep_time, sched_dep_time`, and `dep_delay`. How would you expect those three numbers to be related? -->
 <!-- ```{r} -->
 <!-- x = time_to_minutes(flights$dep_time) -->
@@ -1376,7 +1382,7 @@ The first question that should come to your mind is how is <strong>midnight</str
 <span id="cb217-6"><a href="managing-data-with-r.html#cb217-6" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb217-7"><a href="managing-data-with-r.html#cb217-7" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Month&quot;</span>) <span class="sc">+</span> <span class="co"># notice the spacing for good indentation</span></span>
 <span id="cb217-8"><a href="managing-data-with-r.html#cb217-8" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">&quot;Average departure delay&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-229-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="Book_files/figure-html/unnamed-chunk-277-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Notice the difference between <code>%&gt;%</code> and <code>+</code> in the above code.</p>
 <p>E.g. Create new columns for the average departure delay by date and average departure delay by destination using <code>mutate</code></p>
 <div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="managing-data-with-r.html#cb218-1" tabindex="-1"></a>group_date <span class="ot">&lt;-</span> <span class="fu">group_by</span>(<span class="fu">select</span>(flights, year<span class="sc">:</span>day, dep_delay, dest), month, day)</span>

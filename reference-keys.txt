@@ -88,11 +88,13 @@ line-graph
 bar-chart
 histogram
 box-plot
+transformation-of-data
+when-to-use-boxplots
 plotting-a-function-curve
 more-on-plots-with-base-r
 multi-frame-plot
 subsubsec:type_of_plot
-parameters-of-a-plot
+common-plot-parameters
 elements-on-plot
 data-visualization-with-ggplot2
 bar-charts

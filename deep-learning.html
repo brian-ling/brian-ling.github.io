@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,13 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#line-graph"><i class="fa fa-check"></i><b>5.2</b> Line Graph</a></li>
 <li class="chapter" data-level="5.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#bar-chart"><i class="fa fa-check"></i><b>5.3</b> Bar Chart</a></li>
 <li class="chapter" data-level="5.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#histogram"><i class="fa fa-check"></i><b>5.4</b> Histogram</a></li>
-<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#transformation-of-data"><i class="fa fa-check"></i><b>5.5.1</b> Transformation of data</a></li>
+<li class="chapter" data-level="5.5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#when-to-use-boxplots"><i class="fa fa-check"></i><b>5.5.2</b> When to use boxplots</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#plotting-a-function-curve"><i class="fa fa-check"></i><b>5.6</b> Plotting a function curve</a></li>
 <li class="chapter" data-level="5.7" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#more-on-plots-with-base-r"><i class="fa fa-check"></i><b>5.7</b> More on plots with base R</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#multi-frame-plot"><i class="fa fa-check"></i><b>5.7.1</b> Multi-frame plot</a></li>
 <li class="chapter" data-level="5.7.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#subsubsec:type_of_plot"><i class="fa fa-check"></i><b>5.7.2</b> Type of Plot</a></li>
-<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#parameters-of-a-plot"><i class="fa fa-check"></i><b>5.7.3</b> Parameters of a plot</a></li>
+<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#common-plot-parameters"><i class="fa fa-check"></i><b>5.7.3</b> Common plot parameters</a></li>
 <li class="chapter" data-level="5.7.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#elements-on-plot"><i class="fa fa-check"></i><b>5.7.4</b> Elements on plot</a></li>
 </ul></li>
 </ul></li>
@@ -648,135 +652,135 @@ The log-likelihood is
 <p><img src="image/MNIST.PNG" width="60%" style="display: block; margin: auto;" /></p>
 <p>The MNIST dataset is a classic dataset in the machine-learning community which has been around almost as long as the field itself and has been intensively studied. It’s a set of 60,000 training images, plus 10,000 test images, assembled by the National Institute of Standards and Technology (the NIST in MNIST) in the 1980s. You can think of “solving” MNIST as the “Hello World” of deep learning—it’s what you do to verify that your algorithms are working as expected.</p>
 <p>Load the data:</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="deep-learning.html#cb566-1" tabindex="-1"></a><span class="fu">library</span>(keras)</span>
-<span id="cb566-2"><a href="deep-learning.html#cb566-2" tabindex="-1"></a></span>
-<span id="cb566-3"><a href="deep-learning.html#cb566-3" tabindex="-1"></a>mnist <span class="ot">&lt;-</span> <span class="fu">dataset_mnist</span>()</span>
-<span id="cb566-4"><a href="deep-learning.html#cb566-4" tabindex="-1"></a>train_images <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>x</span>
-<span id="cb566-5"><a href="deep-learning.html#cb566-5" tabindex="-1"></a>train_labels <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>y</span>
-<span id="cb566-6"><a href="deep-learning.html#cb566-6" tabindex="-1"></a>test_images <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>x</span>
-<span id="cb566-7"><a href="deep-learning.html#cb566-7" tabindex="-1"></a>test_labels <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>y</span></code></pre></div>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb581-1"><a href="deep-learning.html#cb581-1" tabindex="-1"></a><span class="fu">library</span>(keras)</span>
+<span id="cb581-2"><a href="deep-learning.html#cb581-2" tabindex="-1"></a></span>
+<span id="cb581-3"><a href="deep-learning.html#cb581-3" tabindex="-1"></a>mnist <span class="ot">&lt;-</span> <span class="fu">dataset_mnist</span>()</span>
+<span id="cb581-4"><a href="deep-learning.html#cb581-4" tabindex="-1"></a>train_images <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>x</span>
+<span id="cb581-5"><a href="deep-learning.html#cb581-5" tabindex="-1"></a>train_labels <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>y</span>
+<span id="cb581-6"><a href="deep-learning.html#cb581-6" tabindex="-1"></a>test_images <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>x</span>
+<span id="cb581-7"><a href="deep-learning.html#cb581-7" tabindex="-1"></a>test_labels <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>y</span></code></pre></div>
 <p>The images are encoded as 3D arrays, and the labels are a 1D array of digits, ranging from <span class="math inline">\(0\)</span> to <span class="math inline">\(9\)</span>. There is a one-to-one correspondence between the images and the labels.</p>
 <p>To view the data of the first image (which is a <span class="math inline">\(28 \times 28\)</span> matrix of integers in <span class="math inline">\([0, 255]\)</span>):</p>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="deep-learning.html#cb567-1" tabindex="-1"></a><span class="co"># this is how we access the 1st element in the 1st dimension of an 3D array</span></span>
-<span id="cb567-2"><a href="deep-learning.html#cb567-2" tabindex="-1"></a>train_images[<span class="dv">1</span>, , ] </span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="deep-learning.html#cb582-1" tabindex="-1"></a><span class="co"># this is how we access the 1st element in the 1st dimension of an 3D array</span></span>
+<span id="cb582-2"><a href="deep-learning.html#cb582-2" tabindex="-1"></a>train_images[<span class="dv">1</span>, , ] </span></code></pre></div>
 </div>
 <div id="encoding-the-data" class="section level3 hasAnchor" number="22.4.2">
 <h3><span class="header-section-number">22.4.2</span> Encoding the data<a href="deep-learning.html#encoding-the-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>For each image, we first turn the matrix of values into a vector of values. We also rescale the data to have values in <span class="math inline">\([0, 1]\)</span>. The data originally take integer values in <span class="math inline">\([0, 255]\)</span>.</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="deep-learning.html#cb568-1" tabindex="-1"></a>train_images <span class="ot">&lt;-</span> <span class="fu">array_reshape</span>(train_images, <span class="fu">c</span>(<span class="dv">60000</span>, <span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>))</span>
-<span id="cb568-2"><a href="deep-learning.html#cb568-2" tabindex="-1"></a>train_images <span class="ot">&lt;-</span> train_images <span class="sc">/</span> <span class="dv">255</span></span>
-<span id="cb568-3"><a href="deep-learning.html#cb568-3" tabindex="-1"></a></span>
-<span id="cb568-4"><a href="deep-learning.html#cb568-4" tabindex="-1"></a>test_images <span class="ot">&lt;-</span> <span class="fu">array_reshape</span>(test_images, <span class="fu">c</span>(<span class="dv">10000</span>, <span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>))</span>
-<span id="cb568-5"><a href="deep-learning.html#cb568-5" tabindex="-1"></a>test_images <span class="ot">&lt;-</span> test_images <span class="sc">/</span> <span class="dv">255</span></span></code></pre></div>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb583-1"><a href="deep-learning.html#cb583-1" tabindex="-1"></a>train_images <span class="ot">&lt;-</span> <span class="fu">array_reshape</span>(train_images, <span class="fu">c</span>(<span class="dv">60000</span>, <span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>))</span>
+<span id="cb583-2"><a href="deep-learning.html#cb583-2" tabindex="-1"></a>train_images <span class="ot">&lt;-</span> train_images <span class="sc">/</span> <span class="dv">255</span></span>
+<span id="cb583-3"><a href="deep-learning.html#cb583-3" tabindex="-1"></a></span>
+<span id="cb583-4"><a href="deep-learning.html#cb583-4" tabindex="-1"></a>test_images <span class="ot">&lt;-</span> <span class="fu">array_reshape</span>(test_images, <span class="fu">c</span>(<span class="dv">10000</span>, <span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>))</span>
+<span id="cb583-5"><a href="deep-learning.html#cb583-5" tabindex="-1"></a>test_images <span class="ot">&lt;-</span> test_images <span class="sc">/</span> <span class="dv">255</span></span></code></pre></div>
 <p>The original labels take integer values from <span class="math inline">\(0\)</span> to <span class="math inline">\(9\)</span>. We will apply one-hot encoding to the labels:</p>
-<div class="sourceCode" id="cb569"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb569-1"><a href="deep-learning.html#cb569-1" tabindex="-1"></a>train_labels <span class="ot">&lt;-</span> <span class="fu">to_categorical</span>(train_labels)</span>
-<span id="cb569-2"><a href="deep-learning.html#cb569-2" tabindex="-1"></a>test_labels <span class="ot">&lt;-</span> <span class="fu">to_categorical</span>(test_labels)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="deep-learning.html#cb584-1" tabindex="-1"></a>train_labels <span class="ot">&lt;-</span> <span class="fu">to_categorical</span>(train_labels)</span>
+<span id="cb584-2"><a href="deep-learning.html#cb584-2" tabindex="-1"></a>test_labels <span class="ot">&lt;-</span> <span class="fu">to_categorical</span>(test_labels)</span></code></pre></div>
 <p>For example, if there are only <span class="math inline">\(3\)</span> classes labeled as <span class="math inline">\(1,2,3\)</span> and <span class="math inline">\(y = 2\)</span>. Then we want to turn <span class="math inline">\(y\)</span> into <span class="math inline">\((0, 1, 0)\)</span>. If <span class="math inline">\(y = 1\)</span>, we want to turn it into <span class="math inline">\((1, 0, 0)\)</span>.</p>
 </div>
 <div id="implementation" class="section level3 hasAnchor" number="22.4.3">
 <h3><span class="header-section-number">22.4.3</span> Implementation<a href="deep-learning.html#implementation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><strong>Model specification</strong></p>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="deep-learning.html#cb570-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb570-2"><a href="deep-learning.html#cb570-2" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">512</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb570-3"><a href="deep-learning.html#cb570-3" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">10</span>, <span class="at">activation =</span> <span class="st">&quot;softmax&quot;</span>)</span>
-<span id="cb570-4"><a href="deep-learning.html#cb570-4" tabindex="-1"></a></span>
-<span id="cb570-5"><a href="deep-learning.html#cb570-5" tabindex="-1"></a>model</span>
-<span id="cb570-6"><a href="deep-learning.html#cb570-6" tabindex="-1"></a><span class="do">## Model: &quot;sequential&quot;</span></span>
-<span id="cb570-7"><a href="deep-learning.html#cb570-7" tabindex="-1"></a><span class="do">## _________________________________________________________________________________________</span></span>
-<span id="cb570-8"><a href="deep-learning.html#cb570-8" tabindex="-1"></a><span class="do">##  Layer (type)                           Output Shape                       Param #       </span></span>
-<span id="cb570-9"><a href="deep-learning.html#cb570-9" tabindex="-1"></a><span class="do">## =========================================================================================</span></span>
-<span id="cb570-10"><a href="deep-learning.html#cb570-10" tabindex="-1"></a><span class="do">##  dense_1 (Dense)                        (None, 512)                        401920        </span></span>
-<span id="cb570-11"><a href="deep-learning.html#cb570-11" tabindex="-1"></a><span class="do">##  dense (Dense)                          (None, 10)                         5130          </span></span>
-<span id="cb570-12"><a href="deep-learning.html#cb570-12" tabindex="-1"></a><span class="do">## =========================================================================================</span></span>
-<span id="cb570-13"><a href="deep-learning.html#cb570-13" tabindex="-1"></a><span class="do">## Total params: 407050 (1.55 MB)</span></span>
-<span id="cb570-14"><a href="deep-learning.html#cb570-14" tabindex="-1"></a><span class="do">## Trainable params: 407050 (1.55 MB)</span></span>
-<span id="cb570-15"><a href="deep-learning.html#cb570-15" tabindex="-1"></a><span class="do">## Non-trainable params: 0 (0.00 Byte)</span></span>
-<span id="cb570-16"><a href="deep-learning.html#cb570-16" tabindex="-1"></a><span class="do">## _________________________________________________________________________________________</span></span></code></pre></div>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb585-1"><a href="deep-learning.html#cb585-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb585-2"><a href="deep-learning.html#cb585-2" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">512</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb585-3"><a href="deep-learning.html#cb585-3" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">10</span>, <span class="at">activation =</span> <span class="st">&quot;softmax&quot;</span>)</span>
+<span id="cb585-4"><a href="deep-learning.html#cb585-4" tabindex="-1"></a></span>
+<span id="cb585-5"><a href="deep-learning.html#cb585-5" tabindex="-1"></a>model</span>
+<span id="cb585-6"><a href="deep-learning.html#cb585-6" tabindex="-1"></a><span class="do">## Model: &quot;sequential&quot;</span></span>
+<span id="cb585-7"><a href="deep-learning.html#cb585-7" tabindex="-1"></a><span class="do">## ________________________________________________________________________________</span></span>
+<span id="cb585-8"><a href="deep-learning.html#cb585-8" tabindex="-1"></a><span class="do">##  Layer (type)                       Output Shape                    Param #     </span></span>
+<span id="cb585-9"><a href="deep-learning.html#cb585-9" tabindex="-1"></a><span class="do">## ================================================================================</span></span>
+<span id="cb585-10"><a href="deep-learning.html#cb585-10" tabindex="-1"></a><span class="do">##  dense_1 (Dense)                    (None, 512)                     401920      </span></span>
+<span id="cb585-11"><a href="deep-learning.html#cb585-11" tabindex="-1"></a><span class="do">##  dense (Dense)                      (None, 10)                      5130        </span></span>
+<span id="cb585-12"><a href="deep-learning.html#cb585-12" tabindex="-1"></a><span class="do">## ================================================================================</span></span>
+<span id="cb585-13"><a href="deep-learning.html#cb585-13" tabindex="-1"></a><span class="do">## Total params: 407050 (1.55 MB)</span></span>
+<span id="cb585-14"><a href="deep-learning.html#cb585-14" tabindex="-1"></a><span class="do">## Trainable params: 407050 (1.55 MB)</span></span>
+<span id="cb585-15"><a href="deep-learning.html#cb585-15" tabindex="-1"></a><span class="do">## Non-trainable params: 0 (0.00 Byte)</span></span>
+<span id="cb585-16"><a href="deep-learning.html#cb585-16" tabindex="-1"></a><span class="do">## ________________________________________________________________________________</span></span></code></pre></div>
 <p>There are <span class="math inline">\(407,050\)</span> parameters! The above code means we specify a model with</p>
 <ul>
 <li>One hidden layer with <span class="math inline">\(512\)</span> units, the activation function is ReLU (rectified linear unit)</li>
 <li>The output layer has <span class="math inline">\(10\)</span> units, the activation is the softmax function because we are dealing with a multiclass classification problem.</li>
 </ul>
 <p><strong>Compiling the model</strong></p>
-<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="deep-learning.html#cb571-1" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">compile</span>(</span>
-<span id="cb571-2"><a href="deep-learning.html#cb571-2" tabindex="-1"></a>  <span class="at">optimizer =</span> <span class="st">&quot;rmsprop&quot;</span>,</span>
-<span id="cb571-3"><a href="deep-learning.html#cb571-3" tabindex="-1"></a>  <span class="at">loss =</span> <span class="st">&quot;categorical_crossentropy&quot;</span>,</span>
-<span id="cb571-4"><a href="deep-learning.html#cb571-4" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">c</span>(<span class="st">&quot;accuracy&quot;</span>)</span>
-<span id="cb571-5"><a href="deep-learning.html#cb571-5" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="deep-learning.html#cb586-1" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">compile</span>(</span>
+<span id="cb586-2"><a href="deep-learning.html#cb586-2" tabindex="-1"></a>  <span class="at">optimizer =</span> <span class="st">&quot;rmsprop&quot;</span>,</span>
+<span id="cb586-3"><a href="deep-learning.html#cb586-3" tabindex="-1"></a>  <span class="at">loss =</span> <span class="st">&quot;categorical_crossentropy&quot;</span>,</span>
+<span id="cb586-4"><a href="deep-learning.html#cb586-4" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">c</span>(<span class="st">&quot;accuracy&quot;</span>)</span>
+<span id="cb586-5"><a href="deep-learning.html#cb586-5" tabindex="-1"></a>)</span></code></pre></div>
 <p>For multiclass classification, the above setting is in general ok.</p>
 <p><strong>Setting aside a validation set</strong></p>
 <p>Setting aside a validation set to choose the number of epochs (each iteration over all the training data is called an <strong>epoch</strong>). The number of epochs is an important tunning parameter that one has to decide in order not to overfit the training data.</p>
 <p>Note: since we have a lot of data, we use a simple validation approach instead of the cross-validation.</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="deep-learning.html#cb572-1" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">dim</span>(train_images)[<span class="dv">1</span>], <span class="dv">10000</span>)</span>
-<span id="cb572-2"><a href="deep-learning.html#cb572-2" tabindex="-1"></a>partial_train_images <span class="ot">&lt;-</span> train_images[<span class="sc">-</span>index, ]</span>
-<span id="cb572-3"><a href="deep-learning.html#cb572-3" tabindex="-1"></a>partial_train_labels <span class="ot">&lt;-</span> train_labels[<span class="sc">-</span>index, ]</span>
-<span id="cb572-4"><a href="deep-learning.html#cb572-4" tabindex="-1"></a>validation_images <span class="ot">&lt;-</span> train_images[index, ]</span>
-<span id="cb572-5"><a href="deep-learning.html#cb572-5" tabindex="-1"></a>validation_labels <span class="ot">&lt;-</span> train_labels[index, ]</span></code></pre></div>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb587-1"><a href="deep-learning.html#cb587-1" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">dim</span>(train_images)[<span class="dv">1</span>], <span class="dv">10000</span>)</span>
+<span id="cb587-2"><a href="deep-learning.html#cb587-2" tabindex="-1"></a>partial_train_images <span class="ot">&lt;-</span> train_images[<span class="sc">-</span>index, ]</span>
+<span id="cb587-3"><a href="deep-learning.html#cb587-3" tabindex="-1"></a>partial_train_labels <span class="ot">&lt;-</span> train_labels[<span class="sc">-</span>index, ]</span>
+<span id="cb587-4"><a href="deep-learning.html#cb587-4" tabindex="-1"></a>validation_images <span class="ot">&lt;-</span> train_images[index, ]</span>
+<span id="cb587-5"><a href="deep-learning.html#cb587-5" tabindex="-1"></a>validation_labels <span class="ot">&lt;-</span> train_labels[index, ]</span></code></pre></div>
 <p>Train the model with <span class="math inline">\(15\)</span> epochs and evaluate the loss using the validation data:</p>
-<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="deep-learning.html#cb573-1" tabindex="-1"></a>history <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">fit</span>(</span>
-<span id="cb573-2"><a href="deep-learning.html#cb573-2" tabindex="-1"></a>  partial_train_images,</span>
-<span id="cb573-3"><a href="deep-learning.html#cb573-3" tabindex="-1"></a>  partial_train_labels,</span>
-<span id="cb573-4"><a href="deep-learning.html#cb573-4" tabindex="-1"></a>  <span class="at">epochs =</span> <span class="dv">15</span>,</span>
-<span id="cb573-5"><a href="deep-learning.html#cb573-5" tabindex="-1"></a>  <span class="at">batch_size =</span> <span class="dv">128</span>,</span>
-<span id="cb573-6"><a href="deep-learning.html#cb573-6" tabindex="-1"></a>  <span class="at">validation_data =</span> <span class="fu">list</span>(validation_images, validation_labels)</span>
-<span id="cb573-7"><a href="deep-learning.html#cb573-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="deep-learning.html#cb588-1" tabindex="-1"></a>history <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">fit</span>(</span>
+<span id="cb588-2"><a href="deep-learning.html#cb588-2" tabindex="-1"></a>  partial_train_images,</span>
+<span id="cb588-3"><a href="deep-learning.html#cb588-3" tabindex="-1"></a>  partial_train_labels,</span>
+<span id="cb588-4"><a href="deep-learning.html#cb588-4" tabindex="-1"></a>  <span class="at">epochs =</span> <span class="dv">15</span>,</span>
+<span id="cb588-5"><a href="deep-learning.html#cb588-5" tabindex="-1"></a>  <span class="at">batch_size =</span> <span class="dv">128</span>,</span>
+<span id="cb588-6"><a href="deep-learning.html#cb588-6" tabindex="-1"></a>  <span class="at">validation_data =</span> <span class="fu">list</span>(validation_images, validation_labels)</span>
+<span id="cb588-7"><a href="deep-learning.html#cb588-7" tabindex="-1"></a>)</span></code></pre></div>
 <p>Create a plot to visualize the relationship between the number of epoch and loss as well as accuracy in the validation data (and training data).</p>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="deep-learning.html#cb574-1" tabindex="-1"></a><span class="fu">plot</span>(history)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-636-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb589-1"><a href="deep-learning.html#cb589-1" tabindex="-1"></a><span class="fu">plot</span>(history)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-698-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>From the above plot, we can see that the training error keeps on decreasing when we train the model with more epochs. However, it seems that after <span class="math inline">\(5\)</span> epochs, the model starts to overfit the data as the validation loss starts to increase. Therefore, we shall only train the model with <span class="math inline">\(5\)</span> epochs. Now, we will retrain our model using all the training data but set <code>epochs = 5</code>.</p>
-<div class="sourceCode" id="cb575"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb575-1"><a href="deep-learning.html#cb575-1" tabindex="-1"></a><span class="co"># same as before</span></span>
-<span id="cb575-2"><a href="deep-learning.html#cb575-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb575-3"><a href="deep-learning.html#cb575-3" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">512</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb575-4"><a href="deep-learning.html#cb575-4" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">10</span>, <span class="at">activation =</span> <span class="st">&quot;softmax&quot;</span>)</span>
-<span id="cb575-5"><a href="deep-learning.html#cb575-5" tabindex="-1"></a></span>
-<span id="cb575-6"><a href="deep-learning.html#cb575-6" tabindex="-1"></a><span class="co"># same as before</span></span>
-<span id="cb575-7"><a href="deep-learning.html#cb575-7" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">compile</span>(</span>
-<span id="cb575-8"><a href="deep-learning.html#cb575-8" tabindex="-1"></a>  <span class="at">optimizer =</span> <span class="st">&quot;rmsprop&quot;</span>,</span>
-<span id="cb575-9"><a href="deep-learning.html#cb575-9" tabindex="-1"></a>  <span class="at">loss =</span> <span class="st">&quot;categorical_crossentropy&quot;</span>,</span>
-<span id="cb575-10"><a href="deep-learning.html#cb575-10" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">c</span>(<span class="st">&quot;accuracy&quot;</span>)</span>
-<span id="cb575-11"><a href="deep-learning.html#cb575-11" tabindex="-1"></a>)</span>
-<span id="cb575-12"><a href="deep-learning.html#cb575-12" tabindex="-1"></a></span>
-<span id="cb575-13"><a href="deep-learning.html#cb575-13" tabindex="-1"></a><span class="co"># no need to use validation data now</span></span>
-<span id="cb575-14"><a href="deep-learning.html#cb575-14" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">fit</span>(</span>
-<span id="cb575-15"><a href="deep-learning.html#cb575-15" tabindex="-1"></a>  train_images,</span>
-<span id="cb575-16"><a href="deep-learning.html#cb575-16" tabindex="-1"></a>  train_labels,</span>
-<span id="cb575-17"><a href="deep-learning.html#cb575-17" tabindex="-1"></a>  <span class="at">epochs =</span> <span class="dv">5</span>,</span>
-<span id="cb575-18"><a href="deep-learning.html#cb575-18" tabindex="-1"></a>  <span class="at">batch_size =</span> <span class="dv">128</span></span>
-<span id="cb575-19"><a href="deep-learning.html#cb575-19" tabindex="-1"></a>)</span>
-<span id="cb575-20"><a href="deep-learning.html#cb575-20" tabindex="-1"></a><span class="do">## Epoch 1/5</span></span>
-<span id="cb575-21"><a href="deep-learning.html#cb575-21" tabindex="-1"></a><span class="do">## 469/469 - 5s - loss: 0.2633 - accuracy: 0.9244 - 5s/epoch - 10ms/step</span></span>
-<span id="cb575-22"><a href="deep-learning.html#cb575-22" tabindex="-1"></a><span class="do">## Epoch 2/5</span></span>
-<span id="cb575-23"><a href="deep-learning.html#cb575-23" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.1065 - accuracy: 0.9686 - 3s/epoch - 6ms/step</span></span>
-<span id="cb575-24"><a href="deep-learning.html#cb575-24" tabindex="-1"></a><span class="do">## Epoch 3/5</span></span>
-<span id="cb575-25"><a href="deep-learning.html#cb575-25" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0712 - accuracy: 0.9787 - 3s/epoch - 7ms/step</span></span>
-<span id="cb575-26"><a href="deep-learning.html#cb575-26" tabindex="-1"></a><span class="do">## Epoch 4/5</span></span>
-<span id="cb575-27"><a href="deep-learning.html#cb575-27" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0514 - accuracy: 0.9851 - 3s/epoch - 6ms/step</span></span>
-<span id="cb575-28"><a href="deep-learning.html#cb575-28" tabindex="-1"></a><span class="do">## Epoch 5/5</span></span>
-<span id="cb575-29"><a href="deep-learning.html#cb575-29" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0386 - accuracy: 0.9883 - 3s/epoch - 7ms/step</span></span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="deep-learning.html#cb590-1" tabindex="-1"></a><span class="co"># same as before</span></span>
+<span id="cb590-2"><a href="deep-learning.html#cb590-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb590-3"><a href="deep-learning.html#cb590-3" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">512</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb590-4"><a href="deep-learning.html#cb590-4" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">10</span>, <span class="at">activation =</span> <span class="st">&quot;softmax&quot;</span>)</span>
+<span id="cb590-5"><a href="deep-learning.html#cb590-5" tabindex="-1"></a></span>
+<span id="cb590-6"><a href="deep-learning.html#cb590-6" tabindex="-1"></a><span class="co"># same as before</span></span>
+<span id="cb590-7"><a href="deep-learning.html#cb590-7" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">compile</span>(</span>
+<span id="cb590-8"><a href="deep-learning.html#cb590-8" tabindex="-1"></a>  <span class="at">optimizer =</span> <span class="st">&quot;rmsprop&quot;</span>,</span>
+<span id="cb590-9"><a href="deep-learning.html#cb590-9" tabindex="-1"></a>  <span class="at">loss =</span> <span class="st">&quot;categorical_crossentropy&quot;</span>,</span>
+<span id="cb590-10"><a href="deep-learning.html#cb590-10" tabindex="-1"></a>  <span class="at">metrics =</span> <span class="fu">c</span>(<span class="st">&quot;accuracy&quot;</span>)</span>
+<span id="cb590-11"><a href="deep-learning.html#cb590-11" tabindex="-1"></a>)</span>
+<span id="cb590-12"><a href="deep-learning.html#cb590-12" tabindex="-1"></a></span>
+<span id="cb590-13"><a href="deep-learning.html#cb590-13" tabindex="-1"></a><span class="co"># no need to use validation data now</span></span>
+<span id="cb590-14"><a href="deep-learning.html#cb590-14" tabindex="-1"></a>model <span class="sc">%&gt;%</span> <span class="fu">fit</span>(</span>
+<span id="cb590-15"><a href="deep-learning.html#cb590-15" tabindex="-1"></a>  train_images,</span>
+<span id="cb590-16"><a href="deep-learning.html#cb590-16" tabindex="-1"></a>  train_labels,</span>
+<span id="cb590-17"><a href="deep-learning.html#cb590-17" tabindex="-1"></a>  <span class="at">epochs =</span> <span class="dv">5</span>,</span>
+<span id="cb590-18"><a href="deep-learning.html#cb590-18" tabindex="-1"></a>  <span class="at">batch_size =</span> <span class="dv">128</span></span>
+<span id="cb590-19"><a href="deep-learning.html#cb590-19" tabindex="-1"></a>)</span>
+<span id="cb590-20"><a href="deep-learning.html#cb590-20" tabindex="-1"></a><span class="do">## Epoch 1/5</span></span>
+<span id="cb590-21"><a href="deep-learning.html#cb590-21" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.2640 - accuracy: 0.9241 - 3s/epoch - 7ms/step</span></span>
+<span id="cb590-22"><a href="deep-learning.html#cb590-22" tabindex="-1"></a><span class="do">## Epoch 2/5</span></span>
+<span id="cb590-23"><a href="deep-learning.html#cb590-23" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.1072 - accuracy: 0.9682 - 3s/epoch - 7ms/step</span></span>
+<span id="cb590-24"><a href="deep-learning.html#cb590-24" tabindex="-1"></a><span class="do">## Epoch 3/5</span></span>
+<span id="cb590-25"><a href="deep-learning.html#cb590-25" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0699 - accuracy: 0.9791 - 3s/epoch - 6ms/step</span></span>
+<span id="cb590-26"><a href="deep-learning.html#cb590-26" tabindex="-1"></a><span class="do">## Epoch 4/5</span></span>
+<span id="cb590-27"><a href="deep-learning.html#cb590-27" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0509 - accuracy: 0.9846 - 3s/epoch - 6ms/step</span></span>
+<span id="cb590-28"><a href="deep-learning.html#cb590-28" tabindex="-1"></a><span class="do">## Epoch 5/5</span></span>
+<span id="cb590-29"><a href="deep-learning.html#cb590-29" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0378 - accuracy: 0.9887 - 3s/epoch - 6ms/step</span></span></code></pre></div>
 <p>To form the predictions:</p>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="deep-learning.html#cb576-1" tabindex="-1"></a><span class="co"># prediction</span></span>
-<span id="cb576-2"><a href="deep-learning.html#cb576-2" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">predict</span>(test_images)</span>
-<span id="cb576-3"><a href="deep-learning.html#cb576-3" tabindex="-1"></a><span class="do">## 313/313 - 0s - 398ms/epoch - 1ms/step</span></span>
-<span id="cb576-4"><a href="deep-learning.html#cb576-4" tabindex="-1"></a></span>
-<span id="cb576-5"><a href="deep-learning.html#cb576-5" tabindex="-1"></a><span class="co"># these are the predicted probabilities of each class for the 1st observation</span></span>
-<span id="cb576-6"><a href="deep-learning.html#cb576-6" tabindex="-1"></a>prediction[<span class="dv">1</span>, ] </span>
-<span id="cb576-7"><a href="deep-learning.html#cb576-7" tabindex="-1"></a><span class="do">##  [1] 4.954643e-08 1.394260e-08 2.779184e-06 8.488507e-05 4.306699e-11 2.231312e-07 9.435118e-12</span></span>
-<span id="cb576-8"><a href="deep-learning.html#cb576-8" tabindex="-1"></a><span class="do">##  [8] 9.999074e-01 6.253278e-08 4.576571e-06</span></span></code></pre></div>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb591-1"><a href="deep-learning.html#cb591-1" tabindex="-1"></a><span class="co"># prediction</span></span>
+<span id="cb591-2"><a href="deep-learning.html#cb591-2" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">predict</span>(test_images)</span>
+<span id="cb591-3"><a href="deep-learning.html#cb591-3" tabindex="-1"></a><span class="do">## 313/313 - 0s - 368ms/epoch - 1ms/step</span></span>
+<span id="cb591-4"><a href="deep-learning.html#cb591-4" tabindex="-1"></a></span>
+<span id="cb591-5"><a href="deep-learning.html#cb591-5" tabindex="-1"></a><span class="co"># these are the predicted probabilities of each class for the 1st observation</span></span>
+<span id="cb591-6"><a href="deep-learning.html#cb591-6" tabindex="-1"></a>prediction[<span class="dv">1</span>, ] </span>
+<span id="cb591-7"><a href="deep-learning.html#cb591-7" tabindex="-1"></a><span class="do">##  [1] 5.060322e-07 1.966022e-08 2.112699e-05 5.724245e-05 7.836443e-11</span></span>
+<span id="cb591-8"><a href="deep-learning.html#cb591-8" tabindex="-1"></a><span class="do">##  [6] 5.370250e-07 5.734762e-11 9.999183e-01 8.029505e-07 1.479329e-06</span></span></code></pre></div>
 <p>Evaluate the performance:</p>
-<div class="sourceCode" id="cb577"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb577-1"><a href="deep-learning.html#cb577-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">evaluate</span>(test_images, test_labels)</span>
-<span id="cb577-2"><a href="deep-learning.html#cb577-2" tabindex="-1"></a><span class="do">## 313/313 - 0s - loss: 0.0623 - accuracy: 0.9811 - 465ms/epoch - 1ms/step</span></span>
-<span id="cb577-3"><a href="deep-learning.html#cb577-3" tabindex="-1"></a>result</span>
-<span id="cb577-4"><a href="deep-learning.html#cb577-4" tabindex="-1"></a><span class="do">##       loss   accuracy </span></span>
-<span id="cb577-5"><a href="deep-learning.html#cb577-5" tabindex="-1"></a><span class="do">## 0.06227842 0.98110002</span></span></code></pre></div>
+<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="deep-learning.html#cb592-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">evaluate</span>(test_images, test_labels)</span>
+<span id="cb592-2"><a href="deep-learning.html#cb592-2" tabindex="-1"></a><span class="do">## 313/313 - 1s - loss: 0.0593 - accuracy: 0.9816 - 550ms/epoch - 2ms/step</span></span>
+<span id="cb592-3"><a href="deep-learning.html#cb592-3" tabindex="-1"></a>result</span>
+<span id="cb592-4"><a href="deep-learning.html#cb592-4" tabindex="-1"></a><span class="do">##       loss   accuracy </span></span>
+<span id="cb592-5"><a href="deep-learning.html#cb592-5" tabindex="-1"></a><span class="do">## 0.05926024 0.98159999</span></span></code></pre></div>
 <p>We see that our basic neural network model is able to achieve 0.98 accuracy in a <span class="math inline">\(10\)</span>-class classification problem.</p>
 </div>
 <div id="multilayer-neural-network" class="section level3 hasAnchor" number="22.4.4">
 <h3><span class="header-section-number">22.4.4</span> Multilayer Neural Network<a href="deep-learning.html#multilayer-neural-network" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>If you want to fit a model with two hidden layers, where the first hidden layer has <span class="math inline">\(512\)</span> units and the second layer has <span class="math inline">\(128\)</span> units:</p>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="deep-learning.html#cb578-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb578-2"><a href="deep-learning.html#cb578-2" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">512</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb578-3"><a href="deep-learning.html#cb578-3" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">128</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb578-4"><a href="deep-learning.html#cb578-4" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">10</span>, <span class="at">activation =</span> <span class="st">&quot;softmax&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb593-1"><a href="deep-learning.html#cb593-1" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">keras_model_sequential</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb593-2"><a href="deep-learning.html#cb593-2" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">512</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb593-3"><a href="deep-learning.html#cb593-3" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">128</span>, <span class="at">activation =</span> <span class="st">&quot;relu&quot;</span>, <span class="at">input_shape =</span> <span class="fu">c</span>(<span class="dv">28</span> <span class="sc">*</span> <span class="dv">28</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb593-4"><a href="deep-learning.html#cb593-4" tabindex="-1"></a>  <span class="fu">layer_dense</span>(<span class="at">units =</span> <span class="dv">10</span>, <span class="at">activation =</span> <span class="st">&quot;softmax&quot;</span>)</span></code></pre></div>
 <p>Now, you should understand how to include more layers and change the number of units.</p>
 <!-- ## Keras -->
 <!-- Keras is a deep-learning framework that provides a convenient way to define and train deep-learning models. -->

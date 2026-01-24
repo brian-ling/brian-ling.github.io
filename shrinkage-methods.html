@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-23" />
+<meta name="date" content="2026-01-24" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -269,13 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#line-graph"><i class="fa fa-check"></i><b>5.2</b> Line Graph</a></li>
 <li class="chapter" data-level="5.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#bar-chart"><i class="fa fa-check"></i><b>5.3</b> Bar Chart</a></li>
 <li class="chapter" data-level="5.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#histogram"><i class="fa fa-check"></i><b>5.4</b> Histogram</a></li>
-<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a></li>
+<li class="chapter" data-level="5.5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#box-plot"><i class="fa fa-check"></i><b>5.5</b> Box Plot</a>
+<ul>
+<li class="chapter" data-level="5.5.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#transformation-of-data"><i class="fa fa-check"></i><b>5.5.1</b> Transformation of data</a></li>
+<li class="chapter" data-level="5.5.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#when-to-use-boxplots"><i class="fa fa-check"></i><b>5.5.2</b> When to use boxplots</a></li>
+</ul></li>
 <li class="chapter" data-level="5.6" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#plotting-a-function-curve"><i class="fa fa-check"></i><b>5.6</b> Plotting a function curve</a></li>
 <li class="chapter" data-level="5.7" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#more-on-plots-with-base-r"><i class="fa fa-check"></i><b>5.7</b> More on plots with base R</a>
 <ul>
 <li class="chapter" data-level="5.7.1" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#multi-frame-plot"><i class="fa fa-check"></i><b>5.7.1</b> Multi-frame plot</a></li>
 <li class="chapter" data-level="5.7.2" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#subsubsec:type_of_plot"><i class="fa fa-check"></i><b>5.7.2</b> Type of Plot</a></li>
-<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#parameters-of-a-plot"><i class="fa fa-check"></i><b>5.7.3</b> Parameters of a plot</a></li>
+<li class="chapter" data-level="5.7.3" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#common-plot-parameters"><i class="fa fa-check"></i><b>5.7.3</b> Common plot parameters</a></li>
 <li class="chapter" data-level="5.7.4" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html#elements-on-plot"><i class="fa fa-check"></i><b>5.7.4</b> Elements on plot</a></li>
 </ul></li>
 </ul></li>
@@ -591,98 +595,98 @@ This penalty is called the elastic net penalty. When <span class="math inline">\
 <p>The syntax of <code>glmnet()</code> is different from <code>lm()</code> or <code>glm()</code>. In particular, we have to provide the <code>x</code> and <code>y</code> separately in the function.</p>
 <p>In general, a data set may have some categorical variables. We can prepare the data set to be used in <code>glmnet()</code> using <code>model.matrix()</code>.</p>
 <p>The data set contains three factors: <code>League</code>, <code>Division</code>, <code>NewLeague</code>:</p>
-<div class="sourceCode" id="cb517"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb517-1"><a href="shrinkage-methods.html#cb517-1" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span>
-<span id="cb517-2"><a href="shrinkage-methods.html#cb517-2" tabindex="-1"></a><span class="co"># first remove rows with missing values</span></span>
-<span id="cb517-3"><a href="shrinkage-methods.html#cb517-3" tabindex="-1"></a>Hitters <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(Hitters)</span>
-<span id="cb517-4"><a href="shrinkage-methods.html#cb517-4" tabindex="-1"></a></span>
-<span id="cb517-5"><a href="shrinkage-methods.html#cb517-5" tabindex="-1"></a><span class="fu">head</span>(Hitters[, <span class="fu">c</span>(<span class="st">&quot;League&quot;</span>, <span class="st">&quot;Division&quot;</span>, <span class="st">&quot;NewLeague&quot;</span>)])</span>
-<span id="cb517-6"><a href="shrinkage-methods.html#cb517-6" tabindex="-1"></a><span class="do">##                   League Division NewLeague</span></span>
-<span id="cb517-7"><a href="shrinkage-methods.html#cb517-7" tabindex="-1"></a><span class="do">## -Alan Ashby            N        W         N</span></span>
-<span id="cb517-8"><a href="shrinkage-methods.html#cb517-8" tabindex="-1"></a><span class="do">## -Alvin Davis           A        W         A</span></span>
-<span id="cb517-9"><a href="shrinkage-methods.html#cb517-9" tabindex="-1"></a><span class="do">## -Andre Dawson          N        E         N</span></span>
-<span id="cb517-10"><a href="shrinkage-methods.html#cb517-10" tabindex="-1"></a><span class="do">## -Andres Galarraga      N        E         N</span></span>
-<span id="cb517-11"><a href="shrinkage-methods.html#cb517-11" tabindex="-1"></a><span class="do">## -Alfredo Griffin       A        W         A</span></span>
-<span id="cb517-12"><a href="shrinkage-methods.html#cb517-12" tabindex="-1"></a><span class="do">## -Al Newman             N        E         A</span></span></code></pre></div>
+<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="shrinkage-methods.html#cb532-1" tabindex="-1"></a><span class="fu">library</span>(ISLR2)</span>
+<span id="cb532-2"><a href="shrinkage-methods.html#cb532-2" tabindex="-1"></a><span class="co"># first remove rows with missing values</span></span>
+<span id="cb532-3"><a href="shrinkage-methods.html#cb532-3" tabindex="-1"></a>Hitters <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(Hitters)</span>
+<span id="cb532-4"><a href="shrinkage-methods.html#cb532-4" tabindex="-1"></a></span>
+<span id="cb532-5"><a href="shrinkage-methods.html#cb532-5" tabindex="-1"></a><span class="fu">head</span>(Hitters[, <span class="fu">c</span>(<span class="st">&quot;League&quot;</span>, <span class="st">&quot;Division&quot;</span>, <span class="st">&quot;NewLeague&quot;</span>)])</span>
+<span id="cb532-6"><a href="shrinkage-methods.html#cb532-6" tabindex="-1"></a><span class="do">##                   League Division NewLeague</span></span>
+<span id="cb532-7"><a href="shrinkage-methods.html#cb532-7" tabindex="-1"></a><span class="do">## -Alan Ashby            N        W         N</span></span>
+<span id="cb532-8"><a href="shrinkage-methods.html#cb532-8" tabindex="-1"></a><span class="do">## -Alvin Davis           A        W         A</span></span>
+<span id="cb532-9"><a href="shrinkage-methods.html#cb532-9" tabindex="-1"></a><span class="do">## -Andre Dawson          N        E         N</span></span>
+<span id="cb532-10"><a href="shrinkage-methods.html#cb532-10" tabindex="-1"></a><span class="do">## -Andres Galarraga      N        E         N</span></span>
+<span id="cb532-11"><a href="shrinkage-methods.html#cb532-11" tabindex="-1"></a><span class="do">## -Alfredo Griffin       A        W         A</span></span>
+<span id="cb532-12"><a href="shrinkage-methods.html#cb532-12" tabindex="-1"></a><span class="do">## -Al Newman             N        E         A</span></span></code></pre></div>
 <p>Use <code>model.matrix</code> to prepare the data. The first column is the intercept and we remove it when putting into <code>glmnet()</code>.</p>
-<div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="shrinkage-methods.html#cb518-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(Salary <span class="sc">~</span>., Hitters)[, <span class="sc">-</span><span class="dv">1</span>] </span>
-<span id="cb518-2"><a href="shrinkage-methods.html#cb518-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> Hitters<span class="sc">$</span>Salary</span>
-<span id="cb518-3"><a href="shrinkage-methods.html#cb518-3" tabindex="-1"></a></span>
-<span id="cb518-4"><a href="shrinkage-methods.html#cb518-4" tabindex="-1"></a><span class="fu">head</span>(x[, <span class="fu">c</span>(<span class="st">&quot;LeagueN&quot;</span>, <span class="st">&quot;DivisionW&quot;</span>, <span class="st">&quot;NewLeagueN&quot;</span>)])</span>
-<span id="cb518-5"><a href="shrinkage-methods.html#cb518-5" tabindex="-1"></a><span class="do">##                   LeagueN DivisionW NewLeagueN</span></span>
-<span id="cb518-6"><a href="shrinkage-methods.html#cb518-6" tabindex="-1"></a><span class="do">## -Alan Ashby             1         1          1</span></span>
-<span id="cb518-7"><a href="shrinkage-methods.html#cb518-7" tabindex="-1"></a><span class="do">## -Alvin Davis            0         1          0</span></span>
-<span id="cb518-8"><a href="shrinkage-methods.html#cb518-8" tabindex="-1"></a><span class="do">## -Andre Dawson           1         0          1</span></span>
-<span id="cb518-9"><a href="shrinkage-methods.html#cb518-9" tabindex="-1"></a><span class="do">## -Andres Galarraga       1         0          1</span></span>
-<span id="cb518-10"><a href="shrinkage-methods.html#cb518-10" tabindex="-1"></a><span class="do">## -Alfredo Griffin        0         1          0</span></span>
-<span id="cb518-11"><a href="shrinkage-methods.html#cb518-11" tabindex="-1"></a><span class="do">## -Al Newman              1         0          0</span></span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="shrinkage-methods.html#cb533-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(Salary <span class="sc">~</span>., Hitters)[, <span class="sc">-</span><span class="dv">1</span>] </span>
+<span id="cb533-2"><a href="shrinkage-methods.html#cb533-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> Hitters<span class="sc">$</span>Salary</span>
+<span id="cb533-3"><a href="shrinkage-methods.html#cb533-3" tabindex="-1"></a></span>
+<span id="cb533-4"><a href="shrinkage-methods.html#cb533-4" tabindex="-1"></a><span class="fu">head</span>(x[, <span class="fu">c</span>(<span class="st">&quot;LeagueN&quot;</span>, <span class="st">&quot;DivisionW&quot;</span>, <span class="st">&quot;NewLeagueN&quot;</span>)])</span>
+<span id="cb533-5"><a href="shrinkage-methods.html#cb533-5" tabindex="-1"></a><span class="do">##                   LeagueN DivisionW NewLeagueN</span></span>
+<span id="cb533-6"><a href="shrinkage-methods.html#cb533-6" tabindex="-1"></a><span class="do">## -Alan Ashby             1         1          1</span></span>
+<span id="cb533-7"><a href="shrinkage-methods.html#cb533-7" tabindex="-1"></a><span class="do">## -Alvin Davis            0         1          0</span></span>
+<span id="cb533-8"><a href="shrinkage-methods.html#cb533-8" tabindex="-1"></a><span class="do">## -Andre Dawson           1         0          1</span></span>
+<span id="cb533-9"><a href="shrinkage-methods.html#cb533-9" tabindex="-1"></a><span class="do">## -Andres Galarraga       1         0          1</span></span>
+<span id="cb533-10"><a href="shrinkage-methods.html#cb533-10" tabindex="-1"></a><span class="do">## -Alfredo Griffin        0         1          0</span></span>
+<span id="cb533-11"><a href="shrinkage-methods.html#cb533-11" tabindex="-1"></a><span class="do">## -Al Newman              1         0          0</span></span></code></pre></div>
 <p>Generate random indexes to split the data into training and testing data:</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="shrinkage-methods.html#cb519-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb519-2"><a href="shrinkage-methods.html#cb519-2" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(x), <span class="fu">nrow</span>(x) <span class="sc">*</span> <span class="fl">0.5</span>) <span class="co"># use half of data as training data</span></span></code></pre></div>
+<div class="sourceCode" id="cb534"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb534-1"><a href="shrinkage-methods.html#cb534-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb534-2"><a href="shrinkage-methods.html#cb534-2" tabindex="-1"></a>index <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">nrow</span>(x), <span class="fu">nrow</span>(x) <span class="sc">*</span> <span class="fl">0.5</span>) <span class="co"># use half of data as training data</span></span></code></pre></div>
 <div id="ridge-regression-1" class="section level3 hasAnchor" number="19.4.1">
 <h3><span class="header-section-number">19.4.1</span> Ridge Regression<a href="shrinkage-methods.html#ridge-regression-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Perform ridge regression with cross-validation. The default option is <span class="math inline">\(10\)</span>-fold CV. Note that by default, the variables will be scaled automatically in the function.</p>
-<div class="sourceCode" id="cb520"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb520-1"><a href="shrinkage-methods.html#cb520-1" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb520-2"><a href="shrinkage-methods.html#cb520-2" tabindex="-1"></a>ridge_cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">0</span>)</span>
-<span id="cb520-3"><a href="shrinkage-methods.html#cb520-3" tabindex="-1"></a><span class="fu">plot</span>(ridge_cv)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-577-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="shrinkage-methods.html#cb535-1" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb535-2"><a href="shrinkage-methods.html#cb535-2" tabindex="-1"></a>ridge_cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">0</span>)</span>
+<span id="cb535-3"><a href="shrinkage-methods.html#cb535-3" tabindex="-1"></a><span class="fu">plot</span>(ridge_cv)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-639-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>The above plot shows the cross-validation error (the mean squared error computed using the CV approach) with different values of <span class="math inline">\(\lambda\)</span> in the <span class="math inline">\(\ln\)</span> scale. We can pick the <span class="math inline">\(\lambda\)</span> that results in the smallest cross-validation error using the following code:</p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="shrinkage-methods.html#cb521-1" tabindex="-1"></a>best_lambda <span class="ot">&lt;-</span> ridge_cv<span class="sc">$</span>lambda.min</span></code></pre></div>
+<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="shrinkage-methods.html#cb536-1" tabindex="-1"></a>best_lambda <span class="ot">&lt;-</span> ridge_cv<span class="sc">$</span>lambda.min</span></code></pre></div>
 <p>Fit the ridge regression for the training data set with the “best” lambda and evaluate the test error.</p>
-<div class="sourceCode" id="cb522"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb522-1"><a href="shrinkage-methods.html#cb522-1" tabindex="-1"></a><span class="co"># ridge regression with a particular value of lambda</span></span>
-<span id="cb522-2"><a href="shrinkage-methods.html#cb522-2" tabindex="-1"></a>ridge_best <span class="ot">&lt;-</span>  <span class="fu">glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">lambda =</span> best_lambda)</span>
-<span id="cb522-3"><a href="shrinkage-methods.html#cb522-3" tabindex="-1"></a></span>
-<span id="cb522-4"><a href="shrinkage-methods.html#cb522-4" tabindex="-1"></a><span class="co"># form predictions</span></span>
-<span id="cb522-5"><a href="shrinkage-methods.html#cb522-5" tabindex="-1"></a>ridge_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ridge_best, <span class="at">s =</span> best_lambda, <span class="at">newx =</span> x[<span class="sc">-</span>index, ])</span>
-<span id="cb522-6"><a href="shrinkage-methods.html#cb522-6" tabindex="-1"></a></span>
-<span id="cb522-7"><a href="shrinkage-methods.html#cb522-7" tabindex="-1"></a><span class="co"># test error</span></span>
-<span id="cb522-8"><a href="shrinkage-methods.html#cb522-8" tabindex="-1"></a><span class="fu">mean</span>((ridge_pred <span class="sc">-</span> y[<span class="sc">-</span>index])<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb522-9"><a href="shrinkage-methods.html#cb522-9" tabindex="-1"></a><span class="do">## [1] 138800.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="shrinkage-methods.html#cb537-1" tabindex="-1"></a><span class="co"># ridge regression with a particular value of lambda</span></span>
+<span id="cb537-2"><a href="shrinkage-methods.html#cb537-2" tabindex="-1"></a>ridge_best <span class="ot">&lt;-</span>  <span class="fu">glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">0</span>, <span class="at">lambda =</span> best_lambda)</span>
+<span id="cb537-3"><a href="shrinkage-methods.html#cb537-3" tabindex="-1"></a></span>
+<span id="cb537-4"><a href="shrinkage-methods.html#cb537-4" tabindex="-1"></a><span class="co"># form predictions</span></span>
+<span id="cb537-5"><a href="shrinkage-methods.html#cb537-5" tabindex="-1"></a>ridge_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ridge_best, <span class="at">s =</span> best_lambda, <span class="at">newx =</span> x[<span class="sc">-</span>index, ])</span>
+<span id="cb537-6"><a href="shrinkage-methods.html#cb537-6" tabindex="-1"></a></span>
+<span id="cb537-7"><a href="shrinkage-methods.html#cb537-7" tabindex="-1"></a><span class="co"># test error</span></span>
+<span id="cb537-8"><a href="shrinkage-methods.html#cb537-8" tabindex="-1"></a><span class="fu">mean</span>((ridge_pred <span class="sc">-</span> y[<span class="sc">-</span>index])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb537-9"><a href="shrinkage-methods.html#cb537-9" tabindex="-1"></a><span class="do">## [1] 138800.2</span></span></code></pre></div>
 <p>Coefficients (when the variables are in the original scale):</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="shrinkage-methods.html#cb523-1" tabindex="-1"></a><span class="fu">predict</span>(ridge_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(x), ]</span>
-<span id="cb523-2"><a href="shrinkage-methods.html#cb523-2" tabindex="-1"></a><span class="do">##  (Intercept)        AtBat         Hits        HmRun         Runs          RBI </span></span>
-<span id="cb523-3"><a href="shrinkage-methods.html#cb523-3" tabindex="-1"></a><span class="do">##  71.16411532   0.05151174   0.31495026   2.49638228   0.68833226   0.73836757 </span></span>
-<span id="cb523-4"><a href="shrinkage-methods.html#cb523-4" tabindex="-1"></a><span class="do">##        Walks        Years       CAtBat        CHits       CHmRun        CRuns </span></span>
-<span id="cb523-5"><a href="shrinkage-methods.html#cb523-5" tabindex="-1"></a><span class="do">##   1.77444807  -0.48852879   0.01327951   0.06333713   0.62913292   0.12448162 </span></span>
-<span id="cb523-6"><a href="shrinkage-methods.html#cb523-6" tabindex="-1"></a><span class="do">##         CRBI       CWalks      LeagueN    DivisionW      PutOuts      Assists </span></span>
-<span id="cb523-7"><a href="shrinkage-methods.html#cb523-7" tabindex="-1"></a><span class="do">##   0.15070839   0.16896589  31.16003691 -77.93859127   0.09125514   0.06393766 </span></span>
-<span id="cb523-8"><a href="shrinkage-methods.html#cb523-8" tabindex="-1"></a><span class="do">##       Errors </span></span>
-<span id="cb523-9"><a href="shrinkage-methods.html#cb523-9" tabindex="-1"></a><span class="do">##  -0.33532271</span></span></code></pre></div>
+<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="shrinkage-methods.html#cb538-1" tabindex="-1"></a><span class="fu">predict</span>(ridge_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(x), ]</span>
+<span id="cb538-2"><a href="shrinkage-methods.html#cb538-2" tabindex="-1"></a><span class="do">##  (Intercept)        AtBat         Hits        HmRun         Runs          RBI </span></span>
+<span id="cb538-3"><a href="shrinkage-methods.html#cb538-3" tabindex="-1"></a><span class="do">##  71.16411532   0.05151174   0.31495026   2.49638228   0.68833226   0.73836757 </span></span>
+<span id="cb538-4"><a href="shrinkage-methods.html#cb538-4" tabindex="-1"></a><span class="do">##        Walks        Years       CAtBat        CHits       CHmRun        CRuns </span></span>
+<span id="cb538-5"><a href="shrinkage-methods.html#cb538-5" tabindex="-1"></a><span class="do">##   1.77444807  -0.48852879   0.01327951   0.06333713   0.62913292   0.12448162 </span></span>
+<span id="cb538-6"><a href="shrinkage-methods.html#cb538-6" tabindex="-1"></a><span class="do">##         CRBI       CWalks      LeagueN    DivisionW      PutOuts      Assists </span></span>
+<span id="cb538-7"><a href="shrinkage-methods.html#cb538-7" tabindex="-1"></a><span class="do">##   0.15070839   0.16896589  31.16003691 -77.93859127   0.09125514   0.06393766 </span></span>
+<span id="cb538-8"><a href="shrinkage-methods.html#cb538-8" tabindex="-1"></a><span class="do">##       Errors </span></span>
+<span id="cb538-9"><a href="shrinkage-methods.html#cb538-9" tabindex="-1"></a><span class="do">##  -0.33532271</span></span></code></pre></div>
 <p><strong>Compare with the least squares approach</strong></p>
-<div class="sourceCode" id="cb524"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb524-1"><a href="shrinkage-methods.html#cb524-1" tabindex="-1"></a>ls_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Salary <span class="sc">~</span> ., <span class="at">data =</span> Hitters[index, ])</span>
-<span id="cb524-2"><a href="shrinkage-methods.html#cb524-2" tabindex="-1"></a>ls_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ls_fit, Hitters[<span class="sc">-</span>index, ])</span>
-<span id="cb524-3"><a href="shrinkage-methods.html#cb524-3" tabindex="-1"></a><span class="fu">mean</span>((ls_pred <span class="sc">-</span> y[<span class="sc">-</span>index])<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb524-4"><a href="shrinkage-methods.html#cb524-4" tabindex="-1"></a><span class="do">## [1] 168593.3</span></span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="shrinkage-methods.html#cb539-1" tabindex="-1"></a>ls_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Salary <span class="sc">~</span> ., <span class="at">data =</span> Hitters[index, ])</span>
+<span id="cb539-2"><a href="shrinkage-methods.html#cb539-2" tabindex="-1"></a>ls_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ls_fit, Hitters[<span class="sc">-</span>index, ])</span>
+<span id="cb539-3"><a href="shrinkage-methods.html#cb539-3" tabindex="-1"></a><span class="fu">mean</span>((ls_pred <span class="sc">-</span> y[<span class="sc">-</span>index])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb539-4"><a href="shrinkage-methods.html#cb539-4" tabindex="-1"></a><span class="do">## [1] 168593.3</span></span></code></pre></div>
 <p>We can see that the test error obtained from ridge regression is smaller.</p>
 </div>
 <div id="lasso-1" class="section level3 hasAnchor" number="19.4.2">
 <h3><span class="header-section-number">19.4.2</span> LASSO<a href="shrinkage-methods.html#lasso-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>The code to perform LASSO is essentially the same as that in ridge regression. We only need to change the value of <code>alpha</code> to <code>1</code>.</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="shrinkage-methods.html#cb525-1" tabindex="-1"></a>lasso_cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">1</span>)</span>
-<span id="cb525-2"><a href="shrinkage-methods.html#cb525-2" tabindex="-1"></a></span>
-<span id="cb525-3"><a href="shrinkage-methods.html#cb525-3" tabindex="-1"></a><span class="fu">plot</span>(lasso_cv)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-582-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb526"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb526-1"><a href="shrinkage-methods.html#cb526-1" tabindex="-1"></a><span class="co"># find the best lambda</span></span>
-<span id="cb526-2"><a href="shrinkage-methods.html#cb526-2" tabindex="-1"></a>best_lambda <span class="ot">&lt;-</span> lasso_cv<span class="sc">$</span>lambda.min</span>
-<span id="cb526-3"><a href="shrinkage-methods.html#cb526-3" tabindex="-1"></a></span>
-<span id="cb526-4"><a href="shrinkage-methods.html#cb526-4" tabindex="-1"></a>lasso_best <span class="ot">&lt;-</span>  <span class="fu">glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">lambda =</span> best_lambda)</span>
-<span id="cb526-5"><a href="shrinkage-methods.html#cb526-5" tabindex="-1"></a></span>
-<span id="cb526-6"><a href="shrinkage-methods.html#cb526-6" tabindex="-1"></a><span class="co"># form predictions</span></span>
-<span id="cb526-7"><a href="shrinkage-methods.html#cb526-7" tabindex="-1"></a>lasso_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lasso_best, <span class="at">s =</span> best_lambda, <span class="at">newx =</span> x[<span class="sc">-</span>index, ])</span>
-<span id="cb526-8"><a href="shrinkage-methods.html#cb526-8" tabindex="-1"></a></span>
-<span id="cb526-9"><a href="shrinkage-methods.html#cb526-9" tabindex="-1"></a><span class="co"># test error</span></span>
-<span id="cb526-10"><a href="shrinkage-methods.html#cb526-10" tabindex="-1"></a><span class="fu">mean</span>((lasso_pred <span class="sc">-</span> y[<span class="sc">-</span>index])<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb526-11"><a href="shrinkage-methods.html#cb526-11" tabindex="-1"></a><span class="do">## [1] 144127.2</span></span></code></pre></div>
+<div class="sourceCode" id="cb540"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb540-1"><a href="shrinkage-methods.html#cb540-1" tabindex="-1"></a>lasso_cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">1</span>)</span>
+<span id="cb540-2"><a href="shrinkage-methods.html#cb540-2" tabindex="-1"></a></span>
+<span id="cb540-3"><a href="shrinkage-methods.html#cb540-3" tabindex="-1"></a><span class="fu">plot</span>(lasso_cv)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-644-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="shrinkage-methods.html#cb541-1" tabindex="-1"></a><span class="co"># find the best lambda</span></span>
+<span id="cb541-2"><a href="shrinkage-methods.html#cb541-2" tabindex="-1"></a>best_lambda <span class="ot">&lt;-</span> lasso_cv<span class="sc">$</span>lambda.min</span>
+<span id="cb541-3"><a href="shrinkage-methods.html#cb541-3" tabindex="-1"></a></span>
+<span id="cb541-4"><a href="shrinkage-methods.html#cb541-4" tabindex="-1"></a>lasso_best <span class="ot">&lt;-</span>  <span class="fu">glmnet</span>(x[index, ], y[index], <span class="at">alpha =</span> <span class="dv">1</span>, <span class="at">lambda =</span> best_lambda)</span>
+<span id="cb541-5"><a href="shrinkage-methods.html#cb541-5" tabindex="-1"></a></span>
+<span id="cb541-6"><a href="shrinkage-methods.html#cb541-6" tabindex="-1"></a><span class="co"># form predictions</span></span>
+<span id="cb541-7"><a href="shrinkage-methods.html#cb541-7" tabindex="-1"></a>lasso_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lasso_best, <span class="at">s =</span> best_lambda, <span class="at">newx =</span> x[<span class="sc">-</span>index, ])</span>
+<span id="cb541-8"><a href="shrinkage-methods.html#cb541-8" tabindex="-1"></a></span>
+<span id="cb541-9"><a href="shrinkage-methods.html#cb541-9" tabindex="-1"></a><span class="co"># test error</span></span>
+<span id="cb541-10"><a href="shrinkage-methods.html#cb541-10" tabindex="-1"></a><span class="fu">mean</span>((lasso_pred <span class="sc">-</span> y[<span class="sc">-</span>index])<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb541-11"><a href="shrinkage-methods.html#cb541-11" tabindex="-1"></a><span class="do">## [1] 144127.2</span></span></code></pre></div>
 <p>The test error obtained from lasso is also smaller than that obtained from the least squares approach.</p>
 <p>Coefficients (when the variables are in the original scale):</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="shrinkage-methods.html#cb527-1" tabindex="-1"></a><span class="fu">predict</span>(lasso_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(x), ]</span>
-<span id="cb527-2"><a href="shrinkage-methods.html#cb527-2" tabindex="-1"></a><span class="do">##   (Intercept)         AtBat          Hits         HmRun          Runs           RBI </span></span>
-<span id="cb527-3"><a href="shrinkage-methods.html#cb527-3" tabindex="-1"></a><span class="do">##  126.13087838    0.00000000    0.00000000    3.49595499    0.00000000    0.00000000 </span></span>
-<span id="cb527-4"><a href="shrinkage-methods.html#cb527-4" tabindex="-1"></a><span class="do">##         Walks         Years        CAtBat         CHits        CHmRun         CRuns </span></span>
-<span id="cb527-5"><a href="shrinkage-methods.html#cb527-5" tabindex="-1"></a><span class="do">##    3.93919763  -15.95901778    0.00000000    0.23935217    0.87111840    0.00000000 </span></span>
-<span id="cb527-6"><a href="shrinkage-methods.html#cb527-6" tabindex="-1"></a><span class="do">##          CRBI        CWalks       LeagueN     DivisionW       PutOuts       Assists </span></span>
-<span id="cb527-7"><a href="shrinkage-methods.html#cb527-7" tabindex="-1"></a><span class="do">##    0.39819654    0.00000000   52.95398929 -139.60281921    0.12169771    0.14858018 </span></span>
-<span id="cb527-8"><a href="shrinkage-methods.html#cb527-8" tabindex="-1"></a><span class="do">##        Errors </span></span>
-<span id="cb527-9"><a href="shrinkage-methods.html#cb527-9" tabindex="-1"></a><span class="do">##   -0.06371655</span></span></code></pre></div>
+<div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="shrinkage-methods.html#cb542-1" tabindex="-1"></a><span class="fu">predict</span>(lasso_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(x), ]</span>
+<span id="cb542-2"><a href="shrinkage-methods.html#cb542-2" tabindex="-1"></a><span class="do">##   (Intercept)         AtBat          Hits         HmRun          Runs </span></span>
+<span id="cb542-3"><a href="shrinkage-methods.html#cb542-3" tabindex="-1"></a><span class="do">##  126.13087838    0.00000000    0.00000000    3.49595499    0.00000000 </span></span>
+<span id="cb542-4"><a href="shrinkage-methods.html#cb542-4" tabindex="-1"></a><span class="do">##           RBI         Walks         Years        CAtBat         CHits </span></span>
+<span id="cb542-5"><a href="shrinkage-methods.html#cb542-5" tabindex="-1"></a><span class="do">##    0.00000000    3.93919763  -15.95901778    0.00000000    0.23935217 </span></span>
+<span id="cb542-6"><a href="shrinkage-methods.html#cb542-6" tabindex="-1"></a><span class="do">##        CHmRun         CRuns          CRBI        CWalks       LeagueN </span></span>
+<span id="cb542-7"><a href="shrinkage-methods.html#cb542-7" tabindex="-1"></a><span class="do">##    0.87111840    0.00000000    0.39819654    0.00000000   52.95398929 </span></span>
+<span id="cb542-8"><a href="shrinkage-methods.html#cb542-8" tabindex="-1"></a><span class="do">##     DivisionW       PutOuts       Assists        Errors </span></span>
+<span id="cb542-9"><a href="shrinkage-methods.html#cb542-9" tabindex="-1"></a><span class="do">## -139.60281921    0.12169771    0.14858018   -0.06371655</span></span></code></pre></div>
 <p>We can see that the lasso results in a model where the coefficient estimates are sparse: <span class="math inline">\(7\)</span> of the estimates are exactly <span class="math inline">\(0\)</span>.</p>
 <p><strong>Variable selection property of LASSO</strong></p>
 <p>In the following toy example, the response is only related to the first five features <span class="math inline">\(X_1,\ldots,X_5\)</span>:
@@ -690,25 +694,27 @@ This penalty is called the elastic net penalty. When <span class="math inline">\
 Y_i = 1 + 3(X_{i1} + \ldots +X_{i5}) + \varepsilon_i
 \end{equation*}\]</span>
 We apply LASSO and see that LASSO can select the true model, that is, a linear model that only includes <span class="math inline">\(X_1,\ldots,X_5\)</span>.</p>
-<div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="shrinkage-methods.html#cb528-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
-<span id="cb528-2"><a href="shrinkage-methods.html#cb528-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">500</span> <span class="sc">*</span> <span class="dv">20</span>), <span class="at">nrow =</span> <span class="dv">500</span>, <span class="at">ncol =</span> <span class="dv">20</span>)</span>
-<span id="cb528-3"><a href="shrinkage-methods.html#cb528-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">rowSums</span>(x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]) <span class="sc">*</span> <span class="dv">3</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
-<span id="cb528-4"><a href="shrinkage-methods.html#cb528-4" tabindex="-1"></a></span>
-<span id="cb528-5"><a href="shrinkage-methods.html#cb528-5" tabindex="-1"></a><span class="co"># Perform CV to find the best lambda</span></span>
-<span id="cb528-6"><a href="shrinkage-methods.html#cb528-6" tabindex="-1"></a>lasso_cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
-<span id="cb528-7"><a href="shrinkage-methods.html#cb528-7" tabindex="-1"></a>best_lambda <span class="ot">&lt;-</span> lasso_cv<span class="sc">$</span>lambda.min</span>
-<span id="cb528-8"><a href="shrinkage-methods.html#cb528-8" tabindex="-1"></a></span>
-<span id="cb528-9"><a href="shrinkage-methods.html#cb528-9" tabindex="-1"></a><span class="co"># Refit the data with the best lambda</span></span>
-<span id="cb528-10"><a href="shrinkage-methods.html#cb528-10" tabindex="-1"></a>lasso_best <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(x, y, <span class="at">lambda =</span> best_lambda, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
-<span id="cb528-11"><a href="shrinkage-methods.html#cb528-11" tabindex="-1"></a></span>
-<span id="cb528-12"><a href="shrinkage-methods.html#cb528-12" tabindex="-1"></a><span class="co"># Estimated regression coefficients</span></span>
-<span id="cb528-13"><a href="shrinkage-methods.html#cb528-13" tabindex="-1"></a><span class="fu">predict</span>(lasso_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[, <span class="dv">1</span>]</span>
-<span id="cb528-14"><a href="shrinkage-methods.html#cb528-14" tabindex="-1"></a><span class="do">## (Intercept)          V1          V2          V3          V4          V5          V6 </span></span>
-<span id="cb528-15"><a href="shrinkage-methods.html#cb528-15" tabindex="-1"></a><span class="do">##    1.023367    2.926722    2.912596    2.917734    2.928092    2.921180    0.000000 </span></span>
-<span id="cb528-16"><a href="shrinkage-methods.html#cb528-16" tabindex="-1"></a><span class="do">##          V7          V8          V9         V10         V11         V12         V13 </span></span>
-<span id="cb528-17"><a href="shrinkage-methods.html#cb528-17" tabindex="-1"></a><span class="do">##    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000 </span></span>
-<span id="cb528-18"><a href="shrinkage-methods.html#cb528-18" tabindex="-1"></a><span class="do">##         V14         V15         V16         V17         V18         V19         V20 </span></span>
-<span id="cb528-19"><a href="shrinkage-methods.html#cb528-19" tabindex="-1"></a><span class="do">##    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000</span></span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="shrinkage-methods.html#cb543-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">2</span>)</span>
+<span id="cb543-2"><a href="shrinkage-methods.html#cb543-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">500</span> <span class="sc">*</span> <span class="dv">20</span>), <span class="at">nrow =</span> <span class="dv">500</span>, <span class="at">ncol =</span> <span class="dv">20</span>)</span>
+<span id="cb543-3"><a href="shrinkage-methods.html#cb543-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="fu">rowSums</span>(x[, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]) <span class="sc">*</span> <span class="dv">3</span> <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">500</span>, <span class="dv">0</span>, <span class="fl">0.1</span>)</span>
+<span id="cb543-4"><a href="shrinkage-methods.html#cb543-4" tabindex="-1"></a></span>
+<span id="cb543-5"><a href="shrinkage-methods.html#cb543-5" tabindex="-1"></a><span class="co"># Perform CV to find the best lambda</span></span>
+<span id="cb543-6"><a href="shrinkage-methods.html#cb543-6" tabindex="-1"></a>lasso_cv <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
+<span id="cb543-7"><a href="shrinkage-methods.html#cb543-7" tabindex="-1"></a>best_lambda <span class="ot">&lt;-</span> lasso_cv<span class="sc">$</span>lambda.min</span>
+<span id="cb543-8"><a href="shrinkage-methods.html#cb543-8" tabindex="-1"></a></span>
+<span id="cb543-9"><a href="shrinkage-methods.html#cb543-9" tabindex="-1"></a><span class="co"># Refit the data with the best lambda</span></span>
+<span id="cb543-10"><a href="shrinkage-methods.html#cb543-10" tabindex="-1"></a>lasso_best <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(x, y, <span class="at">lambda =</span> best_lambda, <span class="at">alpha =</span> <span class="dv">1</span>)</span>
+<span id="cb543-11"><a href="shrinkage-methods.html#cb543-11" tabindex="-1"></a></span>
+<span id="cb543-12"><a href="shrinkage-methods.html#cb543-12" tabindex="-1"></a><span class="co"># Estimated regression coefficients</span></span>
+<span id="cb543-13"><a href="shrinkage-methods.html#cb543-13" tabindex="-1"></a><span class="fu">predict</span>(lasso_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[, <span class="dv">1</span>]</span>
+<span id="cb543-14"><a href="shrinkage-methods.html#cb543-14" tabindex="-1"></a><span class="do">## (Intercept)          V1          V2          V3          V4          V5 </span></span>
+<span id="cb543-15"><a href="shrinkage-methods.html#cb543-15" tabindex="-1"></a><span class="do">##    1.023367    2.926722    2.912596    2.917734    2.928092    2.921180 </span></span>
+<span id="cb543-16"><a href="shrinkage-methods.html#cb543-16" tabindex="-1"></a><span class="do">##          V6          V7          V8          V9         V10         V11 </span></span>
+<span id="cb543-17"><a href="shrinkage-methods.html#cb543-17" tabindex="-1"></a><span class="do">##    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000 </span></span>
+<span id="cb543-18"><a href="shrinkage-methods.html#cb543-18" tabindex="-1"></a><span class="do">##         V12         V13         V14         V15         V16         V17 </span></span>
+<span id="cb543-19"><a href="shrinkage-methods.html#cb543-19" tabindex="-1"></a><span class="do">##    0.000000    0.000000    0.000000    0.000000    0.000000    0.000000 </span></span>
+<span id="cb543-20"><a href="shrinkage-methods.html#cb543-20" tabindex="-1"></a><span class="do">##         V18         V19         V20 </span></span>
+<span id="cb543-21"><a href="shrinkage-methods.html#cb543-21" tabindex="-1"></a><span class="do">##    0.000000    0.000000    0.000000</span></span></code></pre></div>
 </div>
 </div>
 <div id="penalized-logistic-regression" class="section level2 hasAnchor" number="19.5">
@@ -721,19 +727,19 @@ We apply LASSO and see that LASSO can select the true model, that is, a linear m
 \right] + \lambda \left[\frac{1-\alpha}{2} \|\beta\|^2_2 + \alpha\|\beta\|_1 \right] \right\}.
 \end{equation*}\]</span></p>
 <p>We can obtain the estimates using <code>glmnet()</code>:</p>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="shrinkage-methods.html#cb529-1" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb529-2"><a href="shrinkage-methods.html#cb529-2" tabindex="-1"></a><span class="fu">data</span>(BinomialExample)</span>
-<span id="cb529-3"><a href="shrinkage-methods.html#cb529-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> BinomialExample<span class="sc">$</span>x</span>
-<span id="cb529-4"><a href="shrinkage-methods.html#cb529-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> BinomialExample<span class="sc">$</span>y</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="shrinkage-methods.html#cb544-1" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb544-2"><a href="shrinkage-methods.html#cb544-2" tabindex="-1"></a><span class="fu">data</span>(BinomialExample)</span>
+<span id="cb544-3"><a href="shrinkage-methods.html#cb544-3" tabindex="-1"></a>x <span class="ot">&lt;-</span> BinomialExample<span class="sc">$</span>x</span>
+<span id="cb544-4"><a href="shrinkage-methods.html#cb544-4" tabindex="-1"></a>y <span class="ot">&lt;-</span> BinomialExample<span class="sc">$</span>y</span></code></pre></div>
 <p>Perform CV to choose <span class="math inline">\(\lambda\)</span>:</p>
-<div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="shrinkage-methods.html#cb530-1" tabindex="-1"></a>cvfit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">type.measure =</span> <span class="st">&quot;class&quot;</span>)</span>
-<span id="cb530-2"><a href="shrinkage-methods.html#cb530-2" tabindex="-1"></a></span>
-<span id="cb530-3"><a href="shrinkage-methods.html#cb530-3" tabindex="-1"></a><span class="fu">plot</span>(cvfit)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-587-1.png" width="75%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="shrinkage-methods.html#cb531-1" tabindex="-1"></a>cvfit<span class="sc">$</span>lambda.min</span>
-<span id="cb531-2"><a href="shrinkage-methods.html#cb531-2" tabindex="-1"></a><span class="do">## [1] 0.02578548</span></span>
-<span id="cb531-3"><a href="shrinkage-methods.html#cb531-3" tabindex="-1"></a>cvfit<span class="sc">$</span>lambda<span class="fl">.1</span>se</span>
-<span id="cb531-4"><a href="shrinkage-methods.html#cb531-4" tabindex="-1"></a><span class="do">## [1] 0.03741031</span></span></code></pre></div>
+<div class="sourceCode" id="cb545"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb545-1"><a href="shrinkage-methods.html#cb545-1" tabindex="-1"></a>cvfit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(x, y, <span class="at">family =</span> <span class="st">&quot;binomial&quot;</span>, <span class="at">type.measure =</span> <span class="st">&quot;class&quot;</span>)</span>
+<span id="cb545-2"><a href="shrinkage-methods.html#cb545-2" tabindex="-1"></a></span>
+<span id="cb545-3"><a href="shrinkage-methods.html#cb545-3" tabindex="-1"></a><span class="fu">plot</span>(cvfit)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-649-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="shrinkage-methods.html#cb546-1" tabindex="-1"></a>cvfit<span class="sc">$</span>lambda.min</span>
+<span id="cb546-2"><a href="shrinkage-methods.html#cb546-2" tabindex="-1"></a><span class="do">## [1] 0.02578548</span></span>
+<span id="cb546-3"><a href="shrinkage-methods.html#cb546-3" tabindex="-1"></a>cvfit<span class="sc">$</span>lambda<span class="fl">.1</span>se</span>
+<span id="cb546-4"><a href="shrinkage-methods.html#cb546-4" tabindex="-1"></a><span class="do">## [1] 0.03741031</span></span></code></pre></div>
 <p>There are different measures for “error”:</p>
 <ul>
 <li><p><code>class</code> gives misclassification error</p></li>
@@ -750,44 +756,44 @@ We apply LASSO and see that LASSO can select the true model, that is, a linear m
         \end{equation*}\]</span>
 where we do not penalize the intercept.</p>
 <p><em>Getting the MNIST dataset</em></p>
-<div class="sourceCode" id="cb532"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb532-1"><a href="shrinkage-methods.html#cb532-1" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
-<span id="cb532-2"><a href="shrinkage-methods.html#cb532-2" tabindex="-1"></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>()</span>
-<span id="cb532-3"><a href="shrinkage-methods.html#cb532-3" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb532-4"><a href="shrinkage-methods.html#cb532-4" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="fu">matrix</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>images[i,], <span class="at">nrow =</span> <span class="dv">28</span>)[ , <span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>], </span>
-<span id="cb532-5"><a href="shrinkage-methods.html#cb532-5" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.05</span>)), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p><img src="Book_files/figure-html/unnamed-chunk-588-1.png" width="50%" style="display: block; margin: auto;" /></p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="shrinkage-methods.html#cb533-1" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
-<span id="cb533-2"><a href="shrinkage-methods.html#cb533-2" tabindex="-1"></a>train_X <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images</span>
-<span id="cb533-3"><a href="shrinkage-methods.html#cb533-3" tabindex="-1"></a>train_y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels</span>
-<span id="cb533-4"><a href="shrinkage-methods.html#cb533-4" tabindex="-1"></a></span>
-<span id="cb533-5"><a href="shrinkage-methods.html#cb533-5" tabindex="-1"></a>test_X <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>images</span>
-<span id="cb533-6"><a href="shrinkage-methods.html#cb533-6" tabindex="-1"></a>test_y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>labels</span>
-<span id="cb533-7"><a href="shrinkage-methods.html#cb533-7" tabindex="-1"></a></span>
-<span id="cb533-8"><a href="shrinkage-methods.html#cb533-8" tabindex="-1"></a><span class="co"># subset a smaller dataset for illustration</span></span>
-<span id="cb533-9"><a href="shrinkage-methods.html#cb533-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb533-10"><a href="shrinkage-methods.html#cb533-10" tabindex="-1"></a>subset <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(train_X), <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb533-11"><a href="shrinkage-methods.html#cb533-11" tabindex="-1"></a></span>
-<span id="cb533-12"><a href="shrinkage-methods.html#cb533-12" tabindex="-1"></a>cvfit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(train_X[subset, ], train_y[subset], <span class="at">family =</span> <span class="st">&quot;multinomial&quot;</span>, <span class="at">parellel =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb533-13"><a href="shrinkage-methods.html#cb533-13" tabindex="-1"></a></span>
-<span id="cb533-14"><a href="shrinkage-methods.html#cb533-14" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(cvfit, <span class="at">newx =</span> test_X, <span class="at">s =</span> <span class="st">&quot;lambda.min&quot;</span>, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>)</span>
-<span id="cb533-15"><a href="shrinkage-methods.html#cb533-15" tabindex="-1"></a></span>
-<span id="cb533-16"><a href="shrinkage-methods.html#cb533-16" tabindex="-1"></a><span class="fu">table</span>(pred, test_y)</span>
-<span id="cb533-17"><a href="shrinkage-methods.html#cb533-17" tabindex="-1"></a><span class="do">##     test_y</span></span>
-<span id="cb533-18"><a href="shrinkage-methods.html#cb533-18" tabindex="-1"></a><span class="do">## pred    0    1    2    3    4    5    6    7    8    9</span></span>
-<span id="cb533-19"><a href="shrinkage-methods.html#cb533-19" tabindex="-1"></a><span class="do">##    0  930    0   19    8    2   22   21    9   17   23</span></span>
-<span id="cb533-20"><a href="shrinkage-methods.html#cb533-20" tabindex="-1"></a><span class="do">##    1    1 1096   28    7    5    7   14   23   39    9</span></span>
-<span id="cb533-21"><a href="shrinkage-methods.html#cb533-21" tabindex="-1"></a><span class="do">##    2    7    2  844   24    5    5   17   22    3    6</span></span>
-<span id="cb533-22"><a href="shrinkage-methods.html#cb533-22" tabindex="-1"></a><span class="do">##    3    0   10   33  784    4   32   21   11   32   11</span></span>
-<span id="cb533-23"><a href="shrinkage-methods.html#cb533-23" tabindex="-1"></a><span class="do">##    4    2    1   23    1  883   20   22   13   25   63</span></span>
-<span id="cb533-24"><a href="shrinkage-methods.html#cb533-24" tabindex="-1"></a><span class="do">##    5   20    5    4   90    4  728   42    3   76   22</span></span>
-<span id="cb533-25"><a href="shrinkage-methods.html#cb533-25" tabindex="-1"></a><span class="do">##    6    8    3   24   11   10   11  812    1   15    1</span></span>
-<span id="cb533-26"><a href="shrinkage-methods.html#cb533-26" tabindex="-1"></a><span class="do">##    7    8    0   16   28    8   18    2  858   16   60</span></span>
-<span id="cb533-27"><a href="shrinkage-methods.html#cb533-27" tabindex="-1"></a><span class="do">##    8    4   18   37   32    7   32    7   10  724    5</span></span>
-<span id="cb533-28"><a href="shrinkage-methods.html#cb533-28" tabindex="-1"></a><span class="do">##    9    0    0    4   25   54   17    0   78   27  809</span></span>
-<span id="cb533-29"><a href="shrinkage-methods.html#cb533-29" tabindex="-1"></a></span>
-<span id="cb533-30"><a href="shrinkage-methods.html#cb533-30" tabindex="-1"></a><span class="co"># misclassification rate</span></span>
-<span id="cb533-31"><a href="shrinkage-methods.html#cb533-31" tabindex="-1"></a><span class="fu">sum</span>(pred <span class="sc">!=</span> test_y) <span class="sc">/</span> <span class="fu">length</span>(test_y)</span>
-<span id="cb533-32"><a href="shrinkage-methods.html#cb533-32" tabindex="-1"></a><span class="do">## [1] 0.1532</span></span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="shrinkage-methods.html#cb547-1" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb547-2"><a href="shrinkage-methods.html#cb547-2" tabindex="-1"></a>mnist <span class="ot">&lt;-</span> <span class="fu">read_mnist</span>()</span>
+<span id="cb547-3"><a href="shrinkage-methods.html#cb547-3" tabindex="-1"></a>i <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb547-4"><a href="shrinkage-methods.html#cb547-4" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">28</span>, <span class="fu">matrix</span>(mnist<span class="sc">$</span>test<span class="sc">$</span>images[i,], <span class="at">nrow =</span> <span class="dv">28</span>)[ , <span class="dv">28</span><span class="sc">:</span><span class="dv">1</span>], </span>
+<span id="cb547-5"><a href="shrinkage-methods.html#cb547-5" tabindex="-1"></a>    <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="fl">0.05</span>)), <span class="at">xlab =</span> <span class="st">&quot;&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p><img src="Book_files/figure-html/unnamed-chunk-650-1.png" width="50%" style="display: block; margin: auto;" /></p>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="shrinkage-methods.html#cb548-1" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb548-2"><a href="shrinkage-methods.html#cb548-2" tabindex="-1"></a>train_X <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>images</span>
+<span id="cb548-3"><a href="shrinkage-methods.html#cb548-3" tabindex="-1"></a>train_y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>train<span class="sc">$</span>labels</span>
+<span id="cb548-4"><a href="shrinkage-methods.html#cb548-4" tabindex="-1"></a></span>
+<span id="cb548-5"><a href="shrinkage-methods.html#cb548-5" tabindex="-1"></a>test_X <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>images</span>
+<span id="cb548-6"><a href="shrinkage-methods.html#cb548-6" tabindex="-1"></a>test_y <span class="ot">&lt;-</span> mnist<span class="sc">$</span>test<span class="sc">$</span>labels</span>
+<span id="cb548-7"><a href="shrinkage-methods.html#cb548-7" tabindex="-1"></a></span>
+<span id="cb548-8"><a href="shrinkage-methods.html#cb548-8" tabindex="-1"></a><span class="co"># subset a smaller dataset for illustration</span></span>
+<span id="cb548-9"><a href="shrinkage-methods.html#cb548-9" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb548-10"><a href="shrinkage-methods.html#cb548-10" tabindex="-1"></a>subset <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(train_X), <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb548-11"><a href="shrinkage-methods.html#cb548-11" tabindex="-1"></a></span>
+<span id="cb548-12"><a href="shrinkage-methods.html#cb548-12" tabindex="-1"></a>cvfit <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(train_X[subset, ], train_y[subset], <span class="at">family =</span> <span class="st">&quot;multinomial&quot;</span>, <span class="at">parellel =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb548-13"><a href="shrinkage-methods.html#cb548-13" tabindex="-1"></a></span>
+<span id="cb548-14"><a href="shrinkage-methods.html#cb548-14" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(cvfit, <span class="at">newx =</span> test_X, <span class="at">s =</span> <span class="st">&quot;lambda.min&quot;</span>, <span class="at">type =</span> <span class="st">&quot;class&quot;</span>)</span>
+<span id="cb548-15"><a href="shrinkage-methods.html#cb548-15" tabindex="-1"></a></span>
+<span id="cb548-16"><a href="shrinkage-methods.html#cb548-16" tabindex="-1"></a><span class="fu">table</span>(pred, test_y)</span>
+<span id="cb548-17"><a href="shrinkage-methods.html#cb548-17" tabindex="-1"></a><span class="do">##     test_y</span></span>
+<span id="cb548-18"><a href="shrinkage-methods.html#cb548-18" tabindex="-1"></a><span class="do">## pred    0    1    2    3    4    5    6    7    8    9</span></span>
+<span id="cb548-19"><a href="shrinkage-methods.html#cb548-19" tabindex="-1"></a><span class="do">##    0  930    0   19    8    2   22   21    9   17   23</span></span>
+<span id="cb548-20"><a href="shrinkage-methods.html#cb548-20" tabindex="-1"></a><span class="do">##    1    1 1096   28    7    5    7   14   23   39    9</span></span>
+<span id="cb548-21"><a href="shrinkage-methods.html#cb548-21" tabindex="-1"></a><span class="do">##    2    7    2  844   24    5    5   17   22    3    6</span></span>
+<span id="cb548-22"><a href="shrinkage-methods.html#cb548-22" tabindex="-1"></a><span class="do">##    3    0   10   33  784    4   32   21   11   32   11</span></span>
+<span id="cb548-23"><a href="shrinkage-methods.html#cb548-23" tabindex="-1"></a><span class="do">##    4    2    1   23    1  883   20   22   13   25   63</span></span>
+<span id="cb548-24"><a href="shrinkage-methods.html#cb548-24" tabindex="-1"></a><span class="do">##    5   20    5    4   90    4  728   42    3   76   22</span></span>
+<span id="cb548-25"><a href="shrinkage-methods.html#cb548-25" tabindex="-1"></a><span class="do">##    6    8    3   24   11   10   11  812    1   15    1</span></span>
+<span id="cb548-26"><a href="shrinkage-methods.html#cb548-26" tabindex="-1"></a><span class="do">##    7    8    0   16   28    8   18    2  858   16   60</span></span>
+<span id="cb548-27"><a href="shrinkage-methods.html#cb548-27" tabindex="-1"></a><span class="do">##    8    4   18   37   32    7   32    7   10  724    5</span></span>
+<span id="cb548-28"><a href="shrinkage-methods.html#cb548-28" tabindex="-1"></a><span class="do">##    9    0    0    4   25   54   17    0   78   27  809</span></span>
+<span id="cb548-29"><a href="shrinkage-methods.html#cb548-29" tabindex="-1"></a></span>
+<span id="cb548-30"><a href="shrinkage-methods.html#cb548-30" tabindex="-1"></a><span class="co"># misclassification rate</span></span>
+<span id="cb548-31"><a href="shrinkage-methods.html#cb548-31" tabindex="-1"></a><span class="fu">sum</span>(pred <span class="sc">!=</span> test_y) <span class="sc">/</span> <span class="fu">length</span>(test_y)</span>
+<span id="cb548-32"><a href="shrinkage-methods.html#cb548-32" tabindex="-1"></a><span class="do">## [1] 0.1532</span></span></code></pre></div>
 
 </div>
 </div>
