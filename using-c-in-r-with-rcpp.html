@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2025-01-15" />
+<meta name="date" content="2026-01-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#sort"><i class="fa fa-check"></i><b>1.7.1</b> <code>sort()</code></a></li>
 <li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#seq"><i class="fa fa-check"></i><b>1.7.2</b> <code>seq()</code></a></li>
 <li class="chapter" data-level="1.7.3" data-path="introduction.html"><a href="introduction.html#rep"><i class="fa fa-check"></i><b>1.7.3</b> <code>rep()</code></a></li>
-<li class="chapter" data-level="1.7.4" data-path="introduction.html"><a href="introduction.html#pmax-pmin"><i class="fa fa-check"></i><b>1.7.4</b> <code>pmax</code>, <code>pmin</code></a></li>
+<li class="chapter" data-level="1.7.4" data-path="introduction.html"><a href="introduction.html#pmax-pmin"><i class="fa fa-check"></i><b>1.7.4</b> <code>pmax()</code>, <code>pmin()</code></a></li>
+<li class="chapter" data-level="1.7.5" data-path="introduction.html"><a href="introduction.html#table"><i class="fa fa-check"></i><b>1.7.5</b> <code>table()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#some-useful-rstudio-shortcuts"><i class="fa fa-check"></i><b>1.8</b> Some Useful RStudio Shortcuts</a></li>
 <li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#exercises"><i class="fa fa-check"></i><b>1.9</b> Exercises</a></li>
@@ -181,13 +182,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html"><i class="fa fa-check"></i><b>2</b> Probability and Simulation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#probability-distributions"><i class="fa fa-check"></i><b>2.1</b> Probability Distributions</a>
+<li class="chapter" data-level="2.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#review-of-basic-probability"><i class="fa fa-check"></i><b>2.1</b> Review of Basic Probability</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#common-distributions"><i class="fa fa-check"></i><b>2.1.1</b> Common Distributions</a></li>
-<li class="chapter" data-level="2.1.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#exercises-1"><i class="fa fa-check"></i><b>2.1.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.1.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#random-variables"><i class="fa fa-check"></i><b>2.1.1</b> Random variables</a></li>
+<li class="chapter" data-level="2.1.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#distribution-functions"><i class="fa fa-check"></i><b>2.1.2</b> Distribution functions</a></li>
+<li class="chapter" data-level="2.1.3" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#density-function-pdf"><i class="fa fa-check"></i><b>2.1.3</b> Density function (pdf)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#probability-mass-function-pmf"><i class="fa fa-check"></i><b>2.1.4</b> Probability mass function (PMF)</a></li>
+<li class="chapter" data-level="2.1.5" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#quantile-function"><i class="fa fa-check"></i><b>2.1.5</b> Quantile function</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#simulation"><i class="fa fa-check"></i><b>2.2</b> Simulation</a></li>
-<li class="chapter" data-level="2.3" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#additional-exercises"><i class="fa fa-check"></i><b>2.3</b> Additional Exercises</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#simulation"><i class="fa fa-check"></i><b>2.2</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#a-simple-example-probability-of-an-even-number-when-rolling-a-die"><i class="fa fa-check"></i><b>2.2.1</b> A simple example: probability of an even number when rolling a die</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>2.3</b> Probability Distributions in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#common-distributions"><i class="fa fa-check"></i><b>2.3.1</b> Common Distributions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#exercises-1"><i class="fa fa-check"></i><b>2.3.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#simulation-in-r"><i class="fa fa-check"></i><b>2.4</b> Simulation in R</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#additional-exercises"><i class="fa fa-check"></i><b>2.5</b> Additional Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="programming-in-r.html"><a href="programming-in-r.html"><i class="fa fa-check"></i><b>3</b> Programming in R</a>
 <ul>
@@ -240,7 +253,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#summarize-group_by"><i class="fa fa-check"></i><b>4.9</b> <code>summarize(), group_by()</code></a></li>
 <li class="chapter" data-level="4.10" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#combining-multiple-operations-with-pipe"><i class="fa fa-check"></i><b>4.10</b> Combining Multiple Operations with Pipe <code>%&gt;%</code></a></li>
-<li class="chapter" data-level="4.11" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#summary"><i class="fa fa-check"></i><b>4.11</b> Summary</a></li>
+<li class="chapter" data-level="4.11" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#summary"><i class="fa fa-check"></i><b>4.11</b> Summary</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#base-r"><i class="fa fa-check"></i><b>4.11.1</b> Base R</a></li>
+<li class="chapter" data-level="4.11.2" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#missing-values-1"><i class="fa fa-check"></i><b>4.11.2</b> Missing Values</a></li>
+<li class="chapter" data-level="4.11.3" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#saving-loading-and-removing-r-data-structures-1"><i class="fa fa-check"></i><b>4.11.3</b> Saving, loading, and removing R data structures</a></li>
+<li class="chapter" data-level="4.11.4" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#importing-and-saving-data-from-csv-files-1"><i class="fa fa-check"></i><b>4.11.4</b> Importing and saving data from CSV files</a></li>
+<li class="chapter" data-level="4.11.5" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#package-setup"><i class="fa fa-check"></i><b>4.11.5</b> Package Setup</a></li>
+<li class="chapter" data-level="4.11.6" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#data-transformation-with-dplyr-1"><i class="fa fa-check"></i><b>4.11.6</b> Data Transformation with <code>dplyr</code></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html"><i class="fa fa-check"></i><b>5</b> Creating Some Basic Plots</a>
 <ul>
@@ -398,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="r-markdown.html"><a href="r-markdown.html#formatting-text"><i class="fa fa-check"></i><b>16.3</b> Formatting Text</a></li>
 <li class="chapter" data-level="16.4" data-path="r-markdown.html"><a href="r-markdown.html#list"><i class="fa fa-check"></i><b>16.4</b> List</a></li>
-<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#table"><i class="fa fa-check"></i><b>16.5</b> Table</a></li>
+<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#table-1"><i class="fa fa-check"></i><b>16.5</b> Table</a></li>
 <li class="chapter" data-level="16.6" data-path="r-markdown.html"><a href="r-markdown.html#r-code"><i class="fa fa-check"></i><b>16.6</b> R code</a></li>
 <li class="chapter" data-level="16.7" data-path="r-markdown.html"><a href="r-markdown.html#graphics"><i class="fa fa-check"></i><b>16.7</b> Graphics</a></li>
 <li class="chapter" data-level="16.8" data-path="r-markdown.html"><a href="r-markdown.html#latex-equation"><i class="fa fa-check"></i><b>16.8</b> Latex Equation</a></li>
@@ -513,29 +534,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Then, install <code>Rcpp</code> using <code>install.packages("Rcpp")</code> in R.</p>
 <div id="basic-examples" class="section level2 hasAnchor" number="21.1">
 <h2><span class="header-section-number">21.1</span> Basic Examples<a href="using-c-in-r-with-rcpp.html#basic-examples" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="using-c-in-r-with-rcpp.html#cb549-1" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span></code></pre></div>
+<div class="sourceCode" id="cb547"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb547-1"><a href="using-c-in-r-with-rcpp.html#cb547-1" tabindex="-1"></a><span class="fu">library</span>(Rcpp)</span></code></pre></div>
 <p>Consider this R function that add <span class="math inline">\(3\)</span> numbers:</p>
-<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="using-c-in-r-with-rcpp.html#cb550-1" tabindex="-1"></a>add_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, z) {</span>
-<span id="cb550-2"><a href="using-c-in-r-with-rcpp.html#cb550-2" tabindex="-1"></a>  x <span class="sc">+</span> y <span class="sc">+</span> z</span>
-<span id="cb550-3"><a href="using-c-in-r-with-rcpp.html#cb550-3" tabindex="-1"></a>}</span>
-<span id="cb550-4"><a href="using-c-in-r-with-rcpp.html#cb550-4" tabindex="-1"></a><span class="fu">add_R</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb550-5"><a href="using-c-in-r-with-rcpp.html#cb550-5" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="using-c-in-r-with-rcpp.html#cb548-1" tabindex="-1"></a>add_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, z) {</span>
+<span id="cb548-2"><a href="using-c-in-r-with-rcpp.html#cb548-2" tabindex="-1"></a>  x <span class="sc">+</span> y <span class="sc">+</span> z</span>
+<span id="cb548-3"><a href="using-c-in-r-with-rcpp.html#cb548-3" tabindex="-1"></a>}</span>
+<span id="cb548-4"><a href="using-c-in-r-with-rcpp.html#cb548-4" tabindex="-1"></a><span class="fu">add_R</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb548-5"><a href="using-c-in-r-with-rcpp.html#cb548-5" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
 <p>Let’s write the C++ equivalent:</p>
-<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="using-c-in-r-with-rcpp.html#cb551-1" tabindex="-1"></a><span class="co"># need to use &#39; &#39;  or &quot; &quot; inside cppFunction()</span></span>
-<span id="cb551-2"><a href="using-c-in-r-with-rcpp.html#cb551-2" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
-<span id="cb551-3"><a href="using-c-in-r-with-rcpp.html#cb551-3" tabindex="-1"></a><span class="st">&#39;int add_C(int x, int y, int z) {</span></span>
-<span id="cb551-4"><a href="using-c-in-r-with-rcpp.html#cb551-4" tabindex="-1"></a><span class="st">  int sum = x + y + z;</span></span>
-<span id="cb551-5"><a href="using-c-in-r-with-rcpp.html#cb551-5" tabindex="-1"></a><span class="st">  return sum;</span></span>
-<span id="cb551-6"><a href="using-c-in-r-with-rcpp.html#cb551-6" tabindex="-1"></a><span class="st">}&#39;</span></span>
-<span id="cb551-7"><a href="using-c-in-r-with-rcpp.html#cb551-7" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="using-c-in-r-with-rcpp.html#cb549-1" tabindex="-1"></a><span class="co"># need to use &#39; &#39;  or &quot; &quot; inside cppFunction()</span></span>
+<span id="cb549-2"><a href="using-c-in-r-with-rcpp.html#cb549-2" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
+<span id="cb549-3"><a href="using-c-in-r-with-rcpp.html#cb549-3" tabindex="-1"></a><span class="st">&#39;int add_C(int x, int y, int z) {</span></span>
+<span id="cb549-4"><a href="using-c-in-r-with-rcpp.html#cb549-4" tabindex="-1"></a><span class="st">  int sum = x + y + z;</span></span>
+<span id="cb549-5"><a href="using-c-in-r-with-rcpp.html#cb549-5" tabindex="-1"></a><span class="st">  return sum;</span></span>
+<span id="cb549-6"><a href="using-c-in-r-with-rcpp.html#cb549-6" tabindex="-1"></a><span class="st">}&#39;</span></span>
+<span id="cb549-7"><a href="using-c-in-r-with-rcpp.html#cb549-7" tabindex="-1"></a>)</span></code></pre></div>
 <p>When you run this code, Rcpp will compile the C++ code and construct an R function that connects to the compiled C++ function.</p>
-<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="using-c-in-r-with-rcpp.html#cb552-1" tabindex="-1"></a><span class="co"># add works like a regular R function</span></span>
-<span id="cb552-2"><a href="using-c-in-r-with-rcpp.html#cb552-2" tabindex="-1"></a>add_C</span>
-<span id="cb552-3"><a href="using-c-in-r-with-rcpp.html#cb552-3" tabindex="-1"></a><span class="do">## function (x, y, z) </span></span>
-<span id="cb552-4"><a href="using-c-in-r-with-rcpp.html#cb552-4" tabindex="-1"></a><span class="do">## .Call(&lt;pointer: 0x00007ff9bb9e1610&gt;, x, y, z)</span></span>
-<span id="cb552-5"><a href="using-c-in-r-with-rcpp.html#cb552-5" tabindex="-1"></a></span>
-<span id="cb552-6"><a href="using-c-in-r-with-rcpp.html#cb552-6" tabindex="-1"></a><span class="fu">add_C</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb552-7"><a href="using-c-in-r-with-rcpp.html#cb552-7" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
+<div class="sourceCode" id="cb550"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb550-1"><a href="using-c-in-r-with-rcpp.html#cb550-1" tabindex="-1"></a><span class="co"># add works like a regular R function</span></span>
+<span id="cb550-2"><a href="using-c-in-r-with-rcpp.html#cb550-2" tabindex="-1"></a>add_C</span>
+<span id="cb550-3"><a href="using-c-in-r-with-rcpp.html#cb550-3" tabindex="-1"></a><span class="do">## function (x, y, z) </span></span>
+<span id="cb550-4"><a href="using-c-in-r-with-rcpp.html#cb550-4" tabindex="-1"></a><span class="do">## .Call(&lt;pointer: 0x00007ffd03551610&gt;, x, y, z)</span></span>
+<span id="cb550-5"><a href="using-c-in-r-with-rcpp.html#cb550-5" tabindex="-1"></a></span>
+<span id="cb550-6"><a href="using-c-in-r-with-rcpp.html#cb550-6" tabindex="-1"></a><span class="fu">add_C</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb550-7"><a href="using-c-in-r-with-rcpp.html#cb550-7" tabindex="-1"></a><span class="do">## [1] 6</span></span></code></pre></div>
 <p>Important differences for writing functions between R and C++:</p>
 <table>
 <thead>
@@ -608,52 +629,52 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="scalar-input-scalar-output" class="section level2 hasAnchor" number="21.2">
 <h2><span class="header-section-number">21.2</span> Scalar Input, Scalar Output<a href="using-c-in-r-with-rcpp.html#scalar-input-scalar-output" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="using-c-in-r-with-rcpp.html#cb553-1" tabindex="-1"></a>sign_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb553-2"><a href="using-c-in-r-with-rcpp.html#cb553-2" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb553-3"><a href="using-c-in-r-with-rcpp.html#cb553-3" tabindex="-1"></a>    <span class="dv">1</span></span>
-<span id="cb553-4"><a href="using-c-in-r-with-rcpp.html#cb553-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb553-5"><a href="using-c-in-r-with-rcpp.html#cb553-5" tabindex="-1"></a>    <span class="dv">0</span></span>
-<span id="cb553-6"><a href="using-c-in-r-with-rcpp.html#cb553-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb553-7"><a href="using-c-in-r-with-rcpp.html#cb553-7" tabindex="-1"></a>    <span class="sc">-</span><span class="dv">1</span></span>
-<span id="cb553-8"><a href="using-c-in-r-with-rcpp.html#cb553-8" tabindex="-1"></a>  }</span>
-<span id="cb553-9"><a href="using-c-in-r-with-rcpp.html#cb553-9" tabindex="-1"></a>}</span>
-<span id="cb553-10"><a href="using-c-in-r-with-rcpp.html#cb553-10" tabindex="-1"></a></span>
-<span id="cb553-11"><a href="using-c-in-r-with-rcpp.html#cb553-11" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
-<span id="cb553-12"><a href="using-c-in-r-with-rcpp.html#cb553-12" tabindex="-1"></a><span class="st">&#39;int sign_C(int x) {</span></span>
-<span id="cb553-13"><a href="using-c-in-r-with-rcpp.html#cb553-13" tabindex="-1"></a><span class="st">  if (x &gt; 0) {</span></span>
-<span id="cb553-14"><a href="using-c-in-r-with-rcpp.html#cb553-14" tabindex="-1"></a><span class="st">    return 1;</span></span>
-<span id="cb553-15"><a href="using-c-in-r-with-rcpp.html#cb553-15" tabindex="-1"></a><span class="st">  } else if (x == 0) {</span></span>
-<span id="cb553-16"><a href="using-c-in-r-with-rcpp.html#cb553-16" tabindex="-1"></a><span class="st">    return 0;</span></span>
-<span id="cb553-17"><a href="using-c-in-r-with-rcpp.html#cb553-17" tabindex="-1"></a><span class="st">  } else {</span></span>
-<span id="cb553-18"><a href="using-c-in-r-with-rcpp.html#cb553-18" tabindex="-1"></a><span class="st">    return -1;</span></span>
-<span id="cb553-19"><a href="using-c-in-r-with-rcpp.html#cb553-19" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb553-20"><a href="using-c-in-r-with-rcpp.html#cb553-20" tabindex="-1"></a><span class="st">}&#39;</span></span>
-<span id="cb553-21"><a href="using-c-in-r-with-rcpp.html#cb553-21" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb551-1"><a href="using-c-in-r-with-rcpp.html#cb551-1" tabindex="-1"></a>sign_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb551-2"><a href="using-c-in-r-with-rcpp.html#cb551-2" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb551-3"><a href="using-c-in-r-with-rcpp.html#cb551-3" tabindex="-1"></a>    <span class="dv">1</span></span>
+<span id="cb551-4"><a href="using-c-in-r-with-rcpp.html#cb551-4" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb551-5"><a href="using-c-in-r-with-rcpp.html#cb551-5" tabindex="-1"></a>    <span class="dv">0</span></span>
+<span id="cb551-6"><a href="using-c-in-r-with-rcpp.html#cb551-6" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb551-7"><a href="using-c-in-r-with-rcpp.html#cb551-7" tabindex="-1"></a>    <span class="sc">-</span><span class="dv">1</span></span>
+<span id="cb551-8"><a href="using-c-in-r-with-rcpp.html#cb551-8" tabindex="-1"></a>  }</span>
+<span id="cb551-9"><a href="using-c-in-r-with-rcpp.html#cb551-9" tabindex="-1"></a>}</span>
+<span id="cb551-10"><a href="using-c-in-r-with-rcpp.html#cb551-10" tabindex="-1"></a></span>
+<span id="cb551-11"><a href="using-c-in-r-with-rcpp.html#cb551-11" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
+<span id="cb551-12"><a href="using-c-in-r-with-rcpp.html#cb551-12" tabindex="-1"></a><span class="st">&#39;int sign_C(int x) {</span></span>
+<span id="cb551-13"><a href="using-c-in-r-with-rcpp.html#cb551-13" tabindex="-1"></a><span class="st">  if (x &gt; 0) {</span></span>
+<span id="cb551-14"><a href="using-c-in-r-with-rcpp.html#cb551-14" tabindex="-1"></a><span class="st">    return 1;</span></span>
+<span id="cb551-15"><a href="using-c-in-r-with-rcpp.html#cb551-15" tabindex="-1"></a><span class="st">  } else if (x == 0) {</span></span>
+<span id="cb551-16"><a href="using-c-in-r-with-rcpp.html#cb551-16" tabindex="-1"></a><span class="st">    return 0;</span></span>
+<span id="cb551-17"><a href="using-c-in-r-with-rcpp.html#cb551-17" tabindex="-1"></a><span class="st">  } else {</span></span>
+<span id="cb551-18"><a href="using-c-in-r-with-rcpp.html#cb551-18" tabindex="-1"></a><span class="st">    return -1;</span></span>
+<span id="cb551-19"><a href="using-c-in-r-with-rcpp.html#cb551-19" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb551-20"><a href="using-c-in-r-with-rcpp.html#cb551-20" tabindex="-1"></a><span class="st">}&#39;</span></span>
+<span id="cb551-21"><a href="using-c-in-r-with-rcpp.html#cb551-21" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li><code>if</code> syntax is identical</li>
 </ul>
 </div>
 <div id="vector-input-scalar-ouptut" class="section level2 hasAnchor" number="21.3">
 <h2><span class="header-section-number">21.3</span> Vector Input, Scalar Ouptut<a href="using-c-in-r-with-rcpp.html#vector-input-scalar-ouptut" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="using-c-in-r-with-rcpp.html#cb554-1" tabindex="-1"></a>sum_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb554-2"><a href="using-c-in-r-with-rcpp.html#cb554-2" tabindex="-1"></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb554-3"><a href="using-c-in-r-with-rcpp.html#cb554-3" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb554-4"><a href="using-c-in-r-with-rcpp.html#cb554-4" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
-<span id="cb554-5"><a href="using-c-in-r-with-rcpp.html#cb554-5" tabindex="-1"></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> x[i]</span>
-<span id="cb554-6"><a href="using-c-in-r-with-rcpp.html#cb554-6" tabindex="-1"></a>  }</span>
-<span id="cb554-7"><a href="using-c-in-r-with-rcpp.html#cb554-7" tabindex="-1"></a>  total</span>
-<span id="cb554-8"><a href="using-c-in-r-with-rcpp.html#cb554-8" tabindex="-1"></a>}</span>
-<span id="cb554-9"><a href="using-c-in-r-with-rcpp.html#cb554-9" tabindex="-1"></a></span>
-<span id="cb554-10"><a href="using-c-in-r-with-rcpp.html#cb554-10" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
-<span id="cb554-11"><a href="using-c-in-r-with-rcpp.html#cb554-11" tabindex="-1"></a><span class="st">&#39;double sum_C(NumericVector x) {</span></span>
-<span id="cb554-12"><a href="using-c-in-r-with-rcpp.html#cb554-12" tabindex="-1"></a><span class="st">  int n = x.size();</span></span>
-<span id="cb554-13"><a href="using-c-in-r-with-rcpp.html#cb554-13" tabindex="-1"></a><span class="st">  double total = 0;</span></span>
-<span id="cb554-14"><a href="using-c-in-r-with-rcpp.html#cb554-14" tabindex="-1"></a><span class="st">  for (int i = 0; i &lt; n; ++i) {</span></span>
-<span id="cb554-15"><a href="using-c-in-r-with-rcpp.html#cb554-15" tabindex="-1"></a><span class="st">    total = total + x[i];</span></span>
-<span id="cb554-16"><a href="using-c-in-r-with-rcpp.html#cb554-16" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb554-17"><a href="using-c-in-r-with-rcpp.html#cb554-17" tabindex="-1"></a><span class="st">  return total;</span></span>
-<span id="cb554-18"><a href="using-c-in-r-with-rcpp.html#cb554-18" tabindex="-1"></a><span class="st">}&#39;</span></span>
-<span id="cb554-19"><a href="using-c-in-r-with-rcpp.html#cb554-19" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb552-1"><a href="using-c-in-r-with-rcpp.html#cb552-1" tabindex="-1"></a>sum_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb552-2"><a href="using-c-in-r-with-rcpp.html#cb552-2" tabindex="-1"></a>  total <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb552-3"><a href="using-c-in-r-with-rcpp.html#cb552-3" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb552-4"><a href="using-c-in-r-with-rcpp.html#cb552-4" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb552-5"><a href="using-c-in-r-with-rcpp.html#cb552-5" tabindex="-1"></a>    total <span class="ot">&lt;-</span> total <span class="sc">+</span> x[i]</span>
+<span id="cb552-6"><a href="using-c-in-r-with-rcpp.html#cb552-6" tabindex="-1"></a>  }</span>
+<span id="cb552-7"><a href="using-c-in-r-with-rcpp.html#cb552-7" tabindex="-1"></a>  total</span>
+<span id="cb552-8"><a href="using-c-in-r-with-rcpp.html#cb552-8" tabindex="-1"></a>}</span>
+<span id="cb552-9"><a href="using-c-in-r-with-rcpp.html#cb552-9" tabindex="-1"></a></span>
+<span id="cb552-10"><a href="using-c-in-r-with-rcpp.html#cb552-10" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
+<span id="cb552-11"><a href="using-c-in-r-with-rcpp.html#cb552-11" tabindex="-1"></a><span class="st">&#39;double sum_C(NumericVector x) {</span></span>
+<span id="cb552-12"><a href="using-c-in-r-with-rcpp.html#cb552-12" tabindex="-1"></a><span class="st">  int n = x.size();</span></span>
+<span id="cb552-13"><a href="using-c-in-r-with-rcpp.html#cb552-13" tabindex="-1"></a><span class="st">  double total = 0;</span></span>
+<span id="cb552-14"><a href="using-c-in-r-with-rcpp.html#cb552-14" tabindex="-1"></a><span class="st">  for (int i = 0; i &lt; n; ++i) {</span></span>
+<span id="cb552-15"><a href="using-c-in-r-with-rcpp.html#cb552-15" tabindex="-1"></a><span class="st">    total = total + x[i];</span></span>
+<span id="cb552-16"><a href="using-c-in-r-with-rcpp.html#cb552-16" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb552-17"><a href="using-c-in-r-with-rcpp.html#cb552-17" tabindex="-1"></a><span class="st">  return total;</span></span>
+<span id="cb552-18"><a href="using-c-in-r-with-rcpp.html#cb552-18" tabindex="-1"></a><span class="st">}&#39;</span></span>
+<span id="cb552-19"><a href="using-c-in-r-with-rcpp.html#cb552-19" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li><p>Need to declare the type of each variable (<code>n</code>, <code>total</code>, <code>i</code>)</p></li>
 <li><p><code>for</code> loop syntax is different.</p></li>
@@ -663,20 +684,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>IMPORTANT: in C++, vector indices start at <span class="math inline">\(0\)</span>. If your vector has <span class="math inline">\(n\)</span> elements, the last position is at <span class="math inline">\(n-1\)</span>.</p></li>
 </ul>
 <p>Comparing performance using <code>mark()</code> from the package <code>bench</code></p>
-<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="using-c-in-r-with-rcpp.html#cb555-1" tabindex="-1"></a><span class="fu">library</span>(bench)</span>
-<span id="cb555-2"><a href="using-c-in-r-with-rcpp.html#cb555-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
-<span id="cb555-3"><a href="using-c-in-r-with-rcpp.html#cb555-3" tabindex="-1"></a><span class="fu">mark</span>(</span>
-<span id="cb555-4"><a href="using-c-in-r-with-rcpp.html#cb555-4" tabindex="-1"></a>  <span class="fu">sum</span>(x),</span>
-<span id="cb555-5"><a href="using-c-in-r-with-rcpp.html#cb555-5" tabindex="-1"></a>  <span class="fu">sum_R</span>(x),</span>
-<span id="cb555-6"><a href="using-c-in-r-with-rcpp.html#cb555-6" tabindex="-1"></a>  <span class="fu">sum_C</span>(x)</span>
-<span id="cb555-7"><a href="using-c-in-r-with-rcpp.html#cb555-7" tabindex="-1"></a>)</span>
-<span id="cb555-8"><a href="using-c-in-r-with-rcpp.html#cb555-8" tabindex="-1"></a><span class="do">## # A tibble: 3 × 6</span></span>
-<span id="cb555-9"><a href="using-c-in-r-with-rcpp.html#cb555-9" tabindex="-1"></a><span class="do">##   expression      min   median `itr/sec` mem_alloc</span></span>
-<span id="cb555-10"><a href="using-c-in-r-with-rcpp.html#cb555-10" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span></span>
-<span id="cb555-11"><a href="using-c-in-r-with-rcpp.html#cb555-11" tabindex="-1"></a><span class="do">## 1 sum(x)        1.3µs    1.4µs   516137.        0B</span></span>
-<span id="cb555-12"><a href="using-c-in-r-with-rcpp.html#cb555-12" tabindex="-1"></a><span class="do">## 2 sum_R(x)     25.4µs   27.6µs    35059.   23.21KB</span></span>
-<span id="cb555-13"><a href="using-c-in-r-with-rcpp.html#cb555-13" tabindex="-1"></a><span class="do">## 3 sum_C(x)      1.7µs    1.9µs   420129.    2.49KB</span></span>
-<span id="cb555-14"><a href="using-c-in-r-with-rcpp.html#cb555-14" tabindex="-1"></a><span class="do">## # ℹ 1 more variable: `gc/sec` &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb553-1"><a href="using-c-in-r-with-rcpp.html#cb553-1" tabindex="-1"></a><span class="fu">library</span>(bench)</span>
+<span id="cb553-2"><a href="using-c-in-r-with-rcpp.html#cb553-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="dv">1000</span>)</span>
+<span id="cb553-3"><a href="using-c-in-r-with-rcpp.html#cb553-3" tabindex="-1"></a><span class="fu">mark</span>(</span>
+<span id="cb553-4"><a href="using-c-in-r-with-rcpp.html#cb553-4" tabindex="-1"></a>  <span class="fu">sum</span>(x),</span>
+<span id="cb553-5"><a href="using-c-in-r-with-rcpp.html#cb553-5" tabindex="-1"></a>  <span class="fu">sum_R</span>(x),</span>
+<span id="cb553-6"><a href="using-c-in-r-with-rcpp.html#cb553-6" tabindex="-1"></a>  <span class="fu">sum_C</span>(x)</span>
+<span id="cb553-7"><a href="using-c-in-r-with-rcpp.html#cb553-7" tabindex="-1"></a>)</span>
+<span id="cb553-8"><a href="using-c-in-r-with-rcpp.html#cb553-8" tabindex="-1"></a><span class="do">## # A tibble: 3 × 6</span></span>
+<span id="cb553-9"><a href="using-c-in-r-with-rcpp.html#cb553-9" tabindex="-1"></a><span class="do">##   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
+<span id="cb553-10"><a href="using-c-in-r-with-rcpp.html#cb553-10" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
+<span id="cb553-11"><a href="using-c-in-r-with-rcpp.html#cb553-11" tabindex="-1"></a><span class="do">## 1 sum(x)        1.3µs    1.5µs   501615.        0B      0  </span></span>
+<span id="cb553-12"><a href="using-c-in-r-with-rcpp.html#cb553-12" tabindex="-1"></a><span class="do">## 2 sum_R(x)     25.6µs   26.9µs    35730.   23.21KB      0  </span></span>
+<span id="cb553-13"><a href="using-c-in-r-with-rcpp.html#cb553-13" tabindex="-1"></a><span class="do">## 3 sum_C(x)      1.7µs    1.9µs   417659.    2.49KB     41.8</span></span></code></pre></div>
 <p>You can see <code>sum_R</code> is much slower than the built-in <code>sum</code> (which is highly optimized).</p>
 <p><code>sum_C</code> is much faster than <code>sum_R</code></p>
 </div>
@@ -686,154 +706,151 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="math display">\[\begin{equation*}
 \sqrt{(y_i - x)^2}, \quad i=1,\ldots,n.
 \end{equation*}\]</span></p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="using-c-in-r-with-rcpp.html#cb556-1" tabindex="-1"></a><span class="co"># vectorized R function</span></span>
-<span id="cb556-2"><a href="using-c-in-r-with-rcpp.html#cb556-2" tabindex="-1"></a>pdist_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb556-3"><a href="using-c-in-r-with-rcpp.html#cb556-3" tabindex="-1"></a>  <span class="fu">sqrt</span>((y <span class="sc">-</span> x) <span class="sc">^</span> <span class="dv">2</span>)</span>
-<span id="cb556-4"><a href="using-c-in-r-with-rcpp.html#cb556-4" tabindex="-1"></a>}</span>
-<span id="cb556-5"><a href="using-c-in-r-with-rcpp.html#cb556-5" tabindex="-1"></a></span>
-<span id="cb556-6"><a href="using-c-in-r-with-rcpp.html#cb556-6" tabindex="-1"></a><span class="co"># R function with for loop</span></span>
-<span id="cb556-7"><a href="using-c-in-r-with-rcpp.html#cb556-7" tabindex="-1"></a>pdist_R_for <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
-<span id="cb556-8"><a href="using-c-in-r-with-rcpp.html#cb556-8" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
-<span id="cb556-9"><a href="using-c-in-r-with-rcpp.html#cb556-9" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
-<span id="cb556-10"><a href="using-c-in-r-with-rcpp.html#cb556-10" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
-<span id="cb556-11"><a href="using-c-in-r-with-rcpp.html#cb556-11" tabindex="-1"></a>    out[i] <span class="ot">=</span> <span class="fu">sqrt</span>((y[i] <span class="sc">-</span> x)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb556-12"><a href="using-c-in-r-with-rcpp.html#cb556-12" tabindex="-1"></a>  }</span>
-<span id="cb556-13"><a href="using-c-in-r-with-rcpp.html#cb556-13" tabindex="-1"></a>  out</span>
-<span id="cb556-14"><a href="using-c-in-r-with-rcpp.html#cb556-14" tabindex="-1"></a>}</span>
-<span id="cb556-15"><a href="using-c-in-r-with-rcpp.html#cb556-15" tabindex="-1"></a></span>
-<span id="cb556-16"><a href="using-c-in-r-with-rcpp.html#cb556-16" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
-<span id="cb556-17"><a href="using-c-in-r-with-rcpp.html#cb556-17" tabindex="-1"></a><span class="st">&#39;NumericVector pdist_C(double x, NumericVector y) {</span></span>
-<span id="cb556-18"><a href="using-c-in-r-with-rcpp.html#cb556-18" tabindex="-1"></a><span class="st">  int n = y.size();</span></span>
-<span id="cb556-19"><a href="using-c-in-r-with-rcpp.html#cb556-19" tabindex="-1"></a><span class="st">  NumericVector out(n);</span></span>
-<span id="cb556-20"><a href="using-c-in-r-with-rcpp.html#cb556-20" tabindex="-1"></a></span>
-<span id="cb556-21"><a href="using-c-in-r-with-rcpp.html#cb556-21" tabindex="-1"></a><span class="st">  for(int i = 0; i &lt; n; ++i) {</span></span>
-<span id="cb556-22"><a href="using-c-in-r-with-rcpp.html#cb556-22" tabindex="-1"></a><span class="st">    out[i] = sqrt(pow(y[i] - x, 2.0));</span></span>
-<span id="cb556-23"><a href="using-c-in-r-with-rcpp.html#cb556-23" tabindex="-1"></a><span class="st">  }</span></span>
-<span id="cb556-24"><a href="using-c-in-r-with-rcpp.html#cb556-24" tabindex="-1"></a><span class="st">  return out;</span></span>
-<span id="cb556-25"><a href="using-c-in-r-with-rcpp.html#cb556-25" tabindex="-1"></a><span class="st">}&#39;</span></span>
-<span id="cb556-26"><a href="using-c-in-r-with-rcpp.html#cb556-26" tabindex="-1"></a>)</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="using-c-in-r-with-rcpp.html#cb554-1" tabindex="-1"></a><span class="co"># vectorized R function</span></span>
+<span id="cb554-2"><a href="using-c-in-r-with-rcpp.html#cb554-2" tabindex="-1"></a>pdist_R <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb554-3"><a href="using-c-in-r-with-rcpp.html#cb554-3" tabindex="-1"></a>  <span class="fu">sqrt</span>((y <span class="sc">-</span> x) <span class="sc">^</span> <span class="dv">2</span>)</span>
+<span id="cb554-4"><a href="using-c-in-r-with-rcpp.html#cb554-4" tabindex="-1"></a>}</span>
+<span id="cb554-5"><a href="using-c-in-r-with-rcpp.html#cb554-5" tabindex="-1"></a></span>
+<span id="cb554-6"><a href="using-c-in-r-with-rcpp.html#cb554-6" tabindex="-1"></a><span class="co"># R function with for loop</span></span>
+<span id="cb554-7"><a href="using-c-in-r-with-rcpp.html#cb554-7" tabindex="-1"></a>pdist_R_for <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb554-8"><a href="using-c-in-r-with-rcpp.html#cb554-8" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(y)</span>
+<span id="cb554-9"><a href="using-c-in-r-with-rcpp.html#cb554-9" tabindex="-1"></a>  out <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, n)</span>
+<span id="cb554-10"><a href="using-c-in-r-with-rcpp.html#cb554-10" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n) {</span>
+<span id="cb554-11"><a href="using-c-in-r-with-rcpp.html#cb554-11" tabindex="-1"></a>    out[i] <span class="ot">=</span> <span class="fu">sqrt</span>((y[i] <span class="sc">-</span> x)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb554-12"><a href="using-c-in-r-with-rcpp.html#cb554-12" tabindex="-1"></a>  }</span>
+<span id="cb554-13"><a href="using-c-in-r-with-rcpp.html#cb554-13" tabindex="-1"></a>  out</span>
+<span id="cb554-14"><a href="using-c-in-r-with-rcpp.html#cb554-14" tabindex="-1"></a>}</span>
+<span id="cb554-15"><a href="using-c-in-r-with-rcpp.html#cb554-15" tabindex="-1"></a></span>
+<span id="cb554-16"><a href="using-c-in-r-with-rcpp.html#cb554-16" tabindex="-1"></a><span class="fu">cppFunction</span>(</span>
+<span id="cb554-17"><a href="using-c-in-r-with-rcpp.html#cb554-17" tabindex="-1"></a><span class="st">&#39;NumericVector pdist_C(double x, NumericVector y) {</span></span>
+<span id="cb554-18"><a href="using-c-in-r-with-rcpp.html#cb554-18" tabindex="-1"></a><span class="st">  int n = y.size();</span></span>
+<span id="cb554-19"><a href="using-c-in-r-with-rcpp.html#cb554-19" tabindex="-1"></a><span class="st">  NumericVector out(n);</span></span>
+<span id="cb554-20"><a href="using-c-in-r-with-rcpp.html#cb554-20" tabindex="-1"></a></span>
+<span id="cb554-21"><a href="using-c-in-r-with-rcpp.html#cb554-21" tabindex="-1"></a><span class="st">  for(int i = 0; i &lt; n; ++i) {</span></span>
+<span id="cb554-22"><a href="using-c-in-r-with-rcpp.html#cb554-22" tabindex="-1"></a><span class="st">    out[i] = sqrt(pow(y[i] - x, 2.0));</span></span>
+<span id="cb554-23"><a href="using-c-in-r-with-rcpp.html#cb554-23" tabindex="-1"></a><span class="st">  }</span></span>
+<span id="cb554-24"><a href="using-c-in-r-with-rcpp.html#cb554-24" tabindex="-1"></a><span class="st">  return out;</span></span>
+<span id="cb554-25"><a href="using-c-in-r-with-rcpp.html#cb554-25" tabindex="-1"></a><span class="st">}&#39;</span></span>
+<span id="cb554-26"><a href="using-c-in-r-with-rcpp.html#cb554-26" tabindex="-1"></a>)</span></code></pre></div>
 <ul>
 <li><p>To create a numeric vector called <code>out</code> with length <span class="math inline">\(n\)</span>, use <code>NumericVector out(n)</code></p></li>
 <li><p>C++ uses <code>pow()</code>, not <code>^</code>, for exponentiation</p></li>
 </ul>
 <p>Compare the performance:</p>
-<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb557-1"><a href="using-c-in-r-with-rcpp.html#cb557-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fl">1e6</span>)</span>
-<span id="cb557-2"><a href="using-c-in-r-with-rcpp.html#cb557-2" tabindex="-1"></a><span class="fu">mark</span>(</span>
-<span id="cb557-3"><a href="using-c-in-r-with-rcpp.html#cb557-3" tabindex="-1"></a>  <span class="fu">pdist_R</span>(<span class="fl">0.5</span>, y),</span>
-<span id="cb557-4"><a href="using-c-in-r-with-rcpp.html#cb557-4" tabindex="-1"></a>  <span class="fu">pdist_R_for</span>(<span class="fl">0.5</span>, y),</span>
-<span id="cb557-5"><a href="using-c-in-r-with-rcpp.html#cb557-5" tabindex="-1"></a>  <span class="fu">pdist_C</span>(<span class="fl">0.5</span>, y)</span>
-<span id="cb557-6"><a href="using-c-in-r-with-rcpp.html#cb557-6" tabindex="-1"></a>)</span>
-<span id="cb557-7"><a href="using-c-in-r-with-rcpp.html#cb557-7" tabindex="-1"></a><span class="do">## # A tibble: 3 × 6</span></span>
-<span id="cb557-8"><a href="using-c-in-r-with-rcpp.html#cb557-8" tabindex="-1"></a><span class="do">##   expression           min  median `itr/sec` mem_alloc</span></span>
-<span id="cb557-9"><a href="using-c-in-r-with-rcpp.html#cb557-9" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt;       &lt;bch:t&gt; &lt;bch:t&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span></span>
-<span id="cb557-10"><a href="using-c-in-r-with-rcpp.html#cb557-10" tabindex="-1"></a><span class="do">## 1 pdist_R(0.5, y)   6.41ms  6.68ms     128.     7.63MB</span></span>
-<span id="cb557-11"><a href="using-c-in-r-with-rcpp.html#cb557-11" tabindex="-1"></a><span class="do">## 2 pdist_R_for(0.5… 71.86ms  74.1ms      11.8    7.67MB</span></span>
-<span id="cb557-12"><a href="using-c-in-r-with-rcpp.html#cb557-12" tabindex="-1"></a><span class="do">## 3 pdist_C(0.5, y)    3.5ms  3.81ms     253.     7.63MB</span></span>
-<span id="cb557-13"><a href="using-c-in-r-with-rcpp.html#cb557-13" tabindex="-1"></a><span class="do">## # ℹ 1 more variable: `gc/sec` &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb555-1"><a href="using-c-in-r-with-rcpp.html#cb555-1" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fl">1e6</span>)</span>
+<span id="cb555-2"><a href="using-c-in-r-with-rcpp.html#cb555-2" tabindex="-1"></a><span class="fu">mark</span>(</span>
+<span id="cb555-3"><a href="using-c-in-r-with-rcpp.html#cb555-3" tabindex="-1"></a>  <span class="fu">pdist_R</span>(<span class="fl">0.5</span>, y),</span>
+<span id="cb555-4"><a href="using-c-in-r-with-rcpp.html#cb555-4" tabindex="-1"></a>  <span class="fu">pdist_R_for</span>(<span class="fl">0.5</span>, y),</span>
+<span id="cb555-5"><a href="using-c-in-r-with-rcpp.html#cb555-5" tabindex="-1"></a>  <span class="fu">pdist_C</span>(<span class="fl">0.5</span>, y)</span>
+<span id="cb555-6"><a href="using-c-in-r-with-rcpp.html#cb555-6" tabindex="-1"></a>)</span>
+<span id="cb555-7"><a href="using-c-in-r-with-rcpp.html#cb555-7" tabindex="-1"></a><span class="do">## # A tibble: 3 × 6</span></span>
+<span id="cb555-8"><a href="using-c-in-r-with-rcpp.html#cb555-8" tabindex="-1"></a><span class="do">##   expression               min   median `itr/sec` mem_alloc `gc/sec`</span></span>
+<span id="cb555-9"><a href="using-c-in-r-with-rcpp.html#cb555-9" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt;          &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
+<span id="cb555-10"><a href="using-c-in-r-with-rcpp.html#cb555-10" tabindex="-1"></a><span class="do">## 1 pdist_R(0.5, y)       6.49ms   6.67ms     140.     7.63MB     7.10</span></span>
+<span id="cb555-11"><a href="using-c-in-r-with-rcpp.html#cb555-11" tabindex="-1"></a><span class="do">## 2 pdist_R_for(0.5, y)   57.6ms  57.88ms      17.1    7.67MB     0   </span></span>
+<span id="cb555-12"><a href="using-c-in-r-with-rcpp.html#cb555-12" tabindex="-1"></a><span class="do">## 3 pdist_C(0.5, y)       3.52ms   3.55ms     279.     7.63MB    15.3</span></span></code></pre></div>
 <p>The C++ version is faster than the vectorized R function in this case.</p>
 <p>In general, I recommend if you can use a vectorized R function, you do not have to write the C++ version (at least not the first part to be considered when you are optimizing your code).</p>
 </div>
 <div id="returning-a-list" class="section level2 hasAnchor" number="21.5">
 <h2><span class="header-section-number">21.5</span> Returning a list<a href="using-c-in-r-with-rcpp.html#returning-a-list" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Return a list with two elements with names <code>sum</code> and <code>diff</code>:</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="using-c-in-r-with-rcpp.html#cb558-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
-<span id="cb558-2"><a href="using-c-in-r-with-rcpp.html#cb558-2" tabindex="-1"></a><span class="st">List sum_diff_C(double x, double y) {</span></span>
-<span id="cb558-3"><a href="using-c-in-r-with-rcpp.html#cb558-3" tabindex="-1"></a><span class="st">  return List::create(Named(&quot;sum&quot;) = x + y, Named(&quot;diff&quot;) = x - y);</span></span>
-<span id="cb558-4"><a href="using-c-in-r-with-rcpp.html#cb558-4" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb558-5"><a href="using-c-in-r-with-rcpp.html#cb558-5" tabindex="-1"></a><span class="st">&#39;</span>)</span>
-<span id="cb558-6"><a href="using-c-in-r-with-rcpp.html#cb558-6" tabindex="-1"></a></span>
-<span id="cb558-7"><a href="using-c-in-r-with-rcpp.html#cb558-7" tabindex="-1"></a><span class="fu">sum_diff_C</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
-<span id="cb558-8"><a href="using-c-in-r-with-rcpp.html#cb558-8" tabindex="-1"></a><span class="do">## $sum</span></span>
-<span id="cb558-9"><a href="using-c-in-r-with-rcpp.html#cb558-9" tabindex="-1"></a><span class="do">## [1] 5</span></span>
-<span id="cb558-10"><a href="using-c-in-r-with-rcpp.html#cb558-10" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb558-11"><a href="using-c-in-r-with-rcpp.html#cb558-11" tabindex="-1"></a><span class="do">## $diff</span></span>
-<span id="cb558-12"><a href="using-c-in-r-with-rcpp.html#cb558-12" tabindex="-1"></a><span class="do">## [1] -1</span></span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="using-c-in-r-with-rcpp.html#cb556-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
+<span id="cb556-2"><a href="using-c-in-r-with-rcpp.html#cb556-2" tabindex="-1"></a><span class="st">List sum_diff_C(double x, double y) {</span></span>
+<span id="cb556-3"><a href="using-c-in-r-with-rcpp.html#cb556-3" tabindex="-1"></a><span class="st">  return List::create(Named(&quot;sum&quot;) = x + y, Named(&quot;diff&quot;) = x - y);</span></span>
+<span id="cb556-4"><a href="using-c-in-r-with-rcpp.html#cb556-4" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb556-5"><a href="using-c-in-r-with-rcpp.html#cb556-5" tabindex="-1"></a><span class="st">&#39;</span>)</span>
+<span id="cb556-6"><a href="using-c-in-r-with-rcpp.html#cb556-6" tabindex="-1"></a></span>
+<span id="cb556-7"><a href="using-c-in-r-with-rcpp.html#cb556-7" tabindex="-1"></a><span class="fu">sum_diff_C</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span>
+<span id="cb556-8"><a href="using-c-in-r-with-rcpp.html#cb556-8" tabindex="-1"></a><span class="do">## $sum</span></span>
+<span id="cb556-9"><a href="using-c-in-r-with-rcpp.html#cb556-9" tabindex="-1"></a><span class="do">## [1] 5</span></span>
+<span id="cb556-10"><a href="using-c-in-r-with-rcpp.html#cb556-10" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb556-11"><a href="using-c-in-r-with-rcpp.html#cb556-11" tabindex="-1"></a><span class="do">## $diff</span></span>
+<span id="cb556-12"><a href="using-c-in-r-with-rcpp.html#cb556-12" tabindex="-1"></a><span class="do">## [1] -1</span></span></code></pre></div>
 </div>
 <div id="using-sourcecpp" class="section level2 hasAnchor" number="21.6">
 <h2><span class="header-section-number">21.6</span> Using <code>sourceCpp</code><a href="using-c-in-r-with-rcpp.html#using-sourcecpp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We have illustrated how to write simple C++ functions with <code>cppFunction()</code>. For real problems, we have to break down our program in various pieces and we should use stand-alone C++ files.</p>
 <p>For example, create a file called <code>my_Rcpp.cpp</code> that contains the following code:</p>
-<div class="sourceCode" id="cb559"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb559-1"><a href="using-c-in-r-with-rcpp.html#cb559-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb559-2"><a href="using-c-in-r-with-rcpp.html#cb559-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
-<span id="cb559-3"><a href="using-c-in-r-with-rcpp.html#cb559-3" tabindex="-1"></a></span>
-<span id="cb559-4"><a href="using-c-in-r-with-rcpp.html#cb559-4" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb559-5"><a href="using-c-in-r-with-rcpp.html#cb559-5" tabindex="-1"></a><span class="dt">double</span> mean_C<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb559-6"><a href="using-c-in-r-with-rcpp.html#cb559-6" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> x<span class="op">.</span>size<span class="op">();</span></span>
-<span id="cb559-7"><a href="using-c-in-r-with-rcpp.html#cb559-7" tabindex="-1"></a>  <span class="dt">double</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb559-8"><a href="using-c-in-r-with-rcpp.html#cb559-8" tabindex="-1"></a></span>
-<span id="cb559-9"><a href="using-c-in-r-with-rcpp.html#cb559-9" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb559-10"><a href="using-c-in-r-with-rcpp.html#cb559-10" tabindex="-1"></a>    total <span class="op">=</span> total <span class="op">+</span> x<span class="op">[</span>i<span class="op">];</span></span>
-<span id="cb559-11"><a href="using-c-in-r-with-rcpp.html#cb559-11" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb559-12"><a href="using-c-in-r-with-rcpp.html#cb559-12" tabindex="-1"></a>  <span class="cf">return</span> total <span class="op">/</span> n<span class="op">;</span></span>
-<span id="cb559-13"><a href="using-c-in-r-with-rcpp.html#cb559-13" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb557"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb557-1"><a href="using-c-in-r-with-rcpp.html#cb557-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb557-2"><a href="using-c-in-r-with-rcpp.html#cb557-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb557-3"><a href="using-c-in-r-with-rcpp.html#cb557-3" tabindex="-1"></a></span>
+<span id="cb557-4"><a href="using-c-in-r-with-rcpp.html#cb557-4" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb557-5"><a href="using-c-in-r-with-rcpp.html#cb557-5" tabindex="-1"></a><span class="dt">double</span> mean_C<span class="op">(</span>NumericVector x<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb557-6"><a href="using-c-in-r-with-rcpp.html#cb557-6" tabindex="-1"></a>  <span class="dt">int</span> n <span class="op">=</span> x<span class="op">.</span>size<span class="op">();</span></span>
+<span id="cb557-7"><a href="using-c-in-r-with-rcpp.html#cb557-7" tabindex="-1"></a>  <span class="dt">double</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb557-8"><a href="using-c-in-r-with-rcpp.html#cb557-8" tabindex="-1"></a></span>
+<span id="cb557-9"><a href="using-c-in-r-with-rcpp.html#cb557-9" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> n<span class="op">;</span> <span class="op">++</span>i<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb557-10"><a href="using-c-in-r-with-rcpp.html#cb557-10" tabindex="-1"></a>    total <span class="op">=</span> total <span class="op">+</span> x<span class="op">[</span>i<span class="op">];</span></span>
+<span id="cb557-11"><a href="using-c-in-r-with-rcpp.html#cb557-11" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb557-12"><a href="using-c-in-r-with-rcpp.html#cb557-12" tabindex="-1"></a>  <span class="cf">return</span> total <span class="op">/</span> n<span class="op">;</span></span>
+<span id="cb557-13"><a href="using-c-in-r-with-rcpp.html#cb557-13" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <p>In R, use <code>sourceCpp()</code> to compile your <code>my_Rcpp.cpp</code> file.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="using-c-in-r-with-rcpp.html#cb560-1" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">&quot;my_Rcpp.cpp&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="using-c-in-r-with-rcpp.html#cb558-1" tabindex="-1"></a><span class="fu">sourceCpp</span>(<span class="st">&quot;my_Rcpp.cpp&quot;</span>)</span></code></pre></div>
 <p>Compare the performance:</p>
-<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb561-1"><a href="using-c-in-r-with-rcpp.html#cb561-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fl">1e5</span>)</span>
-<span id="cb561-2"><a href="using-c-in-r-with-rcpp.html#cb561-2" tabindex="-1"></a><span class="fu">mark</span>(</span>
-<span id="cb561-3"><a href="using-c-in-r-with-rcpp.html#cb561-3" tabindex="-1"></a>  <span class="fu">mean</span>(x),</span>
-<span id="cb561-4"><a href="using-c-in-r-with-rcpp.html#cb561-4" tabindex="-1"></a>  <span class="fu">mean_C</span>(x)</span>
-<span id="cb561-5"><a href="using-c-in-r-with-rcpp.html#cb561-5" tabindex="-1"></a>)</span>
-<span id="cb561-6"><a href="using-c-in-r-with-rcpp.html#cb561-6" tabindex="-1"></a><span class="do">## # A tibble: 2 × 6</span></span>
-<span id="cb561-7"><a href="using-c-in-r-with-rcpp.html#cb561-7" tabindex="-1"></a><span class="do">##   expression      min   median `itr/sec` mem_alloc</span></span>
-<span id="cb561-8"><a href="using-c-in-r-with-rcpp.html#cb561-8" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span></span>
-<span id="cb561-9"><a href="using-c-in-r-with-rcpp.html#cb561-9" tabindex="-1"></a><span class="do">## 1 mean(x)     237.6µs  238.9µs     3977.        0B</span></span>
-<span id="cb561-10"><a href="using-c-in-r-with-rcpp.html#cb561-10" tabindex="-1"></a><span class="do">## 2 mean_C(x)    78.1µs   78.4µs    12132.    2.49KB</span></span>
-<span id="cb561-11"><a href="using-c-in-r-with-rcpp.html#cb561-11" tabindex="-1"></a><span class="do">## # ℹ 1 more variable: `gc/sec` &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb559-1"><a href="using-c-in-r-with-rcpp.html#cb559-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">runif</span>(<span class="fl">1e5</span>)</span>
+<span id="cb559-2"><a href="using-c-in-r-with-rcpp.html#cb559-2" tabindex="-1"></a><span class="fu">mark</span>(</span>
+<span id="cb559-3"><a href="using-c-in-r-with-rcpp.html#cb559-3" tabindex="-1"></a>  <span class="fu">mean</span>(x),</span>
+<span id="cb559-4"><a href="using-c-in-r-with-rcpp.html#cb559-4" tabindex="-1"></a>  <span class="fu">mean_C</span>(x)</span>
+<span id="cb559-5"><a href="using-c-in-r-with-rcpp.html#cb559-5" tabindex="-1"></a>)</span>
+<span id="cb559-6"><a href="using-c-in-r-with-rcpp.html#cb559-6" tabindex="-1"></a><span class="do">## # A tibble: 2 × 6</span></span>
+<span id="cb559-7"><a href="using-c-in-r-with-rcpp.html#cb559-7" tabindex="-1"></a><span class="do">##   expression      min   median `itr/sec` mem_alloc `gc/sec`</span></span>
+<span id="cb559-8"><a href="using-c-in-r-with-rcpp.html#cb559-8" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt; &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
+<span id="cb559-9"><a href="using-c-in-r-with-rcpp.html#cb559-9" tabindex="-1"></a><span class="do">## 1 mean(x)     193.2µs  194.3µs     4938.        0B        0</span></span>
+<span id="cb559-10"><a href="using-c-in-r-with-rcpp.html#cb559-10" tabindex="-1"></a><span class="do">## 2 mean_C(x)    63.5µs   63.8µs    15509.    2.49KB        0</span></span></code></pre></div>
 </div>
 <div id="example-gibbs-sampler" class="section level2 hasAnchor" number="21.7">
 <h2><span class="header-section-number">21.7</span> Example: Gibbs Sampler<a href="using-c-in-r-with-rcpp.html#example-gibbs-sampler" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>R code:</p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="using-c-in-r-with-rcpp.html#cb562-1" tabindex="-1"></a>gibbs_R <span class="ot">&lt;-</span> <span class="cf">function</span>(N, thin) {</span>
-<span id="cb562-2"><a href="using-c-in-r-with-rcpp.html#cb562-2" tabindex="-1"></a>  mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> N, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
-<span id="cb562-3"><a href="using-c-in-r-with-rcpp.html#cb562-3" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb562-4"><a href="using-c-in-r-with-rcpp.html#cb562-4" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
-<span id="cb562-5"><a href="using-c-in-r-with-rcpp.html#cb562-5" tabindex="-1"></a></span>
-<span id="cb562-6"><a href="using-c-in-r-with-rcpp.html#cb562-6" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {</span>
-<span id="cb562-7"><a href="using-c-in-r-with-rcpp.html#cb562-7" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>thin) {</span>
-<span id="cb562-8"><a href="using-c-in-r-with-rcpp.html#cb562-8" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="dv">3</span>, y <span class="sc">*</span> y <span class="sc">+</span> <span class="dv">4</span>)</span>
-<span id="cb562-9"><a href="using-c-in-r-with-rcpp.html#cb562-9" tabindex="-1"></a>      y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="dv">1</span> <span class="sc">/</span> (x <span class="sc">+</span> <span class="dv">1</span>), <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> (x <span class="sc">+</span> <span class="dv">1</span>)))</span>
-<span id="cb562-10"><a href="using-c-in-r-with-rcpp.html#cb562-10" tabindex="-1"></a>    }</span>
-<span id="cb562-11"><a href="using-c-in-r-with-rcpp.html#cb562-11" tabindex="-1"></a>    mat[i, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(x, y)</span>
-<span id="cb562-12"><a href="using-c-in-r-with-rcpp.html#cb562-12" tabindex="-1"></a>  }</span>
-<span id="cb562-13"><a href="using-c-in-r-with-rcpp.html#cb562-13" tabindex="-1"></a>  mat</span>
-<span id="cb562-14"><a href="using-c-in-r-with-rcpp.html#cb562-14" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="using-c-in-r-with-rcpp.html#cb560-1" tabindex="-1"></a>gibbs_R <span class="ot">&lt;-</span> <span class="cf">function</span>(N, thin) {</span>
+<span id="cb560-2"><a href="using-c-in-r-with-rcpp.html#cb560-2" tabindex="-1"></a>  mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="at">nrow =</span> N, <span class="at">ncol =</span> <span class="dv">2</span>)</span>
+<span id="cb560-3"><a href="using-c-in-r-with-rcpp.html#cb560-3" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb560-4"><a href="using-c-in-r-with-rcpp.html#cb560-4" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb560-5"><a href="using-c-in-r-with-rcpp.html#cb560-5" tabindex="-1"></a></span>
+<span id="cb560-6"><a href="using-c-in-r-with-rcpp.html#cb560-6" tabindex="-1"></a>  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N) {</span>
+<span id="cb560-7"><a href="using-c-in-r-with-rcpp.html#cb560-7" tabindex="-1"></a>    <span class="cf">for</span> (j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>thin) {</span>
+<span id="cb560-8"><a href="using-c-in-r-with-rcpp.html#cb560-8" tabindex="-1"></a>      x <span class="ot">&lt;-</span> <span class="fu">rgamma</span>(<span class="dv">1</span>, <span class="dv">3</span>, y <span class="sc">*</span> y <span class="sc">+</span> <span class="dv">4</span>)</span>
+<span id="cb560-9"><a href="using-c-in-r-with-rcpp.html#cb560-9" tabindex="-1"></a>      y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="dv">1</span> <span class="sc">/</span> (x <span class="sc">+</span> <span class="dv">1</span>), <span class="dv">1</span> <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span> <span class="sc">*</span> (x <span class="sc">+</span> <span class="dv">1</span>)))</span>
+<span id="cb560-10"><a href="using-c-in-r-with-rcpp.html#cb560-10" tabindex="-1"></a>    }</span>
+<span id="cb560-11"><a href="using-c-in-r-with-rcpp.html#cb560-11" tabindex="-1"></a>    mat[i, ] <span class="ot">&lt;-</span> <span class="fu">c</span>(x, y)</span>
+<span id="cb560-12"><a href="using-c-in-r-with-rcpp.html#cb560-12" tabindex="-1"></a>  }</span>
+<span id="cb560-13"><a href="using-c-in-r-with-rcpp.html#cb560-13" tabindex="-1"></a>  mat</span>
+<span id="cb560-14"><a href="using-c-in-r-with-rcpp.html#cb560-14" tabindex="-1"></a>}</span></code></pre></div>
 <p>C++:</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb563-1"><a href="using-c-in-r-with-rcpp.html#cb563-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
-<span id="cb563-2"><a href="using-c-in-r-with-rcpp.html#cb563-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
-<span id="cb563-3"><a href="using-c-in-r-with-rcpp.html#cb563-3" tabindex="-1"></a></span>
-<span id="cb563-4"><a href="using-c-in-r-with-rcpp.html#cb563-4" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
-<span id="cb563-5"><a href="using-c-in-r-with-rcpp.html#cb563-5" tabindex="-1"></a>NumericMatrix gibbs_C<span class="op">(</span><span class="dt">int</span> N<span class="op">,</span> <span class="dt">int</span> thin<span class="op">)</span> <span class="op">{</span></span>
-<span id="cb563-6"><a href="using-c-in-r-with-rcpp.html#cb563-6" tabindex="-1"></a>  NumericMatrix mat<span class="op">(</span>N<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
-<span id="cb563-7"><a href="using-c-in-r-with-rcpp.html#cb563-7" tabindex="-1"></a>  <span class="dt">double</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb563-8"><a href="using-c-in-r-with-rcpp.html#cb563-8" tabindex="-1"></a>  <span class="dt">double</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb563-9"><a href="using-c-in-r-with-rcpp.html#cb563-9" tabindex="-1"></a></span>
-<span id="cb563-10"><a href="using-c-in-r-with-rcpp.html#cb563-10" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> N<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb563-11"><a href="using-c-in-r-with-rcpp.html#cb563-11" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> thin<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
-<span id="cb563-12"><a href="using-c-in-r-with-rcpp.html#cb563-12" tabindex="-1"></a>      x <span class="op">=</span> rgamma<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span>y <span class="op">*</span> y <span class="op">+</span> <span class="dv">4</span><span class="op">))[</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb563-13"><a href="using-c-in-r-with-rcpp.html#cb563-13" tabindex="-1"></a>      y <span class="op">=</span> rnorm<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span>x <span class="op">+</span> <span class="dv">1</span><span class="op">),</span> <span class="dv">1</span> <span class="op">/</span> sqrt<span class="op">(</span><span class="dv">2</span> <span class="op">*</span> <span class="op">(</span>x <span class="op">+</span> <span class="dv">1</span><span class="op">)))[</span><span class="dv">0</span><span class="op">];</span></span>
-<span id="cb563-14"><a href="using-c-in-r-with-rcpp.html#cb563-14" tabindex="-1"></a>    <span class="op">}</span></span>
-<span id="cb563-15"><a href="using-c-in-r-with-rcpp.html#cb563-15" tabindex="-1"></a>    mat<span class="op">(</span>i<span class="op">,</span> <span class="dv">0</span><span class="op">)</span> <span class="op">=</span> x<span class="op">;</span></span>
-<span id="cb563-16"><a href="using-c-in-r-with-rcpp.html#cb563-16" tabindex="-1"></a>    mat<span class="op">(</span>i<span class="op">,</span> <span class="dv">1</span><span class="op">)</span> <span class="op">=</span> y<span class="op">;</span></span>
-<span id="cb563-17"><a href="using-c-in-r-with-rcpp.html#cb563-17" tabindex="-1"></a>  <span class="op">}</span></span>
-<span id="cb563-18"><a href="using-c-in-r-with-rcpp.html#cb563-18" tabindex="-1"></a>  <span class="cf">return</span><span class="op">(</span>mat<span class="op">);</span></span>
-<span id="cb563-19"><a href="using-c-in-r-with-rcpp.html#cb563-19" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<div class="sourceCode" id="cb561"><pre class="sourceCode cpp"><code class="sourceCode cpp"><span id="cb561-1"><a href="using-c-in-r-with-rcpp.html#cb561-1" tabindex="-1"></a><span class="pp">#include </span><span class="im">&lt;Rcpp.h&gt;</span></span>
+<span id="cb561-2"><a href="using-c-in-r-with-rcpp.html#cb561-2" tabindex="-1"></a><span class="kw">using</span> <span class="kw">namespace</span> Rcpp<span class="op">;</span></span>
+<span id="cb561-3"><a href="using-c-in-r-with-rcpp.html#cb561-3" tabindex="-1"></a></span>
+<span id="cb561-4"><a href="using-c-in-r-with-rcpp.html#cb561-4" tabindex="-1"></a><span class="co">// [[Rcpp::export]]</span></span>
+<span id="cb561-5"><a href="using-c-in-r-with-rcpp.html#cb561-5" tabindex="-1"></a>NumericMatrix gibbs_C<span class="op">(</span><span class="dt">int</span> N<span class="op">,</span> <span class="dt">int</span> thin<span class="op">)</span> <span class="op">{</span></span>
+<span id="cb561-6"><a href="using-c-in-r-with-rcpp.html#cb561-6" tabindex="-1"></a>  NumericMatrix mat<span class="op">(</span>N<span class="op">,</span> <span class="dv">2</span><span class="op">);</span></span>
+<span id="cb561-7"><a href="using-c-in-r-with-rcpp.html#cb561-7" tabindex="-1"></a>  <span class="dt">double</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb561-8"><a href="using-c-in-r-with-rcpp.html#cb561-8" tabindex="-1"></a>  <span class="dt">double</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb561-9"><a href="using-c-in-r-with-rcpp.html#cb561-9" tabindex="-1"></a></span>
+<span id="cb561-10"><a href="using-c-in-r-with-rcpp.html#cb561-10" tabindex="-1"></a>  <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> N<span class="op">;</span> i<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb561-11"><a href="using-c-in-r-with-rcpp.html#cb561-11" tabindex="-1"></a>    <span class="cf">for</span><span class="op">(</span><span class="dt">int</span> j <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> j <span class="op">&lt;</span> thin<span class="op">;</span> j<span class="op">++)</span> <span class="op">{</span></span>
+<span id="cb561-12"><a href="using-c-in-r-with-rcpp.html#cb561-12" tabindex="-1"></a>      x <span class="op">=</span> rgamma<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span>y <span class="op">*</span> y <span class="op">+</span> <span class="dv">4</span><span class="op">))[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb561-13"><a href="using-c-in-r-with-rcpp.html#cb561-13" tabindex="-1"></a>      y <span class="op">=</span> rnorm<span class="op">(</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span> <span class="op">/</span> <span class="op">(</span>x <span class="op">+</span> <span class="dv">1</span><span class="op">),</span> <span class="dv">1</span> <span class="op">/</span> sqrt<span class="op">(</span><span class="dv">2</span> <span class="op">*</span> <span class="op">(</span>x <span class="op">+</span> <span class="dv">1</span><span class="op">)))[</span><span class="dv">0</span><span class="op">];</span></span>
+<span id="cb561-14"><a href="using-c-in-r-with-rcpp.html#cb561-14" tabindex="-1"></a>    <span class="op">}</span></span>
+<span id="cb561-15"><a href="using-c-in-r-with-rcpp.html#cb561-15" tabindex="-1"></a>    mat<span class="op">(</span>i<span class="op">,</span> <span class="dv">0</span><span class="op">)</span> <span class="op">=</span> x<span class="op">;</span></span>
+<span id="cb561-16"><a href="using-c-in-r-with-rcpp.html#cb561-16" tabindex="-1"></a>    mat<span class="op">(</span>i<span class="op">,</span> <span class="dv">1</span><span class="op">)</span> <span class="op">=</span> y<span class="op">;</span></span>
+<span id="cb561-17"><a href="using-c-in-r-with-rcpp.html#cb561-17" tabindex="-1"></a>  <span class="op">}</span></span>
+<span id="cb561-18"><a href="using-c-in-r-with-rcpp.html#cb561-18" tabindex="-1"></a>  <span class="cf">return</span><span class="op">(</span>mat<span class="op">);</span></span>
+<span id="cb561-19"><a href="using-c-in-r-with-rcpp.html#cb561-19" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
 <ul>
 <li><p>Use <code>(</code> instead of <code>[</code> to index into the matrix</p></li>
 <li><p><code>[0]</code> is to convert the vector output into scalar</p></li>
 </ul>
 <p>C++ version is about 20 times faster:</p>
-<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="using-c-in-r-with-rcpp.html#cb564-1" tabindex="-1"></a><span class="fu">mark</span>(</span>
-<span id="cb564-2"><a href="using-c-in-r-with-rcpp.html#cb564-2" tabindex="-1"></a>  <span class="fu">gibbs_R</span>(<span class="dv">100</span>, <span class="dv">10</span>),</span>
-<span id="cb564-3"><a href="using-c-in-r-with-rcpp.html#cb564-3" tabindex="-1"></a>  <span class="fu">gibbs_C</span>(<span class="dv">100</span>, <span class="dv">10</span>),</span>
-<span id="cb564-4"><a href="using-c-in-r-with-rcpp.html#cb564-4" tabindex="-1"></a>  <span class="at">check =</span> <span class="cn">FALSE</span></span>
-<span id="cb564-5"><a href="using-c-in-r-with-rcpp.html#cb564-5" tabindex="-1"></a>)</span>
-<span id="cb564-6"><a href="using-c-in-r-with-rcpp.html#cb564-6" tabindex="-1"></a><span class="do">## # A tibble: 2 × 6</span></span>
-<span id="cb564-7"><a href="using-c-in-r-with-rcpp.html#cb564-7" tabindex="-1"></a><span class="do">##   expression          min   median `itr/sec` mem_alloc</span></span>
-<span id="cb564-8"><a href="using-c-in-r-with-rcpp.html#cb564-8" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt;     &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;</span></span>
-<span id="cb564-9"><a href="using-c-in-r-with-rcpp.html#cb564-9" tabindex="-1"></a><span class="do">## 1 gibbs_R(100, …   2.81ms   3.78ms      244.    4.94MB</span></span>
-<span id="cb564-10"><a href="using-c-in-r-with-rcpp.html#cb564-10" tabindex="-1"></a><span class="do">## 2 gibbs_C(100, …    224µs 269.75µs     3612.     4.1KB</span></span>
-<span id="cb564-11"><a href="using-c-in-r-with-rcpp.html#cb564-11" tabindex="-1"></a><span class="do">## # ℹ 1 more variable: `gc/sec` &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="using-c-in-r-with-rcpp.html#cb562-1" tabindex="-1"></a><span class="fu">mark</span>(</span>
+<span id="cb562-2"><a href="using-c-in-r-with-rcpp.html#cb562-2" tabindex="-1"></a>  <span class="fu">gibbs_R</span>(<span class="dv">100</span>, <span class="dv">10</span>),</span>
+<span id="cb562-3"><a href="using-c-in-r-with-rcpp.html#cb562-3" tabindex="-1"></a>  <span class="fu">gibbs_C</span>(<span class="dv">100</span>, <span class="dv">10</span>),</span>
+<span id="cb562-4"><a href="using-c-in-r-with-rcpp.html#cb562-4" tabindex="-1"></a>  <span class="at">check =</span> <span class="cn">FALSE</span></span>
+<span id="cb562-5"><a href="using-c-in-r-with-rcpp.html#cb562-5" tabindex="-1"></a>)</span>
+<span id="cb562-6"><a href="using-c-in-r-with-rcpp.html#cb562-6" tabindex="-1"></a><span class="do">## # A tibble: 2 × 6</span></span>
+<span id="cb562-7"><a href="using-c-in-r-with-rcpp.html#cb562-7" tabindex="-1"></a><span class="do">##   expression            min   median `itr/sec` mem_alloc `gc/sec`</span></span>
+<span id="cb562-8"><a href="using-c-in-r-with-rcpp.html#cb562-8" tabindex="-1"></a><span class="do">##   &lt;bch:expr&gt;       &lt;bch:tm&gt; &lt;bch:tm&gt;     &lt;dbl&gt; &lt;bch:byt&gt;    &lt;dbl&gt;</span></span>
+<span id="cb562-9"><a href="using-c-in-r-with-rcpp.html#cb562-9" tabindex="-1"></a><span class="do">## 1 gibbs_R(100, 10)   2.66ms   2.75ms      333.    4.94MB    12.0 </span></span>
+<span id="cb562-10"><a href="using-c-in-r-with-rcpp.html#cb562-10" tabindex="-1"></a><span class="do">## 2 gibbs_C(100, 10)  229.2µs  265.3µs     3623.     4.1KB     4.55</span></span></code></pre></div>
 </div>
 <div id="more-details" class="section level2 hasAnchor" number="21.8">
 <h2><span class="header-section-number">21.8</span> More Details<a href="using-c-in-r-with-rcpp.html#more-details" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -870,30 +887,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </table>
 <p>Elementwise arithmetic operations are possible for <code>NumericVector</code></p>
 <p>For example:</p>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="using-c-in-r-with-rcpp.html#cb565-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
-<span id="cb565-2"><a href="using-c-in-r-with-rcpp.html#cb565-2" tabindex="-1"></a><span class="st">NumericVector vector_sum(NumericVector x, NumericVector y) {</span></span>
-<span id="cb565-3"><a href="using-c-in-r-with-rcpp.html#cb565-3" tabindex="-1"></a><span class="st">  NumericVector sum = x + y;</span></span>
-<span id="cb565-4"><a href="using-c-in-r-with-rcpp.html#cb565-4" tabindex="-1"></a><span class="st">  return sum;</span></span>
-<span id="cb565-5"><a href="using-c-in-r-with-rcpp.html#cb565-5" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb565-6"><a href="using-c-in-r-with-rcpp.html#cb565-6" tabindex="-1"></a><span class="st">&#39;</span>)</span>
-<span id="cb565-7"><a href="using-c-in-r-with-rcpp.html#cb565-7" tabindex="-1"></a></span>
-<span id="cb565-8"><a href="using-c-in-r-with-rcpp.html#cb565-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb565-9"><a href="using-c-in-r-with-rcpp.html#cb565-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb565-10"><a href="using-c-in-r-with-rcpp.html#cb565-10" tabindex="-1"></a><span class="fu">vector_sum</span>(x, y)</span>
-<span id="cb565-11"><a href="using-c-in-r-with-rcpp.html#cb565-11" tabindex="-1"></a><span class="do">## [1]  3  5  7  9 11</span></span></code></pre></div>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="using-c-in-r-with-rcpp.html#cb563-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
+<span id="cb563-2"><a href="using-c-in-r-with-rcpp.html#cb563-2" tabindex="-1"></a><span class="st">NumericVector vector_sum(NumericVector x, NumericVector y) {</span></span>
+<span id="cb563-3"><a href="using-c-in-r-with-rcpp.html#cb563-3" tabindex="-1"></a><span class="st">  NumericVector sum = x + y;</span></span>
+<span id="cb563-4"><a href="using-c-in-r-with-rcpp.html#cb563-4" tabindex="-1"></a><span class="st">  return sum;</span></span>
+<span id="cb563-5"><a href="using-c-in-r-with-rcpp.html#cb563-5" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb563-6"><a href="using-c-in-r-with-rcpp.html#cb563-6" tabindex="-1"></a><span class="st">&#39;</span>)</span>
+<span id="cb563-7"><a href="using-c-in-r-with-rcpp.html#cb563-7" tabindex="-1"></a></span>
+<span id="cb563-8"><a href="using-c-in-r-with-rcpp.html#cb563-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb563-9"><a href="using-c-in-r-with-rcpp.html#cb563-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb563-10"><a href="using-c-in-r-with-rcpp.html#cb563-10" tabindex="-1"></a><span class="fu">vector_sum</span>(x, y)</span>
+<span id="cb563-11"><a href="using-c-in-r-with-rcpp.html#cb563-11" tabindex="-1"></a><span class="do">## [1]  3  5  7  9 11</span></span></code></pre></div>
 <p>For comparison operators, we need to use logical vectors with <code>LogicalVector</code>.</p>
 <p>For example:</p>
-<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="using-c-in-r-with-rcpp.html#cb566-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
-<span id="cb566-2"><a href="using-c-in-r-with-rcpp.html#cb566-2" tabindex="-1"></a><span class="st">LogicalVector vector_greater(NumericVector x, NumericVector y) {</span></span>
-<span id="cb566-3"><a href="using-c-in-r-with-rcpp.html#cb566-3" tabindex="-1"></a><span class="st">  LogicalVector comp = x &gt; y;</span></span>
-<span id="cb566-4"><a href="using-c-in-r-with-rcpp.html#cb566-4" tabindex="-1"></a><span class="st">  return comp;</span></span>
-<span id="cb566-5"><a href="using-c-in-r-with-rcpp.html#cb566-5" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb566-6"><a href="using-c-in-r-with-rcpp.html#cb566-6" tabindex="-1"></a><span class="st">&#39;</span>)</span>
-<span id="cb566-7"><a href="using-c-in-r-with-rcpp.html#cb566-7" tabindex="-1"></a></span>
-<span id="cb566-8"><a href="using-c-in-r-with-rcpp.html#cb566-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb566-9"><a href="using-c-in-r-with-rcpp.html#cb566-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span></span>
-<span id="cb566-10"><a href="using-c-in-r-with-rcpp.html#cb566-10" tabindex="-1"></a><span class="fu">vector_greater</span>(x, y)</span>
-<span id="cb566-11"><a href="using-c-in-r-with-rcpp.html#cb566-11" tabindex="-1"></a><span class="do">## [1] FALSE FALSE FALSE FALSE FALSE</span></span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="using-c-in-r-with-rcpp.html#cb564-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
+<span id="cb564-2"><a href="using-c-in-r-with-rcpp.html#cb564-2" tabindex="-1"></a><span class="st">LogicalVector vector_greater(NumericVector x, NumericVector y) {</span></span>
+<span id="cb564-3"><a href="using-c-in-r-with-rcpp.html#cb564-3" tabindex="-1"></a><span class="st">  LogicalVector comp = x &gt; y;</span></span>
+<span id="cb564-4"><a href="using-c-in-r-with-rcpp.html#cb564-4" tabindex="-1"></a><span class="st">  return comp;</span></span>
+<span id="cb564-5"><a href="using-c-in-r-with-rcpp.html#cb564-5" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb564-6"><a href="using-c-in-r-with-rcpp.html#cb564-6" tabindex="-1"></a><span class="st">&#39;</span>)</span>
+<span id="cb564-7"><a href="using-c-in-r-with-rcpp.html#cb564-7" tabindex="-1"></a></span>
+<span id="cb564-8"><a href="using-c-in-r-with-rcpp.html#cb564-8" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
+<span id="cb564-9"><a href="using-c-in-r-with-rcpp.html#cb564-9" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span></span>
+<span id="cb564-10"><a href="using-c-in-r-with-rcpp.html#cb564-10" tabindex="-1"></a><span class="fu">vector_greater</span>(x, y)</span>
+<span id="cb564-11"><a href="using-c-in-r-with-rcpp.html#cb564-11" tabindex="-1"></a><span class="do">## [1] FALSE FALSE FALSE FALSE FALSE</span></span></code></pre></div>
 <p>Other comparison operators: <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;=</code></p>
 <p><strong>Matrix</strong></p>
 <table>
@@ -918,36 +935,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb567-1"><a href="using-c-in-r-with-rcpp.html#cb567-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
-<span id="cb567-2"><a href="using-c-in-r-with-rcpp.html#cb567-2" tabindex="-1"></a><span class="st">List matrix_operation(NumericMatrix A) {</span></span>
-<span id="cb567-3"><a href="using-c-in-r-with-rcpp.html#cb567-3" tabindex="-1"></a><span class="st">  return List::create(Named(&quot;A&quot;) = A, </span></span>
-<span id="cb567-4"><a href="using-c-in-r-with-rcpp.html#cb567-4" tabindex="-1"></a><span class="st">  Named(&quot;row_number&quot;) = A.nrow(),</span></span>
-<span id="cb567-5"><a href="using-c-in-r-with-rcpp.html#cb567-5" tabindex="-1"></a><span class="st">  Named(&quot;col_number&quot;) = A.ncol(),</span></span>
-<span id="cb567-6"><a href="using-c-in-r-with-rcpp.html#cb567-6" tabindex="-1"></a><span class="st">  Named(&quot;transpose&quot;) = transpose(A));</span></span>
-<span id="cb567-7"><a href="using-c-in-r-with-rcpp.html#cb567-7" tabindex="-1"></a><span class="st">}</span></span>
-<span id="cb567-8"><a href="using-c-in-r-with-rcpp.html#cb567-8" tabindex="-1"></a><span class="st">&#39;</span>)</span>
-<span id="cb567-9"><a href="using-c-in-r-with-rcpp.html#cb567-9" tabindex="-1"></a></span>
-<span id="cb567-10"><a href="using-c-in-r-with-rcpp.html#cb567-10" tabindex="-1"></a></span>
-<span id="cb567-11"><a href="using-c-in-r-with-rcpp.html#cb567-11" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
-<span id="cb567-12"><a href="using-c-in-r-with-rcpp.html#cb567-12" tabindex="-1"></a><span class="fu">matrix_operation</span>(A)</span>
-<span id="cb567-13"><a href="using-c-in-r-with-rcpp.html#cb567-13" tabindex="-1"></a><span class="do">## $A</span></span>
-<span id="cb567-14"><a href="using-c-in-r-with-rcpp.html#cb567-14" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
-<span id="cb567-15"><a href="using-c-in-r-with-rcpp.html#cb567-15" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
-<span id="cb567-16"><a href="using-c-in-r-with-rcpp.html#cb567-16" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
-<span id="cb567-17"><a href="using-c-in-r-with-rcpp.html#cb567-17" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
-<span id="cb567-18"><a href="using-c-in-r-with-rcpp.html#cb567-18" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb567-19"><a href="using-c-in-r-with-rcpp.html#cb567-19" tabindex="-1"></a><span class="do">## $row_number</span></span>
-<span id="cb567-20"><a href="using-c-in-r-with-rcpp.html#cb567-20" tabindex="-1"></a><span class="do">## [1] 3</span></span>
-<span id="cb567-21"><a href="using-c-in-r-with-rcpp.html#cb567-21" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb567-22"><a href="using-c-in-r-with-rcpp.html#cb567-22" tabindex="-1"></a><span class="do">## $col_number</span></span>
-<span id="cb567-23"><a href="using-c-in-r-with-rcpp.html#cb567-23" tabindex="-1"></a><span class="do">## [1] 4</span></span>
-<span id="cb567-24"><a href="using-c-in-r-with-rcpp.html#cb567-24" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb567-25"><a href="using-c-in-r-with-rcpp.html#cb567-25" tabindex="-1"></a><span class="do">## $transpose</span></span>
-<span id="cb567-26"><a href="using-c-in-r-with-rcpp.html#cb567-26" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
-<span id="cb567-27"><a href="using-c-in-r-with-rcpp.html#cb567-27" tabindex="-1"></a><span class="do">## [1,]    1    2    3</span></span>
-<span id="cb567-28"><a href="using-c-in-r-with-rcpp.html#cb567-28" tabindex="-1"></a><span class="do">## [2,]    4    5    6</span></span>
-<span id="cb567-29"><a href="using-c-in-r-with-rcpp.html#cb567-29" tabindex="-1"></a><span class="do">## [3,]    7    8    9</span></span>
-<span id="cb567-30"><a href="using-c-in-r-with-rcpp.html#cb567-30" tabindex="-1"></a><span class="do">## [4,]   10   11   12</span></span></code></pre></div>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="using-c-in-r-with-rcpp.html#cb565-1" tabindex="-1"></a><span class="fu">cppFunction</span>(<span class="st">&#39;</span></span>
+<span id="cb565-2"><a href="using-c-in-r-with-rcpp.html#cb565-2" tabindex="-1"></a><span class="st">List matrix_operation(NumericMatrix A) {</span></span>
+<span id="cb565-3"><a href="using-c-in-r-with-rcpp.html#cb565-3" tabindex="-1"></a><span class="st">  return List::create(Named(&quot;A&quot;) = A, </span></span>
+<span id="cb565-4"><a href="using-c-in-r-with-rcpp.html#cb565-4" tabindex="-1"></a><span class="st">  Named(&quot;row_number&quot;) = A.nrow(),</span></span>
+<span id="cb565-5"><a href="using-c-in-r-with-rcpp.html#cb565-5" tabindex="-1"></a><span class="st">  Named(&quot;col_number&quot;) = A.ncol(),</span></span>
+<span id="cb565-6"><a href="using-c-in-r-with-rcpp.html#cb565-6" tabindex="-1"></a><span class="st">  Named(&quot;transpose&quot;) = transpose(A));</span></span>
+<span id="cb565-7"><a href="using-c-in-r-with-rcpp.html#cb565-7" tabindex="-1"></a><span class="st">}</span></span>
+<span id="cb565-8"><a href="using-c-in-r-with-rcpp.html#cb565-8" tabindex="-1"></a><span class="st">&#39;</span>)</span>
+<span id="cb565-9"><a href="using-c-in-r-with-rcpp.html#cb565-9" tabindex="-1"></a></span>
+<span id="cb565-10"><a href="using-c-in-r-with-rcpp.html#cb565-10" tabindex="-1"></a></span>
+<span id="cb565-11"><a href="using-c-in-r-with-rcpp.html#cb565-11" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>, <span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb565-12"><a href="using-c-in-r-with-rcpp.html#cb565-12" tabindex="-1"></a><span class="fu">matrix_operation</span>(A)</span>
+<span id="cb565-13"><a href="using-c-in-r-with-rcpp.html#cb565-13" tabindex="-1"></a><span class="do">## $A</span></span>
+<span id="cb565-14"><a href="using-c-in-r-with-rcpp.html#cb565-14" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3] [,4]</span></span>
+<span id="cb565-15"><a href="using-c-in-r-with-rcpp.html#cb565-15" tabindex="-1"></a><span class="do">## [1,]    1    4    7   10</span></span>
+<span id="cb565-16"><a href="using-c-in-r-with-rcpp.html#cb565-16" tabindex="-1"></a><span class="do">## [2,]    2    5    8   11</span></span>
+<span id="cb565-17"><a href="using-c-in-r-with-rcpp.html#cb565-17" tabindex="-1"></a><span class="do">## [3,]    3    6    9   12</span></span>
+<span id="cb565-18"><a href="using-c-in-r-with-rcpp.html#cb565-18" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb565-19"><a href="using-c-in-r-with-rcpp.html#cb565-19" tabindex="-1"></a><span class="do">## $row_number</span></span>
+<span id="cb565-20"><a href="using-c-in-r-with-rcpp.html#cb565-20" tabindex="-1"></a><span class="do">## [1] 3</span></span>
+<span id="cb565-21"><a href="using-c-in-r-with-rcpp.html#cb565-21" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb565-22"><a href="using-c-in-r-with-rcpp.html#cb565-22" tabindex="-1"></a><span class="do">## $col_number</span></span>
+<span id="cb565-23"><a href="using-c-in-r-with-rcpp.html#cb565-23" tabindex="-1"></a><span class="do">## [1] 4</span></span>
+<span id="cb565-24"><a href="using-c-in-r-with-rcpp.html#cb565-24" tabindex="-1"></a><span class="do">## </span></span>
+<span id="cb565-25"><a href="using-c-in-r-with-rcpp.html#cb565-25" tabindex="-1"></a><span class="do">## $transpose</span></span>
+<span id="cb565-26"><a href="using-c-in-r-with-rcpp.html#cb565-26" tabindex="-1"></a><span class="do">##      [,1] [,2] [,3]</span></span>
+<span id="cb565-27"><a href="using-c-in-r-with-rcpp.html#cb565-27" tabindex="-1"></a><span class="do">## [1,]    1    2    3</span></span>
+<span id="cb565-28"><a href="using-c-in-r-with-rcpp.html#cb565-28" tabindex="-1"></a><span class="do">## [2,]    4    5    6</span></span>
+<span id="cb565-29"><a href="using-c-in-r-with-rcpp.html#cb565-29" tabindex="-1"></a><span class="do">## [3,]    7    8    9</span></span>
+<span id="cb565-30"><a href="using-c-in-r-with-rcpp.html#cb565-30" tabindex="-1"></a><span class="do">## [4,]   10   11   12</span></span></code></pre></div>
 
 </div>
 </div>

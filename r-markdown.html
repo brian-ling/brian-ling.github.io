@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2025-01-15" />
+<meta name="date" content="2026-01-23" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -173,7 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.7.1" data-path="introduction.html"><a href="introduction.html#sort"><i class="fa fa-check"></i><b>1.7.1</b> <code>sort()</code></a></li>
 <li class="chapter" data-level="1.7.2" data-path="introduction.html"><a href="introduction.html#seq"><i class="fa fa-check"></i><b>1.7.2</b> <code>seq()</code></a></li>
 <li class="chapter" data-level="1.7.3" data-path="introduction.html"><a href="introduction.html#rep"><i class="fa fa-check"></i><b>1.7.3</b> <code>rep()</code></a></li>
-<li class="chapter" data-level="1.7.4" data-path="introduction.html"><a href="introduction.html#pmax-pmin"><i class="fa fa-check"></i><b>1.7.4</b> <code>pmax</code>, <code>pmin</code></a></li>
+<li class="chapter" data-level="1.7.4" data-path="introduction.html"><a href="introduction.html#pmax-pmin"><i class="fa fa-check"></i><b>1.7.4</b> <code>pmax()</code>, <code>pmin()</code></a></li>
+<li class="chapter" data-level="1.7.5" data-path="introduction.html"><a href="introduction.html#table"><i class="fa fa-check"></i><b>1.7.5</b> <code>table()</code></a></li>
 </ul></li>
 <li class="chapter" data-level="1.8" data-path="introduction.html"><a href="introduction.html#some-useful-rstudio-shortcuts"><i class="fa fa-check"></i><b>1.8</b> Some Useful RStudio Shortcuts</a></li>
 <li class="chapter" data-level="1.9" data-path="introduction.html"><a href="introduction.html#exercises"><i class="fa fa-check"></i><b>1.9</b> Exercises</a></li>
@@ -181,13 +182,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html"><i class="fa fa-check"></i><b>2</b> Probability and Simulation</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#probability-distributions"><i class="fa fa-check"></i><b>2.1</b> Probability Distributions</a>
+<li class="chapter" data-level="2.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#review-of-basic-probability"><i class="fa fa-check"></i><b>2.1</b> Review of Basic Probability</a>
 <ul>
-<li class="chapter" data-level="2.1.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#common-distributions"><i class="fa fa-check"></i><b>2.1.1</b> Common Distributions</a></li>
-<li class="chapter" data-level="2.1.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#exercises-1"><i class="fa fa-check"></i><b>2.1.2</b> Exercises</a></li>
+<li class="chapter" data-level="2.1.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#random-variables"><i class="fa fa-check"></i><b>2.1.1</b> Random variables</a></li>
+<li class="chapter" data-level="2.1.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#distribution-functions"><i class="fa fa-check"></i><b>2.1.2</b> Distribution functions</a></li>
+<li class="chapter" data-level="2.1.3" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#density-function-pdf"><i class="fa fa-check"></i><b>2.1.3</b> Density function (pdf)</a></li>
+<li class="chapter" data-level="2.1.4" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#probability-mass-function-pmf"><i class="fa fa-check"></i><b>2.1.4</b> Probability mass function (PMF)</a></li>
+<li class="chapter" data-level="2.1.5" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#quantile-function"><i class="fa fa-check"></i><b>2.1.5</b> Quantile function</a></li>
 </ul></li>
-<li class="chapter" data-level="2.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#simulation"><i class="fa fa-check"></i><b>2.2</b> Simulation</a></li>
-<li class="chapter" data-level="2.3" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#additional-exercises"><i class="fa fa-check"></i><b>2.3</b> Additional Exercises</a></li>
+<li class="chapter" data-level="2.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#simulation"><i class="fa fa-check"></i><b>2.2</b> Simulation</a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#a-simple-example-probability-of-an-even-number-when-rolling-a-die"><i class="fa fa-check"></i><b>2.2.1</b> A simple example: probability of an even number when rolling a die</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#probability-distributions-in-r"><i class="fa fa-check"></i><b>2.3</b> Probability Distributions in R</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#common-distributions"><i class="fa fa-check"></i><b>2.3.1</b> Common Distributions</a></li>
+<li class="chapter" data-level="2.3.2" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#exercises-1"><i class="fa fa-check"></i><b>2.3.2</b> Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#simulation-in-r"><i class="fa fa-check"></i><b>2.4</b> Simulation in R</a></li>
+<li class="chapter" data-level="2.5" data-path="probability-and-simulation.html"><a href="probability-and-simulation.html#additional-exercises"><i class="fa fa-check"></i><b>2.5</b> Additional Exercises</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="programming-in-r.html"><a href="programming-in-r.html"><i class="fa fa-check"></i><b>3</b> Programming in R</a>
 <ul>
@@ -240,7 +253,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="4.9" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#summarize-group_by"><i class="fa fa-check"></i><b>4.9</b> <code>summarize(), group_by()</code></a></li>
 <li class="chapter" data-level="4.10" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#combining-multiple-operations-with-pipe"><i class="fa fa-check"></i><b>4.10</b> Combining Multiple Operations with Pipe <code>%&gt;%</code></a></li>
-<li class="chapter" data-level="4.11" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#summary"><i class="fa fa-check"></i><b>4.11</b> Summary</a></li>
+<li class="chapter" data-level="4.11" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#summary"><i class="fa fa-check"></i><b>4.11</b> Summary</a>
+<ul>
+<li class="chapter" data-level="4.11.1" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#base-r"><i class="fa fa-check"></i><b>4.11.1</b> Base R</a></li>
+<li class="chapter" data-level="4.11.2" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#missing-values-1"><i class="fa fa-check"></i><b>4.11.2</b> Missing Values</a></li>
+<li class="chapter" data-level="4.11.3" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#saving-loading-and-removing-r-data-structures-1"><i class="fa fa-check"></i><b>4.11.3</b> Saving, loading, and removing R data structures</a></li>
+<li class="chapter" data-level="4.11.4" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#importing-and-saving-data-from-csv-files-1"><i class="fa fa-check"></i><b>4.11.4</b> Importing and saving data from CSV files</a></li>
+<li class="chapter" data-level="4.11.5" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#package-setup"><i class="fa fa-check"></i><b>4.11.5</b> Package Setup</a></li>
+<li class="chapter" data-level="4.11.6" data-path="managing-data-with-r.html"><a href="managing-data-with-r.html#data-transformation-with-dplyr-1"><i class="fa fa-check"></i><b>4.11.6</b> Data Transformation with <code>dplyr</code></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="creating-some-basic-plots.html"><a href="creating-some-basic-plots.html"><i class="fa fa-check"></i><b>5</b> Creating Some Basic Plots</a>
 <ul>
@@ -398,7 +419,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16.3" data-path="r-markdown.html"><a href="r-markdown.html#formatting-text"><i class="fa fa-check"></i><b>16.3</b> Formatting Text</a></li>
 <li class="chapter" data-level="16.4" data-path="r-markdown.html"><a href="r-markdown.html#list"><i class="fa fa-check"></i><b>16.4</b> List</a></li>
-<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#table"><i class="fa fa-check"></i><b>16.5</b> Table</a></li>
+<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#table-1"><i class="fa fa-check"></i><b>16.5</b> Table</a></li>
 <li class="chapter" data-level="16.6" data-path="r-markdown.html"><a href="r-markdown.html#r-code"><i class="fa fa-check"></i><b>16.6</b> R code</a></li>
 <li class="chapter" data-level="16.7" data-path="r-markdown.html"><a href="r-markdown.html#graphics"><i class="fa fa-check"></i><b>16.7</b> Graphics</a></li>
 <li class="chapter" data-level="16.8" data-path="r-markdown.html"><a href="r-markdown.html#latex-equation"><i class="fa fa-check"></i><b>16.8</b> Latex Equation</a></li>
@@ -583,8 +604,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>third item</li>
 </ol>
 </div>
-<div id="table" class="section level2 hasAnchor" number="16.5">
-<h2><span class="header-section-number">16.5</span> Table<a href="r-markdown.html#table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="table-1" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Table<a href="r-markdown.html#table-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <pre><code>||$H_0$ is true|$H_1$ is true|
 |--|-----|----|
 |Reject $H_0$| Type I error | No Error|
@@ -616,22 +637,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">16.6</span> R code<a href="r-markdown.html#r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Two ways: inline and code chunk.</p>
 <p>Code Chunk:</p>
-<div class="sourceCode" id="cb485"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb485-1"><a href="r-markdown.html#cb485-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
-<span id="cb485-2"><a href="r-markdown.html#cb485-2" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb485-3"><a href="r-markdown.html#cb485-3" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
-<span id="cb485-4"><a href="r-markdown.html#cb485-4" tabindex="-1"></a></span>
-<span id="cb485-5"><a href="r-markdown.html#cb485-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb485-6"><a href="r-markdown.html#cb485-6" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
-<span id="cb485-7"><a href="r-markdown.html#cb485-7" tabindex="-1"></a></span>
-<span id="cb485-8"><a href="r-markdown.html#cb485-8" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb485-9"><a href="r-markdown.html#cb485-9" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="r-markdown.html#cb483-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<span id="cb483-2"><a href="r-markdown.html#cb483-2" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb483-3"><a href="r-markdown.html#cb483-3" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
+<span id="cb483-4"><a href="r-markdown.html#cb483-4" tabindex="-1"></a></span>
+<span id="cb483-5"><a href="r-markdown.html#cb483-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb483-6"><a href="r-markdown.html#cb483-6" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
+<span id="cb483-7"><a href="r-markdown.html#cb483-7" tabindex="-1"></a></span>
+<span id="cb483-8"><a href="r-markdown.html#cb483-8" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
+<span id="cb483-9"><a href="r-markdown.html#cb483-9" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span></code></pre></div>
 <p>Inline: The square root of <code>x</code> is 2.4494897.</p>
 <p><strong>Controlling Which Code and Results Are Shown</strong></p>
 <p>See: <a href="https://rc2e.com/rmarkdown#recipe-code-results" class="uri">https://rc2e.com/rmarkdown#recipe-code-results</a></p>
 </div>
 <div id="graphics" class="section level2 hasAnchor" number="16.7">
 <h2><span class="header-section-number">16.7</span> Graphics<a href="r-markdown.html#graphics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="Book_files/figure-html/unnamed-chunk-525-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<p><img src="Book_files/figure-html/unnamed-chunk-524-1.png" width="75%" style="display: block; margin: auto;" /></p>
 </div>
 <div id="latex-equation" class="section level2 hasAnchor" number="16.8">
 <h2><span class="header-section-number">16.8</span> Latex Equation<a href="r-markdown.html#latex-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
