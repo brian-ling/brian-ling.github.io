@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-26" />
+<meta name="date" content="2026-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,8 +328,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#maximum-likelihood-estimation"><i class="fa fa-check"></i><b>7.1</b> Maximum Likelihood Estimation</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#exercises-on-mle"><i class="fa fa-check"></i><b>7.1.1</b> Exercises on MLE</a></li>
-<li class="chapter" data-level="7.1.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#summary-2"><i class="fa fa-check"></i><b>7.1.2</b> Summary</a></li>
+<li class="chapter" data-level="7.1.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#summary-2"><i class="fa fa-check"></i><b>7.1.1</b> Summary</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#exercises-on-mle"><i class="fa fa-check"></i><b>7.1.2</b> Exercises on MLE</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#interval-estimation-and-hypothesis-testing"><i class="fa fa-check"></i><b>7.2</b> Interval Estimation and Hypothesis Testing</a>
 <ul>
@@ -646,14 +646,14 @@ This penalty is called the elastic net penalty. When <span class="math inline">\
 <span id="cb540-9"><a href="shrinkage-methods.html#cb540-9" tabindex="-1"></a><span class="do">## [1] 138800.2</span></span></code></pre></div>
 <p>Coefficients (when the variables are in the original scale):</p>
 <div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="shrinkage-methods.html#cb541-1" tabindex="-1"></a><span class="fu">predict</span>(ridge_best, <span class="at">type =</span> <span class="st">&quot;coefficients&quot;</span>)[<span class="dv">1</span><span class="sc">:</span><span class="fu">ncol</span>(x), ]</span>
-<span id="cb541-2"><a href="shrinkage-methods.html#cb541-2" tabindex="-1"></a><span class="do">##  (Intercept)        AtBat         Hits        HmRun         Runs          RBI </span></span>
-<span id="cb541-3"><a href="shrinkage-methods.html#cb541-3" tabindex="-1"></a><span class="do">##  71.16411532   0.05151174   0.31495026   2.49638228   0.68833226   0.73836757 </span></span>
-<span id="cb541-4"><a href="shrinkage-methods.html#cb541-4" tabindex="-1"></a><span class="do">##        Walks        Years       CAtBat        CHits       CHmRun        CRuns </span></span>
-<span id="cb541-5"><a href="shrinkage-methods.html#cb541-5" tabindex="-1"></a><span class="do">##   1.77444807  -0.48852879   0.01327951   0.06333713   0.62913292   0.12448162 </span></span>
-<span id="cb541-6"><a href="shrinkage-methods.html#cb541-6" tabindex="-1"></a><span class="do">##         CRBI       CWalks      LeagueN    DivisionW      PutOuts      Assists </span></span>
-<span id="cb541-7"><a href="shrinkage-methods.html#cb541-7" tabindex="-1"></a><span class="do">##   0.15070839   0.16896589  31.16003691 -77.93859127   0.09125514   0.06393766 </span></span>
-<span id="cb541-8"><a href="shrinkage-methods.html#cb541-8" tabindex="-1"></a><span class="do">##       Errors </span></span>
-<span id="cb541-9"><a href="shrinkage-methods.html#cb541-9" tabindex="-1"></a><span class="do">##  -0.33532271</span></span></code></pre></div>
+<span id="cb541-2"><a href="shrinkage-methods.html#cb541-2" tabindex="-1"></a><span class="do">##  (Intercept)        AtBat         Hits        HmRun         Runs </span></span>
+<span id="cb541-3"><a href="shrinkage-methods.html#cb541-3" tabindex="-1"></a><span class="do">##  71.16411532   0.05151174   0.31495026   2.49638228   0.68833226 </span></span>
+<span id="cb541-4"><a href="shrinkage-methods.html#cb541-4" tabindex="-1"></a><span class="do">##          RBI        Walks        Years       CAtBat        CHits </span></span>
+<span id="cb541-5"><a href="shrinkage-methods.html#cb541-5" tabindex="-1"></a><span class="do">##   0.73836757   1.77444807  -0.48852879   0.01327951   0.06333713 </span></span>
+<span id="cb541-6"><a href="shrinkage-methods.html#cb541-6" tabindex="-1"></a><span class="do">##       CHmRun        CRuns         CRBI       CWalks      LeagueN </span></span>
+<span id="cb541-7"><a href="shrinkage-methods.html#cb541-7" tabindex="-1"></a><span class="do">##   0.62913292   0.12448162   0.15070839   0.16896589  31.16003691 </span></span>
+<span id="cb541-8"><a href="shrinkage-methods.html#cb541-8" tabindex="-1"></a><span class="do">##    DivisionW      PutOuts      Assists       Errors </span></span>
+<span id="cb541-9"><a href="shrinkage-methods.html#cb541-9" tabindex="-1"></a><span class="do">## -77.93859127   0.09125514   0.06393766  -0.33532271</span></span></code></pre></div>
 <p><strong>Compare with the least squares approach</strong></p>
 <div class="sourceCode" id="cb542"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb542-1"><a href="shrinkage-methods.html#cb542-1" tabindex="-1"></a>ls_fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(Salary <span class="sc">~</span> ., <span class="at">data =</span> Hitters[index, ])</span>
 <span id="cb542-2"><a href="shrinkage-methods.html#cb542-2" tabindex="-1"></a>ls_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ls_fit, Hitters[<span class="sc">-</span>index, ])</span>

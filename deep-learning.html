@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-26" />
+<meta name="date" content="2026-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,8 +328,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#maximum-likelihood-estimation"><i class="fa fa-check"></i><b>7.1</b> Maximum Likelihood Estimation</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#exercises-on-mle"><i class="fa fa-check"></i><b>7.1.1</b> Exercises on MLE</a></li>
-<li class="chapter" data-level="7.1.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#summary-2"><i class="fa fa-check"></i><b>7.1.2</b> Summary</a></li>
+<li class="chapter" data-level="7.1.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#summary-2"><i class="fa fa-check"></i><b>7.1.1</b> Summary</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#exercises-on-mle"><i class="fa fa-check"></i><b>7.1.2</b> Exercises on MLE</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#interval-estimation-and-hypothesis-testing"><i class="fa fa-check"></i><b>7.2</b> Interval Estimation and Hypothesis Testing</a>
 <ul>
@@ -689,16 +689,16 @@ The log-likelihood is
 <span id="cb588-4"><a href="deep-learning.html#cb588-4" tabindex="-1"></a></span>
 <span id="cb588-5"><a href="deep-learning.html#cb588-5" tabindex="-1"></a>model</span>
 <span id="cb588-6"><a href="deep-learning.html#cb588-6" tabindex="-1"></a><span class="do">## Model: &quot;sequential&quot;</span></span>
-<span id="cb588-7"><a href="deep-learning.html#cb588-7" tabindex="-1"></a><span class="do">## ________________________________________________________________________________</span></span>
-<span id="cb588-8"><a href="deep-learning.html#cb588-8" tabindex="-1"></a><span class="do">##  Layer (type)                       Output Shape                    Param #     </span></span>
-<span id="cb588-9"><a href="deep-learning.html#cb588-9" tabindex="-1"></a><span class="do">## ================================================================================</span></span>
-<span id="cb588-10"><a href="deep-learning.html#cb588-10" tabindex="-1"></a><span class="do">##  dense_1 (Dense)                    (None, 512)                     401920      </span></span>
-<span id="cb588-11"><a href="deep-learning.html#cb588-11" tabindex="-1"></a><span class="do">##  dense (Dense)                      (None, 10)                      5130        </span></span>
-<span id="cb588-12"><a href="deep-learning.html#cb588-12" tabindex="-1"></a><span class="do">## ================================================================================</span></span>
+<span id="cb588-7"><a href="deep-learning.html#cb588-7" tabindex="-1"></a><span class="do">## __________________________________________________________________________</span></span>
+<span id="cb588-8"><a href="deep-learning.html#cb588-8" tabindex="-1"></a><span class="do">##  Layer (type)                    Output Shape                 Param #     </span></span>
+<span id="cb588-9"><a href="deep-learning.html#cb588-9" tabindex="-1"></a><span class="do">## ==========================================================================</span></span>
+<span id="cb588-10"><a href="deep-learning.html#cb588-10" tabindex="-1"></a><span class="do">##  dense_1 (Dense)                 (None, 512)                  401920      </span></span>
+<span id="cb588-11"><a href="deep-learning.html#cb588-11" tabindex="-1"></a><span class="do">##  dense (Dense)                   (None, 10)                   5130        </span></span>
+<span id="cb588-12"><a href="deep-learning.html#cb588-12" tabindex="-1"></a><span class="do">## ==========================================================================</span></span>
 <span id="cb588-13"><a href="deep-learning.html#cb588-13" tabindex="-1"></a><span class="do">## Total params: 407050 (1.55 MB)</span></span>
 <span id="cb588-14"><a href="deep-learning.html#cb588-14" tabindex="-1"></a><span class="do">## Trainable params: 407050 (1.55 MB)</span></span>
 <span id="cb588-15"><a href="deep-learning.html#cb588-15" tabindex="-1"></a><span class="do">## Non-trainable params: 0 (0.00 Byte)</span></span>
-<span id="cb588-16"><a href="deep-learning.html#cb588-16" tabindex="-1"></a><span class="do">## ________________________________________________________________________________</span></span></code></pre></div>
+<span id="cb588-16"><a href="deep-learning.html#cb588-16" tabindex="-1"></a><span class="do">## __________________________________________________________________________</span></span></code></pre></div>
 <p>There are <span class="math inline">\(407,050\)</span> parameters! The above code means we specify a model with</p>
 <ul>
 <li>One hidden layer with <span class="math inline">\(512\)</span> units, the activation function is ReLU (rectified linear unit)</li>
@@ -751,30 +751,30 @@ The log-likelihood is
 <span id="cb593-18"><a href="deep-learning.html#cb593-18" tabindex="-1"></a>  <span class="at">batch_size =</span> <span class="dv">128</span></span>
 <span id="cb593-19"><a href="deep-learning.html#cb593-19" tabindex="-1"></a>)</span>
 <span id="cb593-20"><a href="deep-learning.html#cb593-20" tabindex="-1"></a><span class="do">## Epoch 1/5</span></span>
-<span id="cb593-21"><a href="deep-learning.html#cb593-21" tabindex="-1"></a><span class="do">## 469/469 - 4s - loss: 0.2659 - accuracy: 0.9241 - 4s/epoch - 8ms/step</span></span>
+<span id="cb593-21"><a href="deep-learning.html#cb593-21" tabindex="-1"></a><span class="do">## 469/469 - 4s - loss: 0.2661 - accuracy: 0.9234 - 4s/epoch - 9ms/step</span></span>
 <span id="cb593-22"><a href="deep-learning.html#cb593-22" tabindex="-1"></a><span class="do">## Epoch 2/5</span></span>
-<span id="cb593-23"><a href="deep-learning.html#cb593-23" tabindex="-1"></a><span class="do">## 469/469 - 2s - loss: 0.1076 - accuracy: 0.9680 - 2s/epoch - 5ms/step</span></span>
+<span id="cb593-23"><a href="deep-learning.html#cb593-23" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.1088 - accuracy: 0.9681 - 3s/epoch - 7ms/step</span></span>
 <span id="cb593-24"><a href="deep-learning.html#cb593-24" tabindex="-1"></a><span class="do">## Epoch 3/5</span></span>
-<span id="cb593-25"><a href="deep-learning.html#cb593-25" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0711 - accuracy: 0.9794 - 3s/epoch - 6ms/step</span></span>
+<span id="cb593-25"><a href="deep-learning.html#cb593-25" tabindex="-1"></a><span class="do">## 469/469 - 4s - loss: 0.0707 - accuracy: 0.9791 - 4s/epoch - 8ms/step</span></span>
 <span id="cb593-26"><a href="deep-learning.html#cb593-26" tabindex="-1"></a><span class="do">## Epoch 4/5</span></span>
-<span id="cb593-27"><a href="deep-learning.html#cb593-27" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0515 - accuracy: 0.9845 - 3s/epoch - 6ms/step</span></span>
+<span id="cb593-27"><a href="deep-learning.html#cb593-27" tabindex="-1"></a><span class="do">## 469/469 - 4s - loss: 0.0505 - accuracy: 0.9850 - 4s/epoch - 8ms/step</span></span>
 <span id="cb593-28"><a href="deep-learning.html#cb593-28" tabindex="-1"></a><span class="do">## Epoch 5/5</span></span>
-<span id="cb593-29"><a href="deep-learning.html#cb593-29" tabindex="-1"></a><span class="do">## 469/469 - 3s - loss: 0.0386 - accuracy: 0.9879 - 3s/epoch - 6ms/step</span></span></code></pre></div>
+<span id="cb593-29"><a href="deep-learning.html#cb593-29" tabindex="-1"></a><span class="do">## 469/469 - 4s - loss: 0.0378 - accuracy: 0.9885 - 4s/epoch - 8ms/step</span></span></code></pre></div>
 <p>To form the predictions:</p>
 <div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="deep-learning.html#cb594-1" tabindex="-1"></a><span class="co"># prediction</span></span>
 <span id="cb594-2"><a href="deep-learning.html#cb594-2" tabindex="-1"></a>prediction <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">predict</span>(test_images)</span>
-<span id="cb594-3"><a href="deep-learning.html#cb594-3" tabindex="-1"></a><span class="do">## 313/313 - 0s - 398ms/epoch - 1ms/step</span></span>
+<span id="cb594-3"><a href="deep-learning.html#cb594-3" tabindex="-1"></a><span class="do">## 313/313 - 1s - 665ms/epoch - 2ms/step</span></span>
 <span id="cb594-4"><a href="deep-learning.html#cb594-4" tabindex="-1"></a></span>
 <span id="cb594-5"><a href="deep-learning.html#cb594-5" tabindex="-1"></a><span class="co"># these are the predicted probabilities of each class for the 1st observation</span></span>
 <span id="cb594-6"><a href="deep-learning.html#cb594-6" tabindex="-1"></a>prediction[<span class="dv">1</span>, ] </span>
-<span id="cb594-7"><a href="deep-learning.html#cb594-7" tabindex="-1"></a><span class="do">##  [1] 1.856898e-06 4.050089e-09 7.267694e-06 6.403740e-04 4.958928e-11</span></span>
-<span id="cb594-8"><a href="deep-learning.html#cb594-8" tabindex="-1"></a><span class="do">##  [6] 3.101014e-07 5.041881e-12 9.993277e-01 6.002427e-07 2.195535e-05</span></span></code></pre></div>
+<span id="cb594-7"><a href="deep-learning.html#cb594-7" tabindex="-1"></a><span class="do">##  [1] 1.729515e-07 3.003843e-09 5.028761e-05 1.354090e-04 4.508275e-11</span></span>
+<span id="cb594-8"><a href="deep-learning.html#cb594-8" tabindex="-1"></a><span class="do">##  [6] 1.749155e-07 3.598562e-12 9.998091e-01 4.477961e-08 4.914052e-06</span></span></code></pre></div>
 <p>Evaluate the performance:</p>
 <div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb595-1"><a href="deep-learning.html#cb595-1" tabindex="-1"></a>result <span class="ot">&lt;-</span> model <span class="sc">%&gt;%</span> <span class="fu">evaluate</span>(test_images, test_labels)</span>
-<span id="cb595-2"><a href="deep-learning.html#cb595-2" tabindex="-1"></a><span class="do">## 313/313 - 1s - loss: 0.0717 - accuracy: 0.9786 - 560ms/epoch - 2ms/step</span></span>
+<span id="cb595-2"><a href="deep-learning.html#cb595-2" tabindex="-1"></a><span class="do">## 313/313 - 1s - loss: 0.0650 - accuracy: 0.9790 - 646ms/epoch - 2ms/step</span></span>
 <span id="cb595-3"><a href="deep-learning.html#cb595-3" tabindex="-1"></a>result</span>
 <span id="cb595-4"><a href="deep-learning.html#cb595-4" tabindex="-1"></a><span class="do">##       loss   accuracy </span></span>
-<span id="cb595-5"><a href="deep-learning.html#cb595-5" tabindex="-1"></a><span class="do">## 0.07174452 0.97860003</span></span></code></pre></div>
+<span id="cb595-5"><a href="deep-learning.html#cb595-5" tabindex="-1"></a><span class="do">## 0.06501911 0.97899997</span></span></code></pre></div>
 <p>We see that our basic neural network model is able to achieve 0.98 accuracy in a <span class="math inline">\(10\)</span>-class classification problem.</p>
 </div>
 <div id="multilayer-neural-network" class="section level3 hasAnchor" number="22.4.4">
