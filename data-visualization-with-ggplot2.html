@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-01-26" />
+<meta name="date" content="2026-01-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -328,8 +328,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#maximum-likelihood-estimation"><i class="fa fa-check"></i><b>7.1</b> Maximum Likelihood Estimation</a>
 <ul>
-<li class="chapter" data-level="7.1.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#exercises-on-mle"><i class="fa fa-check"></i><b>7.1.1</b> Exercises on MLE</a></li>
-<li class="chapter" data-level="7.1.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#summary-2"><i class="fa fa-check"></i><b>7.1.2</b> Summary</a></li>
+<li class="chapter" data-level="7.1.1" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#summary-2"><i class="fa fa-check"></i><b>7.1.1</b> Summary</a></li>
+<li class="chapter" data-level="7.1.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#exercises-on-mle"><i class="fa fa-check"></i><b>7.1.2</b> Exercises on MLE</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="statistical-inference-in-r.html"><a href="statistical-inference-in-r.html#interval-estimation-and-hypothesis-testing"><i class="fa fa-check"></i><b>7.2</b> Interval Estimation and Hypothesis Testing</a>
 <ul>
@@ -601,11 +601,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="data-visualization-with-ggplot2.html#cb268-1" tabindex="-1"></a><span class="co"># prepare the data</span></span>
 <span id="cb268-2"><a href="data-visualization-with-ggplot2.html#cb268-2" tabindex="-1"></a>mtcars_wt2 <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb268-3"><a href="data-visualization-with-ggplot2.html#cb268-3" tabindex="-1"></a>  <span class="fu">group_by</span>(gear, vs) <span class="sc">%&gt;%</span> </span>
-<span id="cb268-4"><a href="data-visualization-with-ggplot2.html#cb268-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_wt =</span> <span class="fu">mean</span>(wt), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb268-5"><a href="data-visualization-with-ggplot2.html#cb268-5" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb268-6"><a href="data-visualization-with-ggplot2.html#cb268-6" tabindex="-1"></a>    <span class="at">gear =</span> <span class="fu">factor</span>(gear),</span>
-<span id="cb268-7"><a href="data-visualization-with-ggplot2.html#cb268-7" tabindex="-1"></a>    <span class="at">vs =</span> <span class="fu">factor</span>(vs)</span>
-<span id="cb268-8"><a href="data-visualization-with-ggplot2.html#cb268-8" tabindex="-1"></a>  )</span></code></pre></div>
+<span id="cb268-4"><a href="data-visualization-with-ggplot2.html#cb268-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_wt =</span> <span class="fu">mean</span>(wt)) <span class="sc">%&gt;%</span> </span>
+<span id="cb268-5"><a href="data-visualization-with-ggplot2.html#cb268-5" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb268-6"><a href="data-visualization-with-ggplot2.html#cb268-6" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb268-7"><a href="data-visualization-with-ggplot2.html#cb268-7" tabindex="-1"></a>    <span class="at">gear =</span> <span class="fu">factor</span>(gear),</span>
+<span id="cb268-8"><a href="data-visualization-with-ggplot2.html#cb268-8" tabindex="-1"></a>    <span class="at">vs =</span> <span class="fu">factor</span>(vs)</span>
+<span id="cb268-9"><a href="data-visualization-with-ggplot2.html#cb268-9" tabindex="-1"></a>  )</span></code></pre></div>
 <p>To create a grouped bar chart, set <code>position = "dodge"</code> in <code>geom_col()</code>; otherwise, you will get a stacked bar chart. Because we will demostrate several similar plots with the same <code>labs</code>. We will first define the labels once:</p>
 <div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data-visualization-with-ggplot2.html#cb269-1" tabindex="-1"></a>common_labs <span class="ot">&lt;-</span> <span class="fu">labs</span>(</span>
 <span id="cb269-2"><a href="data-visualization-with-ggplot2.html#cb269-2" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Mean Weight by Gears and Engine Shape&quot;</span>,</span>
@@ -690,18 +691,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Suppose we want to make a <strong>line graph</strong> of the daily average departure delay in the <code>flights</code> dataset.</p>
 <div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="data-visualization-with-ggplot2.html#cb280-1" tabindex="-1"></a>avg_delay <span class="ot">&lt;-</span> flights <span class="sc">%&gt;%</span> </span>
 <span id="cb280-2"><a href="data-visualization-with-ggplot2.html#cb280-2" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month, day) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-3"><a href="data-visualization-with-ggplot2.html#cb280-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">&quot;drop&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb280-4"><a href="data-visualization-with-ggplot2.html#cb280-4" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb280-5"><a href="data-visualization-with-ggplot2.html#cb280-5" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%d-%02d-%02d&quot;</span>, year, month, day))</span>
-<span id="cb280-6"><a href="data-visualization-with-ggplot2.html#cb280-6" tabindex="-1"></a>  )</span>
-<span id="cb280-7"><a href="data-visualization-with-ggplot2.html#cb280-7" tabindex="-1"></a></span>
-<span id="cb280-8"><a href="data-visualization-with-ggplot2.html#cb280-8" tabindex="-1"></a><span class="fu">ggplot</span>(avg_delay, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> delay)) <span class="sc">+</span></span>
-<span id="cb280-9"><a href="data-visualization-with-ggplot2.html#cb280-9" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb280-10"><a href="data-visualization-with-ggplot2.html#cb280-10" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb280-11"><a href="data-visualization-with-ggplot2.html#cb280-11" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
-<span id="cb280-12"><a href="data-visualization-with-ggplot2.html#cb280-12" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Average departure delay (minutes)&quot;</span>,</span>
-<span id="cb280-13"><a href="data-visualization-with-ggplot2.html#cb280-13" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Daily Average Departure Delay of Flights from NYC in 2013&quot;</span></span>
-<span id="cb280-14"><a href="data-visualization-with-ggplot2.html#cb280-14" tabindex="-1"></a>  )</span></code></pre></div>
+<span id="cb280-3"><a href="data-visualization-with-ggplot2.html#cb280-3" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb280-4"><a href="data-visualization-with-ggplot2.html#cb280-4" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb280-5"><a href="data-visualization-with-ggplot2.html#cb280-5" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb280-6"><a href="data-visualization-with-ggplot2.html#cb280-6" tabindex="-1"></a>    <span class="at">date =</span> <span class="fu">as.Date</span>(<span class="fu">sprintf</span>(<span class="st">&quot;%d-%02d-%02d&quot;</span>, year, month, day))</span>
+<span id="cb280-7"><a href="data-visualization-with-ggplot2.html#cb280-7" tabindex="-1"></a>  )</span>
+<span id="cb280-8"><a href="data-visualization-with-ggplot2.html#cb280-8" tabindex="-1"></a></span>
+<span id="cb280-9"><a href="data-visualization-with-ggplot2.html#cb280-9" tabindex="-1"></a><span class="fu">ggplot</span>(avg_delay, <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> delay)) <span class="sc">+</span></span>
+<span id="cb280-10"><a href="data-visualization-with-ggplot2.html#cb280-10" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb280-11"><a href="data-visualization-with-ggplot2.html#cb280-11" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb280-12"><a href="data-visualization-with-ggplot2.html#cb280-12" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Date&quot;</span>,</span>
+<span id="cb280-13"><a href="data-visualization-with-ggplot2.html#cb280-13" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Average departure delay (minutes)&quot;</span>,</span>
+<span id="cb280-14"><a href="data-visualization-with-ggplot2.html#cb280-14" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Daily Average Departure Delay of Flights from NYC in 2013&quot;</span></span>
+<span id="cb280-15"><a href="data-visualization-with-ggplot2.html#cb280-15" tabindex="-1"></a>  )</span></code></pre></div>
 <p><img src="Book_files/figure-html/unnamed-chunk-293-1.png" width="50%" style="display: block; margin: auto;" /></p>
 <p><strong>Line Graph with multiple lines</strong></p>
 <p>We now compare the average monthly departure delay across the three NYC

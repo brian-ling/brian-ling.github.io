@@ -127,8 +127,8 @@ saving-your-plots-1
 axes-appearance-1
 statistical-inference-in-r
 maximum-likelihood-estimation
-exercises-on-mle
 summary-2
+exercises-on-mle
 interval-estimation-and-hypothesis-testing
 examples-of-hypothesis-testing
 null-hypotheses-alternative-hypotheses-and-p-values
