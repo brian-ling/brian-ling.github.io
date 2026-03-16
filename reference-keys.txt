@@ -186,7 +186,7 @@ random-forest
 example
 boosting
 example-1
-what-is-r-markdown
+r-markdown
 installation
 knit-a-document
 basic-formatting

@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-03-02" />
+<meta name="date" content="2026-03-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -419,17 +419,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="16" data-path="r-markdown.html"><a href="r-markdown.html"><i class="fa fa-check"></i><b>16</b> R Markdown</a>
 <ul>
-<li class="chapter" data-level="16.1" data-path="r-markdown.html"><a href="r-markdown.html#basic-formatting"><i class="fa fa-check"></i><b>16.1</b> Basic formatting</a></li>
-<li class="chapter" data-level="16.2" data-path="r-markdown.html"><a href="r-markdown.html#this-is-a-subsection"><i class="fa fa-check"></i><b>16.2</b> This is a subsection</a>
+<li class="chapter" data-level="16.1" data-path="r-markdown.html"><a href="r-markdown.html#installation"><i class="fa fa-check"></i><b>16.1</b> Installation</a></li>
+<li class="chapter" data-level="16.2" data-path="r-markdown.html"><a href="r-markdown.html#knit-a-document"><i class="fa fa-check"></i><b>16.2</b> Knit a document</a></li>
+<li class="chapter" data-level="16.3" data-path="r-markdown.html"><a href="r-markdown.html#basic-formatting"><i class="fa fa-check"></i><b>16.3</b> Basic formatting</a></li>
+<li class="chapter" data-level="16.4" data-path="r-markdown.html"><a href="r-markdown.html#this-is-a-subsection"><i class="fa fa-check"></i><b>16.4</b> This is a subsection</a>
 <ul>
-<li class="chapter" data-level="16.2.1" data-path="r-markdown.html"><a href="r-markdown.html#this-is-a-subsubsection"><i class="fa fa-check"></i><b>16.2.1</b> This is a subsubsection</a></li>
+<li class="chapter" data-level="16.4.1" data-path="r-markdown.html"><a href="r-markdown.html#this-is-a-subsubsection"><i class="fa fa-check"></i><b>16.4.1</b> This is a subsubsection</a></li>
 </ul></li>
-<li class="chapter" data-level="16.3" data-path="r-markdown.html"><a href="r-markdown.html#formatting-text"><i class="fa fa-check"></i><b>16.3</b> Formatting Text</a></li>
-<li class="chapter" data-level="16.4" data-path="r-markdown.html"><a href="r-markdown.html#list"><i class="fa fa-check"></i><b>16.4</b> List</a></li>
-<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#table-1"><i class="fa fa-check"></i><b>16.5</b> Table</a></li>
-<li class="chapter" data-level="16.6" data-path="r-markdown.html"><a href="r-markdown.html#r-code"><i class="fa fa-check"></i><b>16.6</b> R code</a></li>
-<li class="chapter" data-level="16.7" data-path="r-markdown.html"><a href="r-markdown.html#graphics"><i class="fa fa-check"></i><b>16.7</b> Graphics</a></li>
-<li class="chapter" data-level="16.8" data-path="r-markdown.html"><a href="r-markdown.html#latex-equation"><i class="fa fa-check"></i><b>16.8</b> Latex Equation</a></li>
+<li class="chapter" data-level="16.5" data-path="r-markdown.html"><a href="r-markdown.html#formatting-text"><i class="fa fa-check"></i><b>16.5</b> Formatting Text</a></li>
+<li class="chapter" data-level="16.6" data-path="r-markdown.html"><a href="r-markdown.html#lists-1"><i class="fa fa-check"></i><b>16.6</b> Lists</a></li>
+<li class="chapter" data-level="16.7" data-path="r-markdown.html"><a href="r-markdown.html#tables"><i class="fa fa-check"></i><b>16.7</b> Tables</a></li>
+<li class="chapter" data-level="16.8" data-path="r-markdown.html"><a href="r-markdown.html#r-code-in-r-markdown"><i class="fa fa-check"></i><b>16.8</b> R code in R Markdown</a></li>
+<li class="chapter" data-level="16.9" data-path="r-markdown.html"><a href="r-markdown.html#common-chunk-options"><i class="fa fa-check"></i><b>16.9</b> Common chunk options</a></li>
+<li class="chapter" data-level="16.10" data-path="r-markdown.html"><a href="r-markdown.html#graphics"><i class="fa fa-check"></i><b>16.10</b> Graphics</a></li>
+<li class="chapter" data-level="16.11" data-path="r-markdown.html"><a href="r-markdown.html#latex-equations"><i class="fa fa-check"></i><b>16.11</b> LaTeX equations</a></li>
+<li class="chapter" data-level="16.12" data-path="r-markdown.html"><a href="r-markdown.html#common-mistakes"><i class="fa fa-check"></i><b>16.12</b> Common mistakes</a></li>
 </ul></li>
 <li class="chapter" data-level="17" data-path="k-means-clustering.html"><a href="k-means-clustering.html"><i class="fa fa-check"></i><b>17</b> k-means Clustering</a>
 <ul>
@@ -524,25 +528,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="r-markdown" class="section level1 hasAnchor" number="16">
 <h1><span class="header-section-number">Chapter 16</span> R Markdown<a href="r-markdown.html#r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>An R Markdown file (.Rmd) is a document that combines</p>
+<ul>
+<li><p>ordinary text</p></li>
+<li><p>Markdown formatting</p></li>
+<li><p>R code</p></li>
+<li><p>output such as tables and graphs</p></li>
+</ul>
 <p>You can use R Markdown to</p>
 <ul>
-<li>save and execute code</li>
-<li>generate pdfs (like the lecture notes)</li>
-<li>generate html files (like the website for the lecture notes)</li>
-<li>make slides for presentations</li>
+<li><p>write and run R code</p></li>
+<li><p>create PDF files</p></li>
+<li><p>create HTML files</p></li>
+<li><p>create slides for presentations</p></li>
+<li><p>combine your code, results, and explanation in one document</p></li>
 </ul>
-<p>Installation: follow the instruction on <a href="https://bookdown.org/yihui/rmarkdown/installation.html" class="uri">https://bookdown.org/yihui/rmarkdown/installation.html</a></p>
-<p>Use ctrl + shift + k to knit your file (or click the Knit button in RStudio)</p>
-<p>Some References:</p>
+<p>R Markdown can be useful for assignments, reports, notes, and projects.</p>
+<div id="installation" class="section level2 hasAnchor" number="16.1">
+<h2><span class="header-section-number">16.1</span> Installation<a href="r-markdown.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To use R Markdown, you may need to install some packages first.
+See:</p>
+<p><a href="https://bookdown.org/yihui/rmarkdown/installation.html" class="uri">https://bookdown.org/yihui/rmarkdown/installation.html</a></p>
+<p>If you want to knit to PDF, you may also need a LaTeX installation such as TinyTeX.</p>
+</div>
+<div id="knit-a-document" class="section level2 hasAnchor" number="16.2">
+<h2><span class="header-section-number">16.2</span> Knit a document<a href="r-markdown.html#knit-a-document" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can knit your file by</p>
+<ul>
+<li><p>clicking the Knit button in RStudio, or</p></li>
+<li><p>using Ctrl + Shift + K</p></li>
+</ul>
+<p>When you knit an R Markdown document, R runs all code chunks from top to bottom and produces the output file.</p>
+<p>Note that knitting uses a fresh R session. This means every object needed in the document must be created inside the document.</p>
+<p>References</p>
 <ol style="list-style-type: decimal">
 <li><p>R for Data Science: <a href="https://r4ds.had.co.nz/r-markdown.html" class="uri">https://r4ds.had.co.nz/r-markdown.html</a></p></li>
 <li><p>R Cookbook: <a href="https://rc2e.com/rmarkdown" class="uri">https://rc2e.com/rmarkdown</a></p></li>
 <li><p>R Markdown Cookbook: <a href="https://bookdown.org/yihui/rmarkdown-cookbook/" class="uri">https://bookdown.org/yihui/rmarkdown-cookbook/</a></p></li>
 <li><p>The files for generating the notes and assignments (onQ -&gt; R Markdown Examples)</p></li>
 </ol>
-<p>You may use R Markdown for your final project.</p>
-<div id="basic-formatting" class="section level2 hasAnchor" number="16.1">
-<h2><span class="header-section-number">16.1</span> Basic formatting<a href="r-markdown.html#basic-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You may use R Markdown for your project.</p>
+</div>
+<div id="basic-formatting" class="section level2 hasAnchor" number="16.3">
+<h2><span class="header-section-number">16.3</span> Basic formatting<a href="r-markdown.html#basic-formatting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Headings</p>
+<p>Use <code>#</code> symbols to create headings.</p>
 <pre><code># Level 1 Heading
 ## Level 2 Heading
 ### Level 3 Heading
@@ -550,43 +580,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##### Level 5 Heading
 ###### Level 6 Heading</code></pre>
 </div>
-<div id="this-is-a-subsection" class="section level2 hasAnchor" number="16.2">
-<h2><span class="header-section-number">16.2</span> This is a subsection<a href="r-markdown.html#this-is-a-subsection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<div id="this-is-a-subsubsection" class="section level3 hasAnchor" number="16.2.1">
-<h3><span class="header-section-number">16.2.1</span> This is a subsubsection<a href="r-markdown.html#this-is-a-subsubsection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="this-is-a-subsection" class="section level2 hasAnchor" number="16.4">
+<h2><span class="header-section-number">16.4</span> This is a subsection<a href="r-markdown.html#this-is-a-subsection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="this-is-a-subsubsection" class="section level3 hasAnchor" number="16.4.1">
+<h3><span class="header-section-number">16.4.1</span> This is a subsubsection<a href="r-markdown.html#this-is-a-subsubsection" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
 </div>
-<div id="formatting-text" class="section level2 hasAnchor" number="16.3">
-<h2><span class="header-section-number">16.3</span> Formatting Text<a href="r-markdown.html#formatting-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="formatting-text" class="section level2 hasAnchor" number="16.5">
+<h2><span class="header-section-number">16.5</span> Formatting Text<a href="r-markdown.html#formatting-text" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <ul>
 <li><code>*italics*</code> gives <em>italics</em></li>
 <li><code>**bold**</code> gives <strong>bold</strong></li>
 <li><code>`code`</code> gives <code>code</code></li>
 </ul>
-<p>See <a href="https://rc2e.com/rmarkdown#tab:commonMarkdown" class="uri">https://rc2e.com/rmarkdown#tab:commonMarkdown</a></p>
+<p>See also: <a href="https://rc2e.com/rmarkdown#tab:commonMarkdown" class="uri">https://rc2e.com/rmarkdown#tab:commonMarkdown</a></p>
 </div>
-<div id="list" class="section level2 hasAnchor" number="16.4">
-<h2><span class="header-section-number">16.4</span> List<a href="r-markdown.html#list" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>To create a bulleted list, start each line with an asterisk (*) like so:</p>
+<div id="lists-1" class="section level2 hasAnchor" number="16.6">
+<h2><span class="header-section-number">16.6</span> Lists<a href="r-markdown.html#lists-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>To create a bulleted list, start each line with <code>*</code>.</p>
 <pre><code>* first item
 * second item
 * third item</code></pre>
-<p>Results:</p>
+<p>Result:</p>
 <ul>
 <li>first item</li>
 <li>second item</li>
 <li>third item</li>
 </ul>
-<p>To create a numbered list, start each line with 1. as follows:</p>
+<p>To create a numbered list, start each line with <code>1</code>.</p>
 <pre><code>1. first item
 1. second item
 1. third item</code></pre>
-<p>Results:</p>
+<p>Result:</p>
 <ol style="list-style-type: decimal">
 <li>first item</li>
 <li>second item</li>
 <li>third item</li>
 </ol>
+<p>You can also create nested lists.</p>
 <pre><code>1. first item
 1. second item
    a. subitem 1
@@ -595,7 +626,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       i. sub-subitem 2
    a. subitem 2
 1. third item</code></pre>
-<p>Results:</p>
+<p>Result:</p>
 <ol style="list-style-type: decimal">
 <li>first item</li>
 <li>second item
@@ -611,17 +642,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>third item</li>
 </ol>
 </div>
-<div id="table-1" class="section level2 hasAnchor" number="16.5">
-<h2><span class="header-section-number">16.5</span> Table<a href="r-markdown.html#table-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<pre><code>||$H_0$ is true|$H_1$ is true|
-|--|-----|----|
-|Reject $H_0$| Type I error | No Error|
-|Do not reject $H_0$| No Error | Type II Error|</code></pre>
-<p>Results:</p>
+<div id="tables" class="section level2 hasAnchor" number="16.7">
+<h2><span class="header-section-number">16.7</span> Tables<a href="r-markdown.html#tables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>You can create a simple table using pipes <code>|</code>.</p>
+<pre><code>| Decision | $H_0$ is true | $H_1$ is true |
+|---|---|---|
+| Reject $H_0$ | Type I error | No error |
+| Do not reject $H_0$ | No error | Type II error |</code></pre>
+<p>Result:</p>
 <table>
 <thead>
 <tr class="header">
-<th></th>
+<th>Decision</th>
 <th><span class="math inline">\(H_0\)</span> is true</th>
 <th><span class="math inline">\(H_1\)</span> is true</th>
 </tr>
@@ -630,46 +662,84 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <tr class="odd">
 <td>Reject <span class="math inline">\(H_0\)</span></td>
 <td>Type I error</td>
-<td>No Error</td>
+<td>No error</td>
 </tr>
 <tr class="even">
 <td>Do not reject <span class="math inline">\(H_0\)</span></td>
-<td>No Error</td>
-<td>Type II Error</td>
+<td>No error</td>
+<td>Type II error</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="r-code" class="section level2 hasAnchor" number="16.6">
-<h2><span class="header-section-number">16.6</span> R code<a href="r-markdown.html#r-code" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Two ways: inline and code chunk.</p>
-<p>Code Chunk:</p>
-<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="r-markdown.html#cb501-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">6</span></span>
+<div id="r-code-in-r-markdown" class="section level2 hasAnchor" number="16.8">
+<h2><span class="header-section-number">16.8</span> R code in R Markdown<a href="r-markdown.html#r-code-in-r-markdown" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>There are two main ways to include R code in R Markdown:</p>
+<ul>
+<li>inline R code</li>
+<li>code chunks</li>
+</ul>
+<p><strong>Code chunks</strong></p>
+<p>A code chunk is a block of R code enclosed by backticks.</p>
+<div class="sourceCode" id="cb501"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb501-1"><a href="r-markdown.html#cb501-1" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">16</span></span>
 <span id="cb501-2"><a href="r-markdown.html#cb501-2" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb501-3"><a href="r-markdown.html#cb501-3" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
+<span id="cb501-3"><a href="r-markdown.html#cb501-3" tabindex="-1"></a><span class="do">## [1] 4</span></span>
 <span id="cb501-4"><a href="r-markdown.html#cb501-4" tabindex="-1"></a></span>
 <span id="cb501-5"><a href="r-markdown.html#cb501-5" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb501-6"><a href="r-markdown.html#cb501-6" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span>
+<span id="cb501-6"><a href="r-markdown.html#cb501-6" tabindex="-1"></a><span class="do">## [1] 4</span></span>
 <span id="cb501-7"><a href="r-markdown.html#cb501-7" tabindex="-1"></a></span>
 <span id="cb501-8"><a href="r-markdown.html#cb501-8" tabindex="-1"></a><span class="fu">sqrt</span>(x)</span>
-<span id="cb501-9"><a href="r-markdown.html#cb501-9" tabindex="-1"></a><span class="do">## [1] 2.44949</span></span></code></pre></div>
-<p>Inline: The square root of <code>x</code> is 2.4494897.</p>
-<p><strong>Controlling Which Code and Results Are Shown</strong></p>
-<p>See: <a href="https://rc2e.com/rmarkdown#recipe-code-results" class="uri">https://rc2e.com/rmarkdown#recipe-code-results</a></p>
+<span id="cb501-9"><a href="r-markdown.html#cb501-9" tabindex="-1"></a><span class="do">## [1] 4</span></span></code></pre></div>
+<p><strong>Inline R code</strong></p>
+<p>Inline R code is used inside a sentence.</p>
+<p>For example, the square root of <code>x</code> is 4.</p>
+<div class="sourceCode" id="cb502"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb502-1"><a href="r-markdown.html#cb502-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb502-2"><a href="r-markdown.html#cb502-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb502-3"><a href="r-markdown.html#cb502-3" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
+<span id="cb502-4"><a href="r-markdown.html#cb502-4" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x)</span></code></pre></div>
+<p>The estimated coefficient of <code>x</code> is -0.5161.</p>
 </div>
-<div id="graphics" class="section level2 hasAnchor" number="16.7">
-<h2><span class="header-section-number">16.7</span> Graphics<a href="r-markdown.html#graphics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p><img src="Book_files/figure-html/unnamed-chunk-543-1.png" width="75%" style="display: block; margin: auto;" /></p>
+<div id="common-chunk-options" class="section level2 hasAnchor" number="16.9">
+<h2><span class="header-section-number">16.9</span> Common chunk options<a href="r-markdown.html#common-chunk-options" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Chunk options control what is shown and what is run.</strong></p>
+<p>Show results but hide code</p>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -0.8356 -0.5462  0.2566  0.1322  0.5537  1.5953</code></pre>
+<p>Show code but do not run it</p>
+<div class="sourceCode" id="cb504"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb504-1"><a href="r-markdown.html#cb504-1" tabindex="-1"></a><span class="fu">summary</span>(x)</span></code></pre></div>
+<p>Run code but show neither code nor output</p>
+<p>Hide warnings and messages</p>
+<div class="sourceCode" id="cb505"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb505-1"><a href="r-markdown.html#cb505-1" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<p>For more details, see:</p>
+<p><a href="https://rc2e.com/rmarkdown#recipe-code-results" class="uri">https://rc2e.com/rmarkdown#recipe-code-results</a></p>
 </div>
-<div id="latex-equation" class="section level2 hasAnchor" number="16.8">
-<h2><span class="header-section-number">16.8</span> Latex Equation<a href="r-markdown.html#latex-equation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>R Markdown supports the LaTeX math equation notation.</p>
-<p>Reference: <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics" class="uri">https://en.wikibooks.org/wiki/LaTeX/Mathematics</a></p>
-<p>Inline: <span class="math inline">\(x + 2\)</span></p>
-<p>Displayed Equation:</p>
+<div id="graphics" class="section level2 hasAnchor" number="16.10">
+<h2><span class="header-section-number">16.10</span> Graphics<a href="r-markdown.html#graphics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Markdown can display graphs created by R.</p>
+<p><img src="Book_files/figure-html/unnamed-chunk-548-1.png" width="75%" style="display: block; margin: auto;" /></p>
+</div>
+<div id="latex-equations" class="section level2 hasAnchor" number="16.11">
+<h2><span class="header-section-number">16.11</span> LaTeX equations<a href="r-markdown.html#latex-equations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>R Markdown supports LaTeX-style math notation.</p>
+<p><strong>Inline math</strong></p>
+<p>Use a single pair of dollar signs for inline math.</p>
+<p>Example: <code>$x + 2$</code> gives <span class="math inline">\(x + 2\)</span>.</p>
+<p><strong>Display equations</strong></p>
+<p>Use a displayed equation when you want the math to appear on its own line.</p>
 <p><span class="math display">\[\begin{equation*}
 x + 2 = 4
 \end{equation*}\]</span></p>
+<p>Reference: <a href="https://en.wikibooks.org/wiki/LaTeX/Mathematics" class="uri">https://en.wikibooks.org/wiki/LaTeX/Mathematics</a></p>
+</div>
+<div id="common-mistakes" class="section level2 hasAnchor" number="16.12">
+<h2><span class="header-section-number">16.12</span> Common mistakes<a href="r-markdown.html#common-mistakes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here are a few common mistakes when using R Markdown:</p>
+<ul>
+<li><p>forgetting to close a code chunk with three backticks</p></li>
+<li><p>using an object that was created in the Console but not in the document</p></li>
+<li><p>forgetting the r in inline R code</p></li>
+<li><p>trying to knit to PDF before LaTeX is installed</p></li>
+</ul>
 
 </div>
 </div>
