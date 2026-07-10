@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-03-16" />
+<meta name="date" content="2026-07-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -842,15 +842,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb233-3"><a href="creating-some-basic-plots.html#cb233-3" tabindex="-1"></a>  <span class="fu">group_by</span>(year, month) <span class="sc">%&gt;%</span> </span>
 <span id="cb233-4"><a href="creating-some-basic-plots.html#cb233-4" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">avg_mon_dep_delay =</span> <span class="fu">mean</span>(dep_delay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb233-5"><a href="creating-some-basic-plots.html#cb233-5" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb233-6"><a href="creating-some-basic-plots.html#cb233-6" tabindex="-1"></a><span class="do">## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</span></span>
-<span id="cb233-7"><a href="creating-some-basic-plots.html#cb233-7" tabindex="-1"></a></span>
-<span id="cb233-8"><a href="creating-some-basic-plots.html#cb233-8" tabindex="-1"></a><span class="fu">barplot</span>(</span>
-<span id="cb233-9"><a href="creating-some-basic-plots.html#cb233-9" tabindex="-1"></a>  plot_data<span class="sc">$</span>avg_mon_dep_delay,</span>
-<span id="cb233-10"><a href="creating-some-basic-plots.html#cb233-10" tabindex="-1"></a>  <span class="at">names.arg =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
-<span id="cb233-11"><a href="creating-some-basic-plots.html#cb233-11" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Average Monthly Departure Delay&quot;</span>,</span>
-<span id="cb233-12"><a href="creating-some-basic-plots.html#cb233-12" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
-<span id="cb233-13"><a href="creating-some-basic-plots.html#cb233-13" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Average departure delay (minutes)&quot;</span></span>
-<span id="cb233-14"><a href="creating-some-basic-plots.html#cb233-14" tabindex="-1"></a>)</span></code></pre></div>
+<span id="cb233-6"><a href="creating-some-basic-plots.html#cb233-6" tabindex="-1"></a><span class="do">## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups`</span></span>
+<span id="cb233-7"><a href="creating-some-basic-plots.html#cb233-7" tabindex="-1"></a><span class="do">## argument.</span></span>
+<span id="cb233-8"><a href="creating-some-basic-plots.html#cb233-8" tabindex="-1"></a></span>
+<span id="cb233-9"><a href="creating-some-basic-plots.html#cb233-9" tabindex="-1"></a><span class="fu">barplot</span>(</span>
+<span id="cb233-10"><a href="creating-some-basic-plots.html#cb233-10" tabindex="-1"></a>  plot_data<span class="sc">$</span>avg_mon_dep_delay,</span>
+<span id="cb233-11"><a href="creating-some-basic-plots.html#cb233-11" tabindex="-1"></a>  <span class="at">names.arg =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,</span>
+<span id="cb233-12"><a href="creating-some-basic-plots.html#cb233-12" tabindex="-1"></a>  <span class="at">main =</span> <span class="st">&quot;Average Monthly Departure Delay&quot;</span>,</span>
+<span id="cb233-13"><a href="creating-some-basic-plots.html#cb233-13" tabindex="-1"></a>  <span class="at">xlab =</span> <span class="st">&quot;Month&quot;</span>,</span>
+<span id="cb233-14"><a href="creating-some-basic-plots.html#cb233-14" tabindex="-1"></a>  <span class="at">ylab =</span> <span class="st">&quot;Average departure delay (minutes)&quot;</span></span>
+<span id="cb233-15"><a href="creating-some-basic-plots.html#cb233-15" tabindex="-1"></a>)</span></code></pre></div>
 <p><img src="Book_files/figure-html/unnamed-chunk-246-1.png" width="60%" style="display: block; margin: auto;" /></p>
 <p>Each bar is a mean computed from many flights in that month.</p>
 <p><strong>Bar chart of counts with base graphics</strong></p>

@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Ling" />
 
 
-<meta name="date" content="2026-03-16" />
+<meta name="date" content="2026-07-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -747,9 +747,9 @@ The least square estimator for <span class="math inline">\(\beta\)</span> is
 </ol>
 <p>Objects in <code>fit</code></p>
 <div class="sourceCode" id="cb416"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb416-1"><a href="linear-regression-models.html#cb416-1" tabindex="-1"></a><span class="fu">names</span>(fit)</span>
-<span id="cb416-2"><a href="linear-regression-models.html#cb416-2" tabindex="-1"></a><span class="do">##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;          &quot;fitted.values&quot;</span></span>
-<span id="cb416-3"><a href="linear-regression-models.html#cb416-3" tabindex="-1"></a><span class="do">##  [6] &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;   &quot;xlevels&quot;       &quot;call&quot;         </span></span>
-<span id="cb416-4"><a href="linear-regression-models.html#cb416-4" tabindex="-1"></a><span class="do">## [11] &quot;terms&quot;         &quot;model&quot;</span></span></code></pre></div>
+<span id="cb416-2"><a href="linear-regression-models.html#cb416-2" tabindex="-1"></a><span class="do">##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         </span></span>
+<span id="cb416-3"><a href="linear-regression-models.html#cb416-3" tabindex="-1"></a><span class="do">##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  </span></span>
+<span id="cb416-4"><a href="linear-regression-models.html#cb416-4" tabindex="-1"></a><span class="do">##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</span></span></code></pre></div>
 <p>Extract the coefficients</p>
 <div class="sourceCode" id="cb417"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb417-1"><a href="linear-regression-models.html#cb417-1" tabindex="-1"></a>fit<span class="sc">$</span>coefficients <span class="co"># or coef(fit)</span></span>
 <span id="cb417-2"><a href="linear-regression-models.html#cb417-2" tabindex="-1"></a><span class="do">## (Intercept)          x1          x2 </span></span>
