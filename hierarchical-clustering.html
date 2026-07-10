@@ -537,7 +537,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Results in an attractive tree-based representation of the observations, called <strong>dendrogram</strong></p></li>
 </ul>
 <p>Example of dendrogram:</p>
-<p><img src="image/12_11.png" width="80%" style="display: block; margin: auto;" /></p>
+<p><img src="image/12_11.PNG" width="80%" style="display: block; margin: auto;" /></p>
 <p><strong>Two types</strong>: bottom-up (agglomerative) and top-down (divisive)</p>
 <p>We will describe bottom-up clustering (the most common type), where each observation starts in its own cluster, and pairs of clusters are merged as one moves up the hierarchy.</p>
 <p><strong>Interpreting a Dendrogram</strong></p>
@@ -601,12 +601,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p><img src="Book_files/figure-html/unnamed-chunk-585-1.png" width="75%" style="display: block; margin: auto;" /></p>
 <p>Use <code>cutree()</code> to determine the cluster labels for each observation associated with a given number of clusters:</p>
 <div class="sourceCode" id="cb528"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb528-1"><a href="hierarchical-clustering.html#cb528-1" tabindex="-1"></a><span class="fu">cutree</span>(hc_complete, <span class="at">k =</span> <span class="dv">2</span>)  <span class="co"># given number of clusters = 2</span></span>
-<span id="cb528-2"><a href="hierarchical-clustering.html#cb528-2" tabindex="-1"></a><span class="do">##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2 2</span></span>
-<span id="cb528-3"><a href="hierarchical-clustering.html#cb528-3" tabindex="-1"></a><span class="do">## [40] 2 2 2 2 2 2 2 2 2 2 2</span></span></code></pre></div>
+<span id="cb528-2"><a href="hierarchical-clustering.html#cb528-2" tabindex="-1"></a><span class="do">##  [1] 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 2 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2 2 2 2</span></span>
+<span id="cb528-3"><a href="hierarchical-clustering.html#cb528-3" tabindex="-1"></a><span class="do">## [39] 2 2 2 2 2 2 2 2 2 2 2 2</span></span></code></pre></div>
 <p>Use <code>cutree()</code> to determine the cluster labels for each observation associated with a given cut of the dendrogram:</p>
 <div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="hierarchical-clustering.html#cb529-1" tabindex="-1"></a><span class="fu">cutree</span>(hc_complete, <span class="at">h =</span> <span class="dv">3</span>)  <span class="co"># cut at 3</span></span>
-<span id="cb529-2"><a href="hierarchical-clustering.html#cb529-2" tabindex="-1"></a><span class="do">##  [1] 1 2 3 2 1 1 3 2 3 2 1 2 1 2 3 4 1 1 3 1 3 2 3 3 1 5 4 5 4 6 4 6 6 6 6 4 5 5 5</span></span>
-<span id="cb529-3"><a href="hierarchical-clustering.html#cb529-3" tabindex="-1"></a><span class="do">## [40] 5 4 5 6 6 6 6 4 5 6 5</span></span></code></pre></div>
+<span id="cb529-2"><a href="hierarchical-clustering.html#cb529-2" tabindex="-1"></a><span class="do">##  [1] 1 2 3 2 1 1 3 2 3 2 1 2 1 2 3 4 1 1 3 1 3 2 3 3 1 5 4 5 4 6 4 6 6 6 6 4 5 5</span></span>
+<span id="cb529-3"><a href="hierarchical-clustering.html#cb529-3" tabindex="-1"></a><span class="do">## [39] 5 5 4 5 6 6 6 6 4 5 6 5</span></span></code></pre></div>
 <p>To perform hierarchical clustering with average linkage:</p>
 <div class="sourceCode" id="cb530"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb530-1"><a href="hierarchical-clustering.html#cb530-1" tabindex="-1"></a>hc_average <span class="ot">&lt;-</span> <span class="fu">hclust</span>(<span class="fu">dist</span>(X), <span class="at">method =</span> <span class="st">&quot;average&quot;</span>)</span></code></pre></div>
 <p>To perform hierarchical clustering with single linkage:</p>
